@@ -1,0 +1,27 @@
+Il C permette di strutturare i programmi in maniera modulare, distribuendo il codice sorgente in più file di testo. Questo può essere molto utile quando il programma diventa grande. Avere un codice sorgente distribuito su più file permette infatti di rendere il codice più leggibile e facile da mantenere, e risparmiare tempo di computazione ricompilando solo le i file sorgenti del programma che vengono modificati.
+
+In questo esempio, vediamo un programma che risolva il seguente problema:
+
+Scrivere un programma che prenda in input da riga di comando il nome di un file «outfile», una stringa «alfabeto», un intero «n» e uno short «k». Il programma inizializza un array di «n» stringhe in cui la i-esima stringa è ottenuta estraendo casualmente «k» caratteri dalla stringa alfabeto. Le stringhe conservate nell’array vengono scritte sul file di testo «outfile».
+
+Struttureremo il programma in tre moduli principali:
+- main: questo modulo contiene il programma principale;
+- filemngt: una piccola libreria che contiene funzioni per la lettura e scrittura di file;
+- stringcomp: una piccola libreria per la manipolazione delle stringhe;
+- helpers: delle funzioni utili al programma principale;
+
+A parte il modulo principale che contiene un unico file main.c, gli altri moduli includono due file: il file di intestazione xxxx.h che contiene i prototipi delle funzioni e il file xxxx.c che contiene le implementazioni delle funzioni.
+
+La compilazione può avvenire in diversi modi:
+- Specificando tutti i file sorgenti *.c. Ad esempio: 
+        gcc main.c helpers.c filemngt.c stringcomp.c -o programma
+  O alternativamente:
+        gcc *.c -o programma
+- Compilando ciascun modulo libreria a parte:
+        gcc -c filemngt.c
+        gcc -c helpers.c
+        gcc -c stringcomp.c
+  Ognuno di questa istruzione genererà un relativo file oggetto xxxx.o
+
+  Possiamo dunque compilare il programma principale specificando i singoli file con estensioni .o
+        gcc main.c helpers.o filemngt.o stringcomp.o -o programma
