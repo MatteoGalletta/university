@@ -10,6 +10,7 @@ semester: 2
 > [!summary] Elementi di Analisi Matematica 1
 
 ### Numeri complessi
+- Somma e Prodotto
 - Forma trigonometrica ed esponenziale
 - Conversione da forma trigonometrica a esponenziale (e viceversa)
 - Risoluzione di equazioni (non disequazioni)
@@ -39,7 +40,7 @@ semester: 2
 	- Somma e Prodotto (Differenza e Quoziente)
 	- Funzione Composta
 	- Funzione inversa
-	- *da finire*
+	- Funzioni varie (trigonometriche, logaritmi, ecc)
 - Teorema di Fermat
 	- Un punto $x_0$ se è estremo relativo allora $f'(x_{0}) = 0$
 - Teorema di Rolle
@@ -50,9 +51,10 @@ semester: 2
 	- Se $\lim_{x \to x_{0}}\frac{f(x)}{g(x)}$ porta a una forma indeterminata del tipo $\frac{0}{0}$ o $\frac{\infty}{\infty}$ allora $\lim_{x \to x_{0}} \frac{f(x)}{g(x)} = \lim_{x \to x_{0}} \frac{f'(x)}{g'(x)}$
 
 ### Studio di funzione
-- Procedimento
+- *procedimento da mettere*
 
 ### Successioni Ricorsive
 - Studio di $\phi$
 - Studio di $f$
 - Studio del segno di $f'$
+- *procedimento da mettere*
