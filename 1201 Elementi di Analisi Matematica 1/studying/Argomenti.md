@@ -43,6 +43,7 @@ semester: 2
 	- Funzione Composta
 	- Funzione inversa
 	- Funzioni varie (trigonometriche, logaritmi, ecc)
+- Derivate Fondamentali
 - Teorema di Fermat
 	- Un punto $x_0$ se è estremo relativo allora $f'(x_{0}) = 0$
 - Teorema di Rolle
