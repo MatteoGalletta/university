@@ -45,7 +45,7 @@ semester: 2
 	- Funzioni varie (trigonometriche, logaritmi, ecc)
 - Derivate Fondamentali
 - Teorema di Fermat
-	- Un punto $x_0$ se è estremo relativo allora $f'(x_{0}) = 0$
+	- Se un punto $x_0$ è estremo relativo allora $f'(x_{0}) = 0$
 - Teorema di Rolle
 	- Se in un intervallo $[a, b]$ la funzione $f$ è continua in $[a,b]$, derivabile in $]a,b[$ e $f(a)=f(b)$ allora $\exists \,c$ tale che $f'(c) = 0$
 - Teorema di Lagrange
