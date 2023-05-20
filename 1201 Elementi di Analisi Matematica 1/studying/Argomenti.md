@@ -29,6 +29,9 @@ semester: 2
 - Radice di $w$: $z^{n}=w \to z=\sqrt[n]{w} \qquad z=\rho e^{i\theta} \qquad w=r e^{i\phi}$
 	- $|z| = \rho = \sqrt[n]{w}$
 	- $\arg{z}_k = \theta_{k} = \frac{\phi}{n} + \frac{2k\pi}{n}$ con $k=0,1, \dots, n-1$
+- Coniugato di $z$:
+	- $z = a + ib \qquad \overline{z} = a - ib$
+	- $z = \rho e^{i\theta} \qquad \overline{z} = \rho e^{-i\theta}$
 
 ### Insiemi
 - Definizioni di Maggiorante, Estremo Superiore, Massimo.
