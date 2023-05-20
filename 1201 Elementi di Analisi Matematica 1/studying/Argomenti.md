@@ -10,10 +10,25 @@ semester: 2
 > [!summary] Elementi di Analisi Matematica 1
 
 ### Numeri complessi
-- Somma e Prodotto
-- Forma trigonometrica ed esponenziale
-- Conversione da forma trigonometrica a esponenziale (e viceversa)
-- Risoluzione di equazioni (non disequazioni, che non esistono)
+- $i \to$ unità immaginaria
+- Rappresentazione:
+	- Cartesiana: $z = a + ib$
+		- Parte reale: $a = \rho \cos \theta$
+		- Parte immaginaria: $b = \rho \sin \theta$
+	- Polare o Trigonometrica: $z = \rho \cos \theta + i \rho \sin \theta = \rho (\cos \theta + i\sin \theta)$
+		- Modulo: $|z| = \rho = \sqrt{a^{2}+b^{2}}$
+		- Argomento: $$
+		{\displaystyle \theta = {\begin{cases}\arctan({\frac {b}{a}}),&{\text{se }}a>0,\\\arctan({\frac {b}{a}})+\pi ,&{\text{se }}a<0,\\{\frac {\pi }{2}},&{\text{se }}a=0{\text{ e }}b>0,\\-{\frac {\pi }{2}},&{\text{se }}a=0{\text{ e }}b<0.\end{cases}}} $$
+	- Esponenziale: $z = \rho e^{i\theta}$
+- Somma:
+	- $(a, b) + (c, d) = (a+c, b+d)$
+- Prodotto:
+	- $(a, b) \times (c, d) = (ac - bd, bc + ad)$
+	- $\rho_{1} (\cos \theta_{1} + i\sin \theta_{1}) \times \rho_{2} (\cos \theta_{2} + i\sin \theta_{2}) = \rho_{1}\rho_{2} (\cos (\theta_{1}+\theta_{2}) + i\sin (\theta_{1}+\theta_{2}))$
+- Potenza: $z = \rho e^{i\theta} \qquad z^{n} = \rho^{n} e^{in\theta} = \rho^{n} (\cos (n\theta) + \sin (n\theta))$
+- Radice di $w$: $z^{n}=w \to z=\sqrt[n]{w} \qquad z=\rho e^{i\theta} \qquad w=r e^{i\phi}$
+	- $|z| = \rho = \sqrt[n]{w}$
+	- $\arg{z}_k = \theta_{k} = \frac{\phi}{n} + \frac{2k\pi}{n}$
 
 ### Insiemi
 - Definizioni di Maggiorante, Estremo Superiore, Massimo.
@@ -85,7 +100,24 @@ semester: 2
 	- serve ad esempio per sapere il segno della funzione in un punto.
 
 ### Successioni Ricorsive
+$$
+\begin{cases}
+a_{n} = \lambda \\ \\
+a_{n+1} = f(a_{n})
+\end{cases}
+$$
+- Cosa sono le funzioni $f$ e $\phi$
+	- La funzione $f$ rappresenta la legge della successione ($a_{n+1} = f(a_{n})$)
+	- La funzione $\phi(t) = f(t) - t$. Non è altro che $a_{n+1}-a_{n}$.
 - Studio di $\phi$
-- Studio di $f$
-- Studio del segno di $f'$
-- *procedimento da mettere*
+	- La funzione $\phi$ serve per calcolare i punti fissi e la monotonia della successione.
+	- **Teorema:** Se la successione non è divergente, converge a un punto fisso della successione.
+	- I punti fissi si calcolano ponendo $\phi(t)=0$ (sono gli zeri di $\phi$).
+	- Si studia il segno di $\phi$ per poterne studiare la monotonia.
+	- La monotonia suggerisce il possibile limite della successione
+- Studio degli intervalli della successione
+	- Si studia $f'$.
+	- Si studia l'intervallo del codominio rispetto a quello del dominio dove si trova $\lambda$.
+		- Per farlo si calcolano massimo e minimo dell'intervallo. Si prende lo studio di $f'$ fatto precedentemente per stabilire a cosa tende la successione (tra minimo e massimo trovati)
+		- Esempio: $f(]0,1[) = ]1,+\infty[$ con $\lambda \in ]0,1[$. In questo caso bisogna vedere a cosa tende la successione nell'intervallo $]1,+\infty[$ (quindi si guarda a cosa tende $\phi$)
+- Se è richiesto lo studio della successione al variare di $\lambda$, si pone $\lambda \in$ a ogni intervallo di $\phi$.
