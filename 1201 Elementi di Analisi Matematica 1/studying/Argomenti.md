@@ -48,7 +48,6 @@ semester: 2
 $$
 		- La $i$ scompare, sono calcoli algebrici nel campo reale.
 
-
 ### Insiemi
 - Definizioni di Maggiorante, Estremo Superiore, Massimo.
 - Teorema dell'estremo superiore
