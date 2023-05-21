@@ -15,7 +15,7 @@ semester: 2
 	- Cartesiana: $z = a + ib$
 		- Parte reale: $a = \rho \cos \theta$
 		- Parte immaginaria: $b = \rho \sin \theta$
-	- Polare o Trigonometrica: $z = \rho \cos \theta + i \rho \sin \theta = \rho (\cos \theta + i\sin \theta)$
+	- Polare o Trigonometrica: $z = [\rho \cos \theta + i \rho \sin \theta = ]\, \rho (\cos \theta + i\sin \theta)$
 		- Modulo: $|z| = \rho = \sqrt{a^{2}+b^{2}}$
 		- Argomento: $$
 		{\displaystyle \theta = {\begin{cases}\arctan({\frac {b}{a}}),&{\text{se }}a>0,\\\arctan({\frac {b}{a}})+\pi ,&{\text{se }}a<0,\\{\frac {\pi }{2}},&{\text{se }}a=0{\text{ e }}b>0,\\-{\frac {\pi }{2}},&{\text{se }}a=0{\text{ e }}b<0.\end{cases}}} $$
@@ -32,6 +32,22 @@ semester: 2
 - Coniugato di $z$:
 	- $z = a + ib \qquad \overline{z} = a - ib$
 	- $z = \rho e^{i\theta} \qquad \overline{z} = \rho e^{-i\theta}$
+- Potenza unità immaginaria $i$:
+	- $i^{4n} = 1$
+	- $i^{4n+1} = i$
+	- $i^{4n+2} = -1$
+	- $i^{4n+3} = -i$
+		- $\forall n \in \mathbb{N}$
+- Risoluzione Equazioni:
+	- Si può usare la formula risolutiva delle equazioni di secondo grado, intendendo la radice quadrata come radice complessa.
+	- Si può svolgere algebricamente scomponendo $z$ in $a+ib$ e ponendo un sistema del tipo: $$
+\begin{cases}
+\text{parte reale delle incognite} = \text{parte reale dei termini noti} \\
+\text{parte immaginaria delle incognite} = \text{parte immaginaria dei termini noti}
+\end{cases}
+$$
+		- La $i$ scompare, sono calcoli algebrici nel campo reale.
+
 
 ### Insiemi
 - Definizioni di Maggiorante, Estremo Superiore, Massimo.
