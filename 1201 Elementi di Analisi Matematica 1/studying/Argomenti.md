@@ -42,19 +42,22 @@ semester: 2
 	- Si può usare la formula risolutiva delle equazioni di secondo grado, intendendo la radice quadrata come radice complessa.
 	- Si può svolgere algebricamente scomponendo $z$ in $a+ib$ e ponendo un sistema del tipo: $$
 \begin{cases}
-\text{parte reale delle incognite} = \text{parte reale dei termini noti} \\
-\text{parte immaginaria delle incognite} = \text{parte immaginaria dei termini noti}
+\text{parte reale del primo membro} = \text{parte reale del secondo membro} \\
+\text{parte immaginaria del primo membro} = \text{parte immaginaria del secondo membro}
 \end{cases}
 $$
 		- La $i$ scompare, sono calcoli algebrici nel campo reale.
+	- Usando la definizione di potenza o radice (nel caso di $z^{\alpha} = q \,\text{con}\,z,q \in \mathbb{C} \,\text{e}\, \alpha \in \mathbb{N}$)
 
 ### Insiemi
-- Definizioni di Maggiorante, Estremo Superiore, Massimo.
-- Teorema dell'estremo superiore
-	- di un insieme non nullo esiste sempre
+- Definizioni Teoriche
+	- **Maggiorante**: dato $X \subseteq \mathbb{R}$, $m \in \mathbb{R}$ è un **maggiorente** dell'insieme $X$ se $m \geq x \,\forall\, x \in X$
+	- **Estremo Superiore**: dato $X \subseteq \mathbb{R}$ un insieme limitato superiormente, $y \in \mathbb{R}$ è un **estremo superiore** di $X$ se $y$ è un maggiorante di $X$ e $y$ è il più piccolo maggiorante di $X$. Di un insieme non limitato superiormente, l'estremo superiore è $+\infty$. Di un insieme vuoto è $-\infty$
+	- **Massimo**: dato $X \subseteq \mathbb{R}$, $y \in \mathbb{R}$ è il **massimo** di $X$ se $y$ è l'estremo superiore di $X$ e $y \in X$
 
 ### Limiti
 - Definizione
+	- $\forall\, \epsilon > 0 \,\exists\, \delta > 0 : \forall x \in X, |x-x_{0}|<\delta, x \neq x_{0} \Rightarrow |f(x) - l|<\epsilon$
 - Teorema di unicità del limite
 - Teorema del confronto (sono tre, il terzo è detto "Teorema dei Carabinieri")
 	- se $f(x) \leq g(x)$ allora:
@@ -63,8 +66,8 @@ $$
 	- se $f(x) \leq g(x) \leq h(x)$ allora:
 		- 3. se $f(x) \to l$ e $h(x) \to l$ allora $g(x) \to l$
 - Teorema di Weierstrass
-	- Sia $f$ una funzione continua con domino uguale a un insieme $K \subseteq \mathbb{R}$ chiuso e limitato, allora $f$ ha massimo e minimo.
-- Teoria degli Infinitesimi ($o$ piccolo, $o$ grande)
+	- Sia $f$ una funzione continua con domino $K \subseteq \mathbb{R}$ chiuso e limitato, allora $f$ ha massimo e minimo.
+- Teoria degli Infinitesimi ($o$ "o piccolo", $O$ "o grande")
 - Limiti Notevoli
 - Sviluppi di Taylor
 
@@ -83,7 +86,7 @@ $$
 	- Se in un intervallo $[a, b]$ la funzione $f$ è continua in $[a,b]$, derivabile in $]a,b[$ e $f(a)=f(b)$ allora $\exists \,c$ tale che $f'(c) = 0$
 - Teorema di Lagrange
 	- Se in un intervallo $[a,b]$ la funzione $f$ è continua in $[a,b]$ e derivabile in $]a,b[$ allora $\exists \,c$ tale che $f(b)-f(a)=(b-a)f'(c)$
-- Teorema di De L'Hopital
+- Teorema di De L'Hôpital
 	- Se $\lim_{x \to x_{0}}\frac{f(x)}{g(x)}$ porta a una forma indeterminata del tipo $\frac{0}{0}$ o $\frac{\infty}{\infty}$ allora $\lim_{x \to x_{0}} \frac{f(x)}{g(x)} = \lim_{x \to x_{0}} \frac{f'(x)}{g'(x)}$
 
 ### Studio di funzione
@@ -95,7 +98,7 @@ $$
 	- Verticale:
 		- si verifica quando $\lim_{x \to x_{0}} f(x) = \pm\infty$
 		- Equazione: $x = x_0$
-		- Possono essere infiniti
+		- Possono essere 0, qualsiasi numero o infiniti
 	- Orizzontale:
 		- si verifica quando $\lim_{x \to \pm\infty} f(x) = k \in \mathbb{R}$
 		- Equazione: $y = k$
