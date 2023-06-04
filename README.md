@@ -1,5 +1,5 @@
 # University
-This repository contains all of the material downloaded or created for the university (Bachelor's Degree on Computer Science, started in 2022 at "Università degli Studi di Catania") until now.
+This repository contains all of the material downloaded or created for the university (Bachelor's Degree on Computer Science, started in 2022 at "UNICT - Università degli Studi di Catania") until now.
 
 Most of the material is in italian. I don't guarantee all the work is correct.
 
