@@ -121,6 +121,20 @@ grid: true
 ---
 f(x)=sqrt(x)
 ```
+- Arcocoseno (blu), Arcoseno (rosso), Arcotangente (verde)
+```functionplot
+---
+title: 
+xLabel: 
+yLabel: 
+bounds: [-10,10,-3.5,3.5]
+disableZoom: true
+grid: true
+---
+f(x)=acos(x)
+g(x)=asin(x)
+h(x)=atan(x)
+```
 
 ### Limiti
 - Definizione
@@ -198,7 +212,10 @@ f(x)=sqrt(x)
 	- Frazioni: denominatore $\neq 0$
 	- Radici a indice pari: argomento $\geq 0$
 	- Logaritmi: base e argomento $> 0$, base $\neq 1$
-	- arccos, arcsin, arctan: argomento in $[-1, +1]$
+	- arccos, arcsin: argomento in $[-1, +1]$
+- Simmetria (facoltativo):
+	- La funzione è "dispari" (simmetria rispetto all'origine) se $f(-x)=-f(x)$
+	- La funzione è "pari" (simmetrica rispetto all'asse delle ordinate) se $f(-x)=f(x)$
 - Limiti nei punti di frontiera del dominio per il calcolo degli asintoti:
 	- Verticale:
 		- si verifica quando $\lim_{x \to x_{0}} f(x) = \pm\infty$
