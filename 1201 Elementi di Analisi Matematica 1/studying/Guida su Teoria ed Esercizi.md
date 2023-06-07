@@ -61,8 +61,10 @@ $$
 ### Insiemi
 - Definizioni Teoriche
 	- **Maggiorante**: dato $X \subseteq \mathbb{R}$, $m \in \mathbb{R}$ è un **maggiorente** dell'insieme $X$ se $m \geq x \,\forall\, x \in X$
-	- **Estremo Superiore**: dato $X \subseteq \mathbb{R}$ un insieme limitato superiormente, $y \in \mathbb{R}$ è un **estremo superiore** di $X$ se $y$ è un maggiorante di $X$ e $y$ è il più piccolo maggiorante di $X$. Di un insieme non limitato superiormente, l'estremo superiore è $+\infty$. Di un insieme vuoto è $-\infty$
-	- **Massimo**: dato $X \subseteq \mathbb{R}$, $y \in \mathbb{R}$ è il **massimo** di $X$ se $y$ è l'estremo superiore di $X$ e $y \in X$
+	- **Estremo Superiore**: dato $X \subseteq \mathbb{R}$ un insieme limitato superiormente, $y \in \mathbb{R}$ è un **estremo superiore** di $X$ se $y$ è un maggiorante di $X$ e $y$ è il più piccolo maggiorante di $X$. Di un insieme non limitato superiormente, l'estremo superiore è $+\infty$. Di un insieme vuoto è $-\infty$.
+	- **Massimo** (di un insieme): dato $X \subseteq \mathbb{R}$, $y \in \mathbb{R}$ è il **massimo** di $X$ se $y$ è l'estremo superiore di $X$ e $y \in X$
+	- **Massimo Assoluto** (di una funzione): data una funzione $f$. $x_0$ è un punto di massimo assoluto di $f$ (e $f(x_{0})$ è il massimo assoluto) se per ogni $x \in Dom(f)$ risulta che $f(x) \leq f(x_0)$.
+	- **Massimo Relativo** (di una funzione): data una funzione $f$, $x_0$ è un punto di massimo relativo di $f$ (e $f(x_{0})$ è il massimo relativo) se esiste almeno un intorno $B(x_{0}, \delta) \subset Dom(f)$ (di raggio $\delta$ e centro in $x_0$) tale che per ogni $x \in B(x_{0}, \delta)$ risulta che $f(x) \leq f(x_{0})$.
 	- **Intervallo chiuso a destra**: se l'estremo destro è incluso nell'intervallo
 	- **Intervallo aperto a destra**: se l'estremo destro è escluso dall'intervallo
 	- **Intervallo illimitato superiormente**: se l'estremo superiore è $+\infty$
@@ -186,6 +188,11 @@ h(x)=atan(x)
 		- un punto angoloso (ad esempio $|x|$)
 		- una cuspide (ad esempio $\sqrt{|x|}$)
 		- un punto di flesso a tangente verticale (ad esempio $\sqrt[3]{x}$)
+		- Individuare i punti di non derivabilità:
+			1. Se un punto non appartiene al dominio della derivata prima allora non è derivabile.
+			2. Vanno verificati i "punti sospetti". I punti sospetti sono quei punti in cui la funzione potrebbe non essere derivabile. Ad esempio, se una funzione $f$ contiene $|x|$, potrebbe non essere derivabile in $x=0$ (anche se appartiene al dominio!). Si calcola il limite della derivata prima nel punto. Se quest'ultimo esiste ed è finito, allora la funzione è derivabile in quel punto. Non vale il contrario. Devono valore le ipotesi del teorema di Darboux (<u>in EAM1 dovrebbero essere sempre verificate</u>, quindi non viene enunciato)
+				- I punti sospetti sono (in $x=0$) nelle funzioni: $|x|$, $\sqrt{x}$, $\log_{\alpha}{x}$
+			3. Se non sono verificate le ipotesi del teorema di Darboux, si è obbligati a calcolare il limite del rapporto incrementale. La funzione è derivabile in quel punto se e solo se esiste il limite ed è finito.
 	- La somma/differenza di due funzioni derivabili è derivabile.
 	- Il prodotto/quoziente di due funzioni derivabile è derivabile.
 	- La composizione di due funzioni derivabili è derivabile.
