@@ -191,7 +191,7 @@ h(x)=atan(x)
 		- Individuare i punti di non derivabilità:
 			1. Se un punto non appartiene al dominio della derivata prima allora non è derivabile.
 			2. Vanno verificati i "punti sospetti". I punti sospetti sono quei punti in cui la funzione potrebbe non essere derivabile. Ad esempio, se una funzione $f$ contiene $|x|$, potrebbe non essere derivabile in $x=0$ (anche se appartiene al dominio!). Si calcola il limite della derivata prima nel punto. Se quest'ultimo esiste ed è finito, allora la funzione è derivabile in quel punto. Non vale il contrario. Devono valore le ipotesi del teorema di Darboux (<u>in EAM1 dovrebbero essere sempre verificate</u>, quindi non viene enunciato)
-				- I punti sospetti sono (in $x=0$) nelle funzioni: $|x|$, $\sqrt{x}$, $\log_{\alpha}{x}$
+				- I punti sospetti sono (in $x=0$) nelle funzioni: $|x|$, $\sqrt{x}$
 			3. Se non sono verificate le ipotesi del teorema di Darboux, si è obbligati a calcolare il limite del rapporto incrementale. La funzione è derivabile in quel punto se e solo se esiste il limite ed è finito.
 	- La somma/differenza di due funzioni derivabili è derivabile.
 	- Il prodotto/quoziente di due funzioni derivabile è derivabile.
@@ -268,6 +268,6 @@ $$
 - Studio degli intervalli della successione
 	- Si studia $f'$.
 	- Si studia l'intervallo del codominio rispetto a quello del dominio dove si trova $\lambda$.
-		- Per farlo si calcolano massimo e minimo dell'intervallo. Si prende lo studio di $f'$ fatto precedentemente per stabilire a cosa tende la successione (tra minimo e massimo trovati)
+		- Per farlo si calcolano massimo e minimo dell'intervallo. Si prende lo studio di $\phi$ fatto precedentemente per stabilire a cosa tende la successione (tra minimo e massimo trovati)
 		- Esempio: $f(]0,1[) = ]1,+\infty[$ con $\lambda \in ]0,1[$. In questo caso bisogna vedere a cosa tende la successione nell'intervallo $]1,+\infty[$ (quindi si guarda a cosa tende $\phi$)
 	- Se è richiesto lo studio della successione al variare di $\lambda$, si pone $\lambda \in$ a ogni intervallo di $\phi$.
