@@ -56,11 +56,11 @@ semester: 2
 \end{cases}
 $$
 		- La $i$ scompare, sono calcoli algebrici nel campo reale.
-	- Usando la definizione di potenza o radice (nel caso di $z^{\alpha} = q \,\text{con}\,z,q \in \mathbb{C} \,\text{e}\, \alpha \in \mathbb{N}$)
+	- Usando la definizione di potenza o radice (nel caso di $z^{\alpha} = q$ con $z,q \in \mathbb{C}$ e $\alpha \in \mathbb{N}$)
 
 ### Insiemi
 - Definizioni Teoriche
-	- **Maggiorante**: dato $X \subseteq \mathbb{R}$, $m \in \mathbb{R}$ è un **maggiorente** dell'insieme $X$ se $m \geq x \,\forall\, x \in X$
+	- **Maggiorante**: dato $X \subseteq \mathbb{R}$, $m \in \mathbb{R}$ è un **maggiorante** dell'insieme $X$ se $m \geq x \,\forall\, x \in X$
 	- **Estremo Superiore**: dato $X \subseteq \mathbb{R}$ un insieme limitato superiormente, $y \in \mathbb{R}$ è un **estremo superiore** di $X$ se $y$ è un maggiorante di $X$ e $y$ è il più piccolo maggiorante di $X$. Di un insieme non limitato superiormente, l'estremo superiore è $+\infty$. Di un insieme vuoto è $-\infty$.
 	- **Massimo** (di un insieme): dato $X \subseteq \mathbb{R}$, $y \in \mathbb{R}$ è il **massimo** di $X$ se $y$ è l'estremo superiore di $X$ e $y \in X$
 	- **Massimo Assoluto** (di una funzione): data una funzione $f$. $x_0$ è un punto di massimo assoluto di $f$ (e $f(x_{0})$ è il massimo assoluto) se per ogni $x \in Dom(f)$ risulta che $f(x) \leq f(x_0)$.
@@ -211,6 +211,8 @@ h(x)=atan(x)
 	- Se in un intervallo $[a, b]$ la funzione $f$ è continua in $[a,b]$, derivabile in $]a,b[$ e $f(a)=f(b)$ allora $\exists \,c$ tale che $f'(c) = 0$
 - Teorema di Lagrange
 	- Se in un intervallo $[a,b]$ la funzione $f$ è continua in $[a,b]$ e derivabile in $]a,b[$ allora $\exists \,c$ tale che $f(b)-f(a)=(b-a)f'(c)$
+- Teorema di Weierstrass
+	- Se in un intervallo $[a,b]$ chiuso e limitato la funzione $f$ è continua allora $f$ ammette un massimo e un minimo (assoluti)
 - Teorema di De L'Hôpital
 	- Se $\lim_{x \to x_{0}}\frac{f(x)}{g(x)}$ porta a una forma indeterminata del tipo $\frac{0}{0}$ o $\frac{\infty}{\infty}$ allora $\lim_{x \to x_{0}} \frac{f(x)}{g(x)} = \lim_{x \to x_{0}} \frac{f'(x)}{g'(x)}$
 
