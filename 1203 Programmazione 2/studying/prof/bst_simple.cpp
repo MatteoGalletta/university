@@ -87,69 +87,79 @@ void visit_post_order(ptr_nodo root)
 
 ptr_nodo find_max(ptr_nodo p)
 {
-	while (p && p->right != nullptr)
+	while (p->right != nullptr)
 		p = p->right;
 	return p;
 }
 
 ptr_nodo find_min(ptr_nodo p)
 {
-	while (p && p->left != nullptr)
+	while (p->left != nullptr)
 		p = p->left;
 	return p;
 }
 
-ptr_nodo deleteNode(ptr_nodo root, int key)
+void bst_delete(ptr_nodo root, int value_to_delete)
 {
-    // base case
-    if (root == nullptr)
-        return root;
- 
-    // If the key to be deleted is
-    // smaller than the root's
-    // key, then it lies in left subtree
-    if (key < root->value)
-        root->left = deleteNode(root->left, key);
- 
-    // If the key to be deleted is
-    // greater than the root's
-    // key, then it lies in right subtree
-    else if (key > root->value)
-        root->right = deleteNode(root->right, key);
- 
-    // if key is same as root's key, then This is the node
-    // to be deleted
-    else {
-        // node has no child
-        if (root->left == nullptr and root->right == nullptr) {
-	    free(root);
-	    return nullptr;
+	ptr_nodo p = root;
+	ptr_nodo parent = nullptr;
+	while (p != nullptr) {
+		if (value_to_delete == p->value) {
+		
+			if (value_to_delete > parent->value) {
+				// right
+				if (p->right == nullptr && p->left == nullptr) {
+					// nodo foglia
+					parent->right = nullptr;
+					delete p;
+					return;
+				}
+			}
+			else {
+				// left
+				if (p->right == nullptr && p->left == nullptr) {
+					// nodo foglia
+					parent->left = nullptr;
+					delete p;
+					return;
+				}
+				
+			}
+			
+			// p e' l'elemento da cancellare
+			// cerco l'elemento piu' piccolo del sotto albero di destra
+			ptr_nodo selected_node = p->right;
+			ptr_nodo parent_of_selected_node = p;
+			while (selected_node->left != nullptr) {
+				parent_of_selected_node = selected_node;
+				selected_node = selected_node->left;
+			}
+			
+			// stacco il selected_node dall'albero
+			parent_of_selected_node->left = selected_node->right;
+			
+			p->value = selected_node->value;
+			if (p->left == selected_node) {
+				p->left = nullptr;
+			}
+			if (p->right == selected_node) {
+				p->right = nullptr;
+			}
+			delete selected_node;
+			
+			return ;
+		}
+		if (value_to_delete > p->value) {
+			parent = p;
+			p = p->right;
+		}
+		else {
+			parent = p;
+			p = p->left;
+		}
 	}
- 
-        // node with only one child or no child
-        else if (root->left == nullptr) {
-            ptr_nodo temp = root->right;
-            free(root);
-            return temp;
-        }
-        else if (root->right == nullptr) {
-            ptr_nodo temp = root->left;
-            free(root);
-            return temp;
-        }
- 
-        // node with two children: Get the inorder successor
-        // (smallest in the right subtree)
-        ptr_nodo temp = find_min(root->right);
- 
-        // Copy the inorder successor's content to this node
-        root->value = temp->value;
- 
-        // Delete the inorder successor
-        root->right = deleteNode(root->right, temp->value);
-    }
-    return root;
 }
+
 
 int main(int argc, char **argv)
 {
@@ -163,23 +173,22 @@ int main(int argc, char **argv)
 	bst_insert(mybst, 15);
 	bst_insert(mybst, 18);
 	bst_insert(mybst, 40);
-
-	// bst_insert(mybst, 35);
-	// bst_insert(mybst, 1);
-	// bst_insert(mybst, 3);
-	// bst_insert(mybst, 37);
-	// bst_insert(mybst, 11);
-	// bst_insert(mybst, 22);
+	bst_insert(mybst, 35);
+	bst_insert(mybst, 1);
+	bst_insert(mybst, 3);
+	bst_insert(mybst, 37);
+	bst_insert(mybst, 11);
+	bst_insert(mybst, 22);
 	
 	visit_in_order(mybst); cout << endl;
-	// visit_pre_order(mybst); cout << endl;
-	// visit_post_order(mybst); cout << endl;
+	//visit_pre_order(mybst); cout << endl;
+	//visit_post_order(mybst); cout << endl;
 	
 	cout << "Find 5: " << (int)bst_find(mybst, 5) << endl;
 	cout << "Find 7: " << (int)bst_find(mybst, 7) << endl;
 	cout << "Find 10: " << (int)bst_find(mybst, 10) << endl;
 	
-	mybst = deleteNode(mybst, 20);
+	bst_delete(mybst, 35);
 	visit_in_order(mybst); cout << endl;
 	
 	return 0;

@@ -49,14 +49,15 @@ semester: 2
 		- $\forall n \in \mathbb{N}$
 - Risoluzione Equazioni:
 	- Si può usare la formula risolutiva delle equazioni di secondo grado, intendendo la radice quadrata come radice complessa.
-	- Si può svolgere algebricamente scomponendo $z$ in $a+ib$ e ponendo un sistema del tipo: $$
+	- Usando la definizione di potenza o radice (nel caso di $z^{\alpha} = q$ con $z,q \in \mathbb{C}$ e $\alpha \in \mathbb{N}$)
+	- Scomponendo $z$ in $a+ib$ e ponendo un sistema del tipo:
+		- (la $i$ scompare, sono calcoli algebrici nel campo reale)
+$$
 \begin{cases}
 \text{parte reale del primo membro} = \text{parte reale del secondo membro} \\
 \text{parte immaginaria del primo membro} = \text{parte immaginaria del secondo membro}
 \end{cases}
 $$
-		- La $i$ scompare, sono calcoli algebrici nel campo reale.
-	- Usando la definizione di potenza o radice (nel caso di $z^{\alpha} = q$ con $z,q \in \mathbb{C}$ e $\alpha \in \mathbb{N}$)
 
 ### Insiemi
 - Definizioni Teoriche
@@ -225,6 +226,7 @@ h(x)=atan(x)
 - Simmetria (facoltativo):
 	- La funzione è "dispari" (simmetria rispetto all'origine) se $f(-x)=-f(x)$
 	- La funzione è "pari" (simmetrica rispetto all'asse delle ordinate) se $f(-x)=f(x)$
+	- *Individuare una simmetria porta un grosso vantaggio: consente di studiare la funzione per $x>0$ e di considerarla senza valori assoluti, se presenti.*
 - Limiti nei punti di frontiera del dominio per il calcolo degli asintoti:
 	- Verticale:
 		- si verifica quando $\lim_{x \to x_{0}} f(x) = \pm\infty$
@@ -268,8 +270,18 @@ $$
 	- Si studia il segno di $\phi$ per poterne studiare la monotonia.
 	- La monotonia suggerisce il possibile limite della successione
 - Studio degli intervalli della successione
-	- Si studia $f'$.
+	- Si studia $f'$ (si calcolano massimi e minimi).
 	- Si studia l'intervallo del codominio rispetto a quello del dominio dove si trova $\lambda$.
-		- Per farlo si calcolano massimo e minimo dell'intervallo. Si prende lo studio di $\phi$ fatto precedentemente per stabilire a cosa tende la successione (tra minimo e massimo trovati)
-		- Esempio: $f(]0,1[) = ]1,+\infty[$ con $\lambda \in ]0,1[$. In questo caso bisogna vedere a cosa tende la successione nell'intervallo $]1,+\infty[$ (quindi si guarda a cosa tende $\phi$)
+		- Si calcolano massimo e minimo del codominio nell'intervallo di $\phi$ in cui si trova $\lambda$.
+		- Se ad esempio otteniamo: $f(]0,1[) = ]1,+\infty[$ con $\lambda \in ]0,1[$, siamo costretti a calcolare anche massimi e minimi in $]1, +\infty[$. Se $f(]1,+\infty[)=]1,+\infty[$, allora per ricorsività tutta la successione è contenuta in $]1, +\infty[$.
+		- Si guarda quindi a cosa tende la successione nell'intervallo $]1,+\infty[$ (quindi si guarda a cosa tende $\phi$)
 	- Se è richiesto lo studio della successione al variare di $\lambda$, si pone $\lambda \in$ a ogni intervallo di $\phi$.
+
+> [!Help] Come capire se c'è un errore
+> Poniamo caso che $a_0=1$.
+> In seguito allo studio di $f$ si scopre che $f(]0,2[)=]0,3[$
+> 
+> **C'è un errore di calcolo**. Quando accade che il codominio di un intervallo non è un sott'insieme di nessun intervallo, allora il metodo sopra citato non funziona. Tutti le successioni di EAM1 sono però risolvibili con questo metodo, quindi dev'esserci un errore di calcolo.
+
+> [!warning] Non mettere $\lambda$ in esercizi che non lo prevedono
+> Anche per esercitazione, non ha senso mettere $\lambda$ in esercizi che hanno un numero finito come $a_1$. Alcuni esercizi sono risolvibili con il metodo sopra citato soltanto per alcuni valori di $a_1$.
