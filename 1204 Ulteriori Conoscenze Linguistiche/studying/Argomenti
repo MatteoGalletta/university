@@ -1,0 +1,26 @@
+
+Programming Languages
+	-Computers only understand binary
+	-Levels: low/mid/high (changes development speed, flexibility, abstraction)
+		-C: embedded systems
+		-Java: applications
+		-Python: data science
+	-Translation: Compilation and Interpretation
+
+Translating and running programs:
+	-Source code
+	-Syntax & Semantic errors
+	-Editor
+	-Compiler & Object Code, Interpreter
+	-Linker
+	-Debugger
+
+Java
+	-Mid/High Level
+	-Object oriented
+	-Syntax similar to C++
+	-Used in a lot of websites and internet applications
+	-Both compiled and interpreted, You don't program it depending on OS
+	-JVM
+	-Robust code, no segmentation fault, no memory leaks
+
