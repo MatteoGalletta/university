@@ -282,6 +282,8 @@ $$
 > In seguito allo studio di $f$ si scopre che $f(]0,2[)=]0,3[$
 > 
 > **C'è un errore di calcolo**. Quando accade che il codominio di un intervallo non è un sott'insieme di nessun intervallo, allora il metodo sopra citato non funziona. Tutti le successioni di EAM1 sono però risolvibili con questo metodo, quindi dev'esserci un errore di calcolo.
+> 
+> *Negli esercizi della seconda sessione 2023 in alcuni esercizi risulta che il dominio dell'intervallo è un sottoinsieme del codominio. In questi casi bisogna procedere allargando arbitrariamente gli estremi dell'intervallo del dominio.*
 
 > [!warning] Non mettere $\lambda$ in esercizi che non lo prevedono
 > Anche per esercitazione, non ha senso mettere $\lambda$ in esercizi che hanno un numero finito come $a_1$. Alcuni esercizi sono risolvibili con il metodo sopra citato soltanto per alcuni valori di $a_1$.
