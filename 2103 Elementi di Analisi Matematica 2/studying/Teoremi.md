@@ -11,3 +11,5 @@ semester: 1
 
 Teoremi con dimostrazione di EAM2:
 - `Lezione 1 - 02/10/2023`: Teorema di caratterizzazione dell'insieme delle primitive.
+- `Lezione 2 - 04/10/2023`: Proprietà di omogeneità degli integrali
+- `Lezione 3 - 09/10/2023`: Integrazione definita per parti
