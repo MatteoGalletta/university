@@ -141,3 +141,4 @@ assioma trigonometria
 
 ##### $n\neq m$ con $n$ e $m$ entrambi pari
 ##### $n\neq m$ con almeno $n$ oppure $m$ dispari
+
