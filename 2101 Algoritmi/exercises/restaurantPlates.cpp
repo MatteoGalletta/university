@@ -12,19 +12,18 @@ using namespace std;
 #define N_MAX_PLATES 8
 
 int restaurantPlatesMax(int M[][N_MAX_PLATES], int n);
-int restaurantPlatesMax(int M[][N_MAX_PLATES], int n, bool* busyPlates);
 
 int main(void) {
 
 	int M[][N_MAX_PLATES] = {
-		{3,2,4,3,2,10,15,20}, // apprezzamento piatti cliente 1
-		{5,8,1,4,9,2,3,10}, // apprezzamento piatti cliente 2
-		{1,10,3,5,8,4,10,40}, // apprezzamento piatti cliente 3
+		{3,2,4,3,2,10,15,20},
+		{5,8,1,4,9,2,3,10},
 		{1,10,3,5,8,4,10,40},
-		{1,10,3,5,8,4,10,40},
-		{1,10,3,5,8,4,10,40},
-		{1,10,3,5,8,4,10,40},
-		{1,10,3,5,8,4,10,40}
+		{4,10,3,5,8,4,10,40},
+		{1,10,6,5,6,4,10,15},
+		{9,10,3,5,8,4,10,20},
+		{2,10,3,5,8,4,12,40},
+		{3,10,3,1,10,4,10,40}
 	};
 	
 	int n = sizeof(M) / sizeof(*M);
@@ -36,26 +35,16 @@ int main(void) {
 }
 
 int restaurantPlatesMax(int M[][N_MAX_PLATES], int n) {
-	bool busyPlates[n] = { false };
-	return restaurantPlatesMax(M, n, busyPlates);
-}
-
-int restaurantPlatesMax(int M[][N_MAX_PLATES], int n, bool* busyPlates) {
+	if (n == 0)
+		return 0;
 	
 	int m = 0;
-	
-	// itero tutti i piatti
 	for (int i = 0; i < n; i++) {
-		if (!busyPlates[i]) {
-			// calcolo il massimo ricorsivamente con la selezione del piatto attuale
-			busyPlates[i] = true;
-			int r = restaurantPlatesMax(M+1, n-1, busyPlates) + M[0][i];
-			busyPlates[i] = false;
-			m = max(m, r);
-		}		
+		swap(M[i], M[n-1]);
+		m = max(m, restaurantPlatesMax(M, n-1) + M[n-1][n-1]);
+		swap(M[i], M[n-1]);
 	}
 	
 	return m;
 }
-
 
