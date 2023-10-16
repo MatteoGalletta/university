@@ -13,8 +13,8 @@ The main reason I'm choosing to share this material is that some people has aske
 
 ### Folders Structure
 
-Every folder name containts the subject name with a prefix of four digits which mean:
-- The first digit refers to the year of the subjet
+Every folder name contains the subject name with a prefix of four digits which mean:
+- The first digit refers to the year of the subject
 - The second digit refers to the semester of the subject
 - The third and fourth digits refer to the subject id (which I randomly set)
 
