@@ -4,8 +4,7 @@ This repository contains all of the material downloaded or created for the unive
 Most of the material is in italian. I don't guarantee all the work is correct.
 
 You will mainly find .pdf, .xopp (Xournal++) and .md files.
-The markdown files are written in Obsidian, I'm sorry if you can't properly render all of the files content; I plan in future to share my obsidian extensions so that you can view everything right.
-
+The markdown files have been written using Obsidian; to properly render all the files I suggest you to [download it](https://obsidian.md/download).
 ### Why I'm sharing this material
 
 I've written everything just for myself (just to study), didn't really plan to make all of this public.
