@@ -75,8 +75,8 @@ void countingSort(int* arr, int n) {
 	}
 	
 	// Scorro l'array A
-	int i = n - 1;
-	while (i >= 0) {
+	int i = 0;
+	while (i < n) {
 		// Prendo l'indice in cui andrebbe posizionato A
 		cout << "i: " << i << " arr[i]: " << arr[i];;
 		int newIdx = --C[arr[i]-m];
@@ -86,8 +86,8 @@ void countingSort(int* arr, int n) {
 		// vuol dire che lo scambio è già stato effettuato..
 		// Se invece newIdx è uguale a i allora l'elemento si trova nella giusta posizione.
 		// In entrambi i casi, passiamo all'elemento successivo
-		if (newIdx >= i) {
-			i--;
+		if (newIdx <= i) {
+			i++;
 			continue;
 		}
 		
