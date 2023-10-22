@@ -4,6 +4,7 @@ Si supponga di dover ordinare un insieme di n numeri interi, ciascuno dei quali 
 */
 #include <iostream>
 #include <limits.h>
+#include <math.h>
 
 using namespace std;
 
@@ -11,10 +12,11 @@ void countingSortByDigit(int* arr, int n, int k, int i);
 
 int main(void) {
 
-	int arr[] = {1435,20214,87012,1089,32,952,10010,3049};
+	//		     3    ,2    ,0    ,8    ,0    ,2    ,0    ,4
+	int arr[] = {14350,20214,87012,10890,32000,95200,10010,30490};
 	int n = sizeof(arr) / sizeof(*arr);
 	
-	countingSortByDigit(arr, n, 5, 2);
+	countingSortByDigit(arr, n, 5, 3);
 	
 	for (int i = 0; i < n; i++)
 		cout << arr[i] << " ";
@@ -23,23 +25,23 @@ int main(void) {
 }
 
 void countingSortByDigit(int* arr, int n, int k, int idx) {
+	// k=5, idx=2
+	// 20214 -> 0
 
-	// k=6, i=3, o=5
-	// 105240
-	// 105240 >> k-i=6-3=3	->	105 % 10 = 5
-
-	int B[10] = {0},
-		C[n];
+	const int DIGITS = 10;
+	int B[n],
+		C[DIGITS] = {0};
 	
-	for (int i = 0; i < n; i++) {
-		C[(arr[i] >> (k-idx)) % 10]++;
-	}
+	//se idx > k si considera idx = k
+	int k10Pow = pow(10, max(0,k-idx));
+	for (int i = 0; i < n; i++)
+		C[(arr[i] / k10Pow) % 10]++;
 	
-	for (int i = 1; i < n; i++)
+	for (int i = 1; i < DIGITS; i++)
 		C[i] += C[i - 1];
 	
-	for (int i = 0; i < n; i++)
-		B[--C[(arr[i] >> (k-idx)) % 10]] = arr[i];
+	for (int i = n-1; i >= 0; i--)
+		B[--C[(arr[i] / k10Pow) % 10]] = arr[i];
 	
 	for (int i = 0; i < n; i++)
 		arr[i] = B[i];
