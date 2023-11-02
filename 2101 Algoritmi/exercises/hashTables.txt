@@ -1,0 +1,38 @@
+Tabelle Hash: scansione lineare
+Si supponga di operare su di una tabella hash ad indirizzamento aperto contenente 10 posizioni (m=10) e inizialmente vuota. La funzione hash ad essa associata è basata sul metodo della scansione lineare e utilizza una funzione hash ausiliaria basata sul metodo della divisione. Si supponga infine di aver inserito, nell'ordine dato, le chiavi 56, 13, 4, 16, 30 e 79. Indicare la probabilità che la successiva chiave venga inserita nella cella i-esima, per i compreso tra 0 e 9.
+N.B. Si supponga che la funzione hash ausiliaria goda della proprietà dell'hashing uniforme semplice.
+
+m = 10;
+h(k) = k mod m = k mod 10
+
+h(56) = 56%10 = 6
+[__, __, __, __, __, __, 56, __, __, __]
+ 0	 1	 2	 3	 4	 5	 6	 7	 8	 9
+
+h(13) = 13%10 = 3
+[__, __, __, 13, __, __, 56, __, __, __]
+ 0	 1	 2	 3	 4	 5	 6	 7	 8	 9
+ 
+h(4) = 4%10 = 4
+[__, __, __, 13,  4, __, 56, __, __, __]
+ 0	 1	 2	 3	 4	 5	 6	 7	 8	 9
+
+h(16) = 16%10 = 6
+[__, __, __, 13,  4, __, 56, 16, __, __]
+ 0	 1	 2	 3	 4	 5	 6	 7	 8	 9
+
+h(30) = 30%10 = 0
+[30, __, __, 13,  4, __, 56, 16, __, __]
+ 0	 1	 2	 3	 4	 5	 6	 7	 8	 9
+
+h(79) = 79%10 = 9
+[30, __, __, 13,  4, __, 56, 16, __, 79]
+ 0	 1	 2	 3	 4	 5	 6	 7	 8	 9
+
+Probabilità a fine inserimento
+
+[30, 	__, 	__, 	13,  	4, 		__, 	56, 	16, 	__, 	79]
+ 0%	 3/10%	 1/10%	    0%     0%	 3/10%		0%		0%	 3/10%		0%
+
+
+
