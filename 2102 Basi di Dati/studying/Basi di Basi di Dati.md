@@ -6,7 +6,7 @@ year: 2
 semester: 1
 ---
 #university #studying #subject-2102
-### 2023-10-31
+### Basi di Basi di Dati
 > [!summary] Basi di Dati
 
 ## Algebra Relazionale
@@ -58,12 +58,83 @@ WHERE velocità IN (
 )
 ```
 
-## SQL
+## MySQL
+
 - `UNION [ALL]`/`INTERSECT [ALL]`/`EXCEPT [ALL]` (l'`ALL` indica di mantenere i duplicati)
 - La divisione si implementa con un doppio `NOT EXISTS`
 
-### Trigger
+### Main Types
+- INT, BIGINT, FLOAT, DOUBLE, BIT, DATE, DATETIME, TIME, TIMESTAMP, CHAR, VARCHAR
+
+### Main Functions
+- CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP, 
+
+### Account and Privileges
+#### Creazione e assegnazione
+```sql
+CREATE USER 'name'@'host' IDENTIFIED BY 'password';
 ```
+Per assegnare permessi a un utente:
+```sql
+GRANT permesso1, permesso2, ... permesson
+ON * | 'db'.* | 'db'.'table'
+TO 'username1'@'host', ..., 'usernamen'@'host';
+```
+Permessi: `ALL, USAGE, SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, INDEX, DROP, CREATE VIEW, TRIGGER`.
+
+#### Eliminazione e rimozione
+```sql
+DROP USER 'name'@'host';
+```
+Per assegnare permessi a un utente:
+```sql
+REVOKE permesso1, permesso2, ... permesson
+ON * | 'db'.* | 'db'.'table'
+FROM 'username1'@'host', ..., 'usernamen'@'host';
+```
+Permessi: `ALL, USAGE, SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, INDEX, DROP, CREATE VIEW, TRIGGER`.
+
+### Database
+```sql
+CREATE DATABASE [IF NOT EXISTS] nome;
+...
+USE nome;
+...
+DROP DATABASE [IF EXISTS] nome;
+```
+
+### Tables
+```sql
+CREATE TABLE [IF NOT EXISTS] nome (
+	campo1 TIPO [CONSTRAINTS],
+	campo2 TIPO [CONSTRAINTS],
+	...
+	campon TIPO [CONSTRAINTS]
+)
+```
+dove `constraints` sono:
+- `NOT NULL`
+- `AUTO_INCREMENT`
+- `DEFAULT [valore]`
+- `PRIMARY KEY`
+	- Può anche essere messo in un'altra riga: `PRIMARY KEY (colonna1, ..., colonnan)`
+- `FOREIGN KEY REFERENCES nome_tabella (colonna_esterna)`
+	- Può essere messo in un'altra riga: `CONSTRAINT fk_table1_table2 FOREIGN KEY (colonna) REFERENCES nome_tabella (colonna_esterna)`
+
+```
+ALTER TABLE nome
+[OPERATIONS] {, [OPERATIONS]}
+```
+le `OPERATIONS` sono:
+- `ADD COLUMN nome_colonna TIPO [CONSTRAINTS]` (stessa sintassi della `CREATE`)
+- `DROP COLUMN nome_colonna`
+- `RENAME COLUMN old_name TO new_name`
+
+```sql
+RENAME TABLE old_name TO new_name
+```
+### Trigger
+```sql
 CREATE TRIGGER TriggerName
 { before | after }
 { insert | delete | update [of Column] } on Table
@@ -78,7 +149,7 @@ SQLStatements
 ```
 
 esempio
-```
+```sql
 create trigger FileDeletedInvoices
 after delete on Invoice
 referencing old_table as OldInvoiceSet
@@ -93,7 +164,7 @@ Si usa `SET` per aggiornare i campi NEW, ad esempio:
 `SET NEW.total = 5 * OLD.total`
 
 ### View
-```
+```sql
 CREATE VIEW NomeView(col1, col2) AS
 SELECT ...
 ```
@@ -103,29 +174,41 @@ campi del select).
 `WITH CHECK OPTION` fa controllare in fase di inserimento all'interno della view che vengano rispettate le condizioni del `WHERE`.
 ### Check
 Si mette nella definizione della tabelle
-```
+```sql
 CHECK (query_che_ritorna_un_booleano)
 ```
 
 es. `CHECK ((SELECT MIN(prezzo) FROM prodotti) >= 0)`
 
 Se serve fare un controllo **intra-relazionale** (che si spalma su più tabelle) è necessaria la seguente sintassi:
-```
+```sql
 CREATE ASSERTION nome_asserzione
 CHECK (query_che_ritorna_un_booleano)
 ```
 
 ### Procedure
-```
+```sql
 CREATE PROCEDURE nome_procedura(IN p1 INT)
 BEGIN
 	blocco_istruzioni
 END
 ```
 `IN` è opzionale
+Si richiama con `CALL nome_procedura(arg1, ..., argn)`
+### Funzioni
+```sql
+CREATE FUNCTION nome_funzione(IN p1 INT, OUT p2 INT, INOUT p3 INT)
+BEGIN
+	blocco_istruzioni
+
+	SELECT ...
+END
+```
+L'ultima riga è quella che effettivamente consente di ritornare un valore
+Si richiama con `CALL nome_funzione(arg1, ..., argn)`
 
 ### Transazioni
-```
+```sql
 START TRANSACTION;
 query1
 query2
@@ -134,35 +217,98 @@ queryn
 COMMIT WORK;
 ```
 
-## Sintassi body trigger/funzioni/procedure
-### DECLARE
-##### Per le variabili
+### Select Case
+```sql
+CASE value
+	WHEN match1 THEN ...,
+	WHEN match2 THEN ...,
+	...
+	WHEN matchn THEN ...
+	[ELSE ...]
+END
 ```
+
+### Where LIKE
+```
+...
+WHERE column LIKE 'pattern';
+```
+Pattern può contenere due simboli speciali:
+- `%`: zero o più caratteri
+- `_`: esattamente un carattere
+
+### Insert, Update, Delete
+##### Per inserire valori costanti
+```sql
+INSERT INTO mytable (field1, ..., fieldn) VALUES (value1, ..., valuen)
+```
+Se si inseriscono valori di tutte le colonne della tabella, i `field` possono essere omessi.
+
+##### Per inserire valori da query
+```sql
+INSERT INTO mytable (field1, ..., fieldn) SELECT ...
+```
+
+##### Per aggiornare con valori costanti
+```sql
+UPDATE mytable SET col1 = val1, ..., colN = valN
+WHERE ...
+```
+
+##### Per eliminare
+```sql
+DELETE FROM mytable
+WHERE ...
+```
+
+### Limit
+##### Per ritornare i primi n elementi di una query
+```
+SELECT ...
+FROM ...
+...
+LIMIT n
+```
+##### Per ritornare i primi n elementi di una query saltando i primi m
+```
+SELECT ...
+FROM ...
+...
+LIMIT m, n
+```
+
+### Sintassi body trigger/funzioni/procedure
+#### DECLARE
+##### Per le variabili
+```sql
 DECLARE variabile TIPO [DEFAULT valore_default]
 ```
+Nota: le variabili globali NON vanno dichiarate.
 ##### Per i cursori
 *vedi sotto sezione dedicata*
 
-### Assegnazione variabili
+#### Assegnazione variabili
 ##### Da costante o altra variabile
-```
+```sql
 SET variabile = 5;
 SET variabile = var2;
+SET @variabile_globale = 8;
 ```
+Per le variabili globali è necessario mettere come prefisso al nome della variabile il simbolo `@`.
 ##### Da risultato di query
-```
+```sql
 SELECT value INTO variabile
 FROM ...
 ```
-### IF
-```
+#### IF
+```sql
 IF (condizione) THEN
 	body_if
 END IF;
 ```
 
 Sintassi completa con `else`:
-```
+```sql
 IF (condizione) THEN
 	body_if
 ELSEIF (condizione) THEN
@@ -172,23 +318,24 @@ ELSE
 END IF;
 ```
 
-### WHILE
-```
+#### WHILE
+```sql
 WHILE (condizione) DO
 	body_while
 END WHILE;
 ```
 
-### REPEAT UNTIL
-```
+#### REPEAT UNTIL
+```sql
 REPEAT
 	body_repeatuntil
 UNTIL (condizione)
 END REPEAT;
 ```
+Nota: la condizione del repeat until è invertita. Il ciclo viene ripetuto finché la condizione non diventa vera (a quel punto si esce).
 
-### LOOP
-```
+#### LOOP
+```sql
 loop_label: LOOP
 	...istruzioni...
 	IF (condizione)
@@ -202,8 +349,8 @@ loop_label: LOOP
 END LOOP
 ```
 
-### CURSOR
-```
+#### CURSOR
+```sql
 DECLARE cursor_name CURSOR FOR SELECT ...
 
 OPEN cursor_name;
@@ -217,11 +364,9 @@ REPEAT
 	...
 	FETCH cursor_name INTO var1, var2, ..., varn;
 	...
-UNTIL stop_iterating
+UNTIL stop_iterating = 1
 
 ...
 
 CLOSE cursor_name;
 ```
-
-
