@@ -1,0 +1,12 @@
+u=distanza tra oggetto e lente
+v=distanza tra immagine e lente
+
+f=um/(m+1)	m=v/u
+
+MSE=SUM[(px1-px2)^2] / npixel
+PSNR=10log10(S^2/MSE)
+
+coni -> colori (visione scopotica)
+bastoncelli -> luce (visione fototica) -> tanti nella fovéa
+
+

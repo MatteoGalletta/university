@@ -261,7 +261,7 @@ DELETE FROM mytable
 WHERE ...
 ```
 
-### Limit
+### Limit, Offset
 ##### Per ritornare i primi n elementi di una query
 ```
 SELECT ...
