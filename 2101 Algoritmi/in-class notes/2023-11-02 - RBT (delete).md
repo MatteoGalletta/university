@@ -143,7 +143,7 @@ end
 ##### Caso 1: il fratello è nero con almeno un figlio rosso
 ###### Caso 1.1: il fratello è nero con figlio destro (esterno) rosso
 Si effettua una rotazione sinistra sul fratello (ricordando di effettuare lo scambio di colore).
-Il nodo doppio nero trasferisce il suo "doppio nero" al figlio destro del fratello. (mi riferisco alla configurazione pre-rotazione)
+Il nodo doppio nero trasferisce il suo "doppio nero" al figlio destro del fratello (facendo riferimento alla configurazione pre-rotazione).
 ```mermaid
 	graph LR;
 	subgraph before[ ]
