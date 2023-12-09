@@ -171,7 +171,7 @@ Il nodo doppio nero trasferisce il suo "doppio nero" al figlio destro del fratel
 	end
 ```
 ###### Caso 1.2: il fratello è nero e ha il figlio destro (esterno) nero e il figlio sinistro (interno) rosso
-Si effettua una rotazione destra sul figlio sinistro del fratello. Ci ritroviamo nel caso [[2023-11-02#Caso 1.1 il fratello è nero con figlio destro (esterno) rosso|1.1]].
+Si effettua una rotazione destra sul figlio sinistro del fratello. Ci ritroviamo nel caso [[2023-11-02 - RBT (delete)#Caso 1.1 il fratello è nero con figlio destro (esterno) rosso|1.1]].
 ```mermaid
 	graph LR;
 	subgraph before[ ]
