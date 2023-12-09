@@ -1,4 +1,7 @@
-### [Checkout the web version](https://matteogalletta.github.io/university-deploy) 
+#### [Checkout the web version](https://matteogalletta.github.io/university-deploy) 
+Powered by [Quartz](https://quartz.jzhao.xyz/). Only contains `md` files. It's not perfect since some LaTeX expressions are broken but it still should be better than the bare GitHub viewer.
+
+---
 # University
 This repository contains all of the material downloaded or created for the university (Bachelor's Degree on Computer Science, started in 2022 at "UNICT - Università degli Studi di Catania") until now.
 
