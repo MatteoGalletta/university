@@ -12,7 +12,7 @@ semester: 1
 
 Il TimSort è l'algoritmo di ordinamento più veloce al momento (non lo trattiamo)
 
-I problemi di ordinamento che utilizzano il confronto non possono fare meglio di $\Omega(n \lg n)$.
+I problemi di ordinamento che utilizzano il confronto non possono fare meglio di $\Omega(n \log n)$.
 ### Counting Sort
 Non si basa sui confronti.
 Complessità: $O(n+k-h)$, con $k$ l'elemento massimo e $h$ l'elemento minimo.

@@ -63,7 +63,7 @@ Si utilizzano le liste.
 Ogni elemento di $T$ è in realtà una lista a cui vanno concatenati gli elementi man mano che vengono inseriti.
 Con questo metodo bisogna effettuare la ricerca all'interno di una lista in tempo lineare (e non più costante).
 Consideriamo $\alpha = \frac{n}{m}$ chiamato **fattore di carico**, dove $n$ è il numero di elementi.
-Ogni operazione di ricerca impiega in media $O(\alpha)$, adattando $m$ si considerare un tempo costante.
+Ogni operazione di ricerca impiega in media $O(\alpha)$, adattando $m$ si può considerare un tempo costante.
 ```cpp
 void insert(list* T, int k) {
 	T[h(k)].insert(k);
@@ -80,7 +80,7 @@ bool search(list* T, int k) {
 
 ---
 L'**hashing uniforme semplice** è una proprietà che indica la probabilità che la funzione di hash distribuisca in modo uguale gli elementi nelle celle.
-$$ \forall \,k \in U \to P_{r}\{h(k)=i\}=\frac{1}{m}$$
+$$ \forall \,k \in U \to \Pr\{h(k)=i\}=\frac{1}{m}$$
 Ci sono vari metodi per implementare la funzione hash.
 ##### Metodo divisione
 $$ h(k) = k \mod{m}$$
@@ -88,7 +88,7 @@ Se consideriamo $m=2^p$ (con $p \in \mathbb{N}$) il metodo di divisione restitui
 ##### Metodo moltiplicazione
 Si consideri $A \in \mathbb{R}: 0 \leq A < 1$.
 $$ h(k) = \lfloor m\cdot [(kA)\mod 1] \rfloor$$
-Si prende $k$, si moltiplica per $A$ e si ottiene un numero arbitrariamente grande decimale. Con il $\mod 1$ si prende la parte decimale di quest'ultimo e si moltiplica per $m$, ottenendo un numero compreso tra $0$ e $m-1$.
+Si prende $k$, si moltiplica per $A$ e si ottiene un numero arbitrariamente grande ($0 \leq kA < k$) decimale. Con il $\mod 1$ si prende la parte decimale di quest'ultimo e si moltiplica per $m$, ottenendo un numero compreso tra $0$ e $m-1$.
 
 A differenza del caso precedente, la scelta di $m$ non influenza l'ipotesi dell'hashing uniforme semplice. Si può quindi considerare $m=2^{p}$ e adattare l'algoritmo per ottimizzarlo.
 Considerando $w$ come il numero di bit della parola della macchina, l'algoritmo diventa:

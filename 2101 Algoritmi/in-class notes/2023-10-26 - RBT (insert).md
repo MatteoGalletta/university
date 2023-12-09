@@ -36,7 +36,7 @@ Le regole di un albero rosso-nero sono 5:
 	- Si assume che i figli di ogni foglia (*null*) siano neri.
 	- Oppure, si crea un nodo nero e si collegano tutti i puntatori dei figli delle foglie a questo nodo unico.
 4. Un nodo rosso deve avere necessariamente figli neri.
-5. Tutti i cammini da ogni nodo verso una foglia devono avere lo stesso numero di nodi neri.
+5. Tutti i cammini da ogni nodo verso ogni foglia devono avere lo stesso numero di nodi neri.
 
 Un ramo con tutti i nodi neri si dice **compatto**.
 Identifichiamo con $bh(x)$ il numero di nodi neri a partire da un nodo verso tutti i suoi cammini verso le foglie (si assume che sia un albero rosso-nero valido).
