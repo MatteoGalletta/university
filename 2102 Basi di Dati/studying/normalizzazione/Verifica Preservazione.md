@@ -15,6 +15,8 @@ R_{1} = \{A,B\} \quad R_{2}={A,C,D}
 $$
 
 creare la seguente matrice
+- se l'attributo è presente nella decomposizione mettere $a_{\text{colonna}}$
+- se l'attributo non è presente mettere $b_{\text{riga colonna}}$
 $$
 \begin{matrix}
     & \text{A} & \text{B} & C & D \\
@@ -42,12 +44,12 @@ $$
 \end{matrix}
 $$
 al termine delle operazioni, se nella riga in cui si è effettuato lo scambio si produce la sequenza $a_{1},a_{2},\dots a_{n}$ , con $n = |R|$ la decomposizione preserva i dati
-- in questo caso si è prodotta la sequenza $a_{1},a_{2},a_{3},a_{4}$
+- in questo caso si è prodotta la sequenza $a_{1},a_{2},a_{3},a_{4}$ quindi la decomposizione preserva i dati
 
 ## Algoritmo insiemistico
 se riesco a provare che
 $$
-R_{1} \cap R_{2} \to R_{1}-R_{2} \quad \text{oppure} R_{1} \cap R_{2} \to R_{2} - R_{1}
+R_{1} \cap R_{2} \to R_{1}-R_{2} \quad \text{oppure} \quad R_{1} \cap R_{2} \to R_{2} - R_{1}
 $$
 allora la decomposizione preserva i dati.
 
@@ -100,6 +102,7 @@ $$
 \bigcup_{i=1}^{n} \pi_{R_{i}}(F) \equiv F
 $$
 
+#ex
 Siano
 $$
 R = \{A,B,C\}
