@@ -80,12 +80,12 @@ graph LR;
 subgraph before[ ]
 D((D))-->Y((Y))
 START(( ))-->D
-D-->END((?))
+D-->NIL(( ))
 
 style Y fill:BLACK,color:WHITE
 style D fill:BLACK,color:WHITE
+style NIL fill:BLACK,color:WHITE
 style START visibIlity:hidden
-style END visibIlity:hidden
 end
 before-->after
 subgraph after[ ]

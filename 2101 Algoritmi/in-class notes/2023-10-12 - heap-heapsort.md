@@ -32,6 +32,7 @@ Il length invece è il numero di celle dell'array allocate (e non necessariament
 
 Le operazioni diventano:
 ```cpp
+// si assume che l'indice dell'array parta da 1 
 class Heap {
 	int *A, n, heapify;
 	
@@ -67,9 +68,11 @@ class Heap {
 	void increase_key(int i, int k) {
 		A[i] = k;
 		int p;
-		while (p = parent(i), (i > 1 && A[i] > A[p]) ) {
+		p = parent(i);
+		while (i > 1 && A[p] < A[i]) {
 			swap(A[i], A[p]);
 			i = p;
+			p = parent(i);
 		}
 	}
 
@@ -90,6 +93,7 @@ void buildMaxHeap(int* A, int n) {
 		heapify(A, i);
 }
 ```
+La complessità è $O(n)$.
 
 ### Heapsort
 
@@ -99,7 +103,7 @@ void buildMaxHeap(int* A, int n) {
 ```cpp
 void heapSort(int *A, int n) {
 	buildMaxHeap(A, n);
-	for (int i = 1; i < n; i++)
+	for (int i = 1; i < n; i++) // n-1 iterazioni
 		extractMax(A);
 }
 ```

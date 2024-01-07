@@ -12,10 +12,10 @@ semester: 1
 ## Counting & Radix Sort
 
 Per ordinare un array sulla base di più chiavi è sufficiente ordinare per ogni chiave dalla meno importante alla più importante. È necessario che gli algoritmi di ordinamento utilizzati siano stabili, altrimenti il metodo non funziona.
-L'ordinamento (solo) sulla prima iterazione anche se non è stabile rende comunque l'algoritmo funzionante, ma non stabile.
+*L'ordinamento, anche se non è stabile, se utilizzato solo sulla prima iterazione, rende comunque l'algoritmo funzionante, ma non stabile.*
 
 Per ordinare numeri grossi con il counting sort si può utilizzare il metodo precedente, ordinando per ogni cifra separatamente.
-Si può utilizzare `n%10` per ottenere l'ultima cifra e utilizzare `(n/10^(i-1))%10` per ottenere l'`i`-esima cifra da destra.
+Si può utilizzare `n%10` per ottenere l'ultima cifra e utilizzare $\frac{n}{10^{i-1}}\mod10$ per ottenere l'`i`-esima cifra da destra.
 Questo algoritmo è detto **Radix Sort**.
 ```cpp
 void radixSort(int* A, int n) {
@@ -79,8 +79,10 @@ bool search(list* T, int k) {
 *prossima lezione*
 
 ---
+#### Proprietà della Hash Function
 L'**hashing uniforme semplice** è una proprietà che indica la probabilità che la funzione di hash distribuisca in modo uguale gli elementi nelle celle.
 $$ \forall \,k \in U \to \Pr\{h(k)=i\}=\frac{1}{m}$$
+#### Implementazione
 Ci sono vari metodi per implementare la funzione hash.
 ##### Metodo divisione
 $$ h(k) = k \mod{m}$$

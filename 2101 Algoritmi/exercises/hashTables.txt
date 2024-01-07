@@ -4,7 +4,7 @@ N.B. Si supponga che la funzione hash ausiliaria goda della proprietà dell'hash
 
 m = 10;
 h(k) = k mod m = k mod 10
-
+```
 h(56) = 56%10 = 6
 [__, __, __, __, __, __, 56, __, __, __]
  0	 1	 2	 3	 4	 5	 6	 7	 8	 9

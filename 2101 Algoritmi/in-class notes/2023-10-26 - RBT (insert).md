@@ -8,9 +8,7 @@ semester: 1
 #university #in-class #subject-2101
 ### 2023-10-26
 > [!summary] Algoritmi
-
-## Red-Black Trees
-
+## BST: Binary Search Trees
 Il **BST** è posizionale. Consideriamo 4 configurazioni:
 - Nodo senza figli
 - Nodo con figlio destro
@@ -20,12 +18,11 @@ Se non fosse posizionale non faremo distinzione tra figlio destro e figlio sinis
 
 Ricordando la definizione di BST. Ogni nodo deve essere più grande di **tutti** i nodi del sotto albero sinistro e più piccolo di tutti i nodi del sotto albero di destra (l'ordinamento è totale, non parziale).
 
-Tutte le operazioni richiedono tempo logaritmico, ma nel caso peggiore il tempo diventa lineare. Si può evitare realizzando una struttura dati che sia in grado di "eliminare" il caso pessimo autobilanciandosi. Queste strutture si dicono **alberi autobilancianti** (tra i più famosi, AVL, Zig-Zag Trees, RB Trees).
+Tutte le operazioni richiedono tempo logaritmico, ma nel caso peggiore il tempo diventa lineare. Questo si può evitare realizzando una struttura dati che sia in grado di "eliminare" il caso pessimo autobilanciandosi. Queste strutture si dicono **alberi autobilancianti** (tra i più famosi, AVL, Zig-Zag Trees, RB Trees).
 
 Gli alberi rosso neri effettuano un ribilanciamento in tempo logaritmico (a volte anche costante).
 
----
-**Red-Black trees**
+## Red-Black Trees
 
 Ogni nodo ha un'informazione aggiuntiva: un bit che indica il colore (rosso o nero).
 
@@ -43,12 +40,11 @@ Identifichiamo con $bh(x)$ il numero di nodi neri a partire da un nodo verso tut
 Identifichiamo con $h(x)$ l'altezza dell'albero (ovvero il numero di nodi neri e rossi a partire da un nodo verso tutti i suoi cammini verso le foglie).
 $$ 2bh(x)+1 \geq h(x) \geq bh(x)$$
 
-
 Grazie alle proprietà dell'albero rosso nero, vale la seguente disuguaglianza: $h \leq 2\cdot \ln (n+1)$.
 
 Il ribilanciamento avviene attraverso delle operazioni di rotazione.
 
-La operazioni di rotazione mantengono l'ordinamento totale, ma non garantiscono il mantenimento delle 5 regole dei RBT.
+La operazioni di rotazione mantengono l'ordinamento totale, ma non garantiscono la permanenza delle 5 regole dei RBT.
 
 #### Inserimento di un nodo
 ```mermaid
