@@ -45,4 +45,4 @@ La complessità è $O(|E|\log |V|+|V|\log |V|)=O((|V|+|E|)\log |V|)$.
 Sono dei sottografi per cui esiste un cammino da ogni nodo verso tutti gli altri (e quindi sono necessari cicli).
 
 Si consideri un grafo formato da componenti connesse. Non possono esistere cicli da una componente all'altra.
-Se esistesse, le due componenti connesse sarebbe da considerarsi come un'unica.
+Se esistesse, le due componenti connesse sarebbero da considerarsi come un'unica.
