@@ -47,7 +47,7 @@ Per grafi con cicli con peso complessivo negativo il problema non ha soluzione e
 	- Risolve il problema su grafi senza limitazioni (ovvero riesce a gestire cicli e archi con peso negativo)
 - Algoritmo di Dag-SP (Directed Acyclic Graph Shortest Path)
 	- Risolve il problema in tempo lineare su grafi direzionali aciclici, anche con archi di peso negativo.
-- Algoritmo di Dijkstra (si legge *daikstra*)
+- Algoritmo di Dijkstra (si legge *dàistra*)
 	- Risolve il problema su grafi con archi di peso positivo.
 
 ### Algoritmo di Dag Shortest Path
