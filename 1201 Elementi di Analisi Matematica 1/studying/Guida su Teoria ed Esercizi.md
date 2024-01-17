@@ -160,7 +160,7 @@ h(x)=atan(x)
 	- $\lim_{x\to0} \frac{1 - \cos x}{x^2} = \frac{1}{2}$
 - Calcolo Limiti
 	- Algebra dei limiti (regole):
-		- Il limite della somma è uguale alla somma dei limite
+		- Il limite della somma è uguale alla somma dei limiti
 		- Il limite del prodotto di una funzione per una costante è uguale alla costante per il limite della funzione
 		- Il limite del prodotto è uguale al prodotto dei limiti
 		- Il limite del rapporto è uguale al rapporto dei limiti
