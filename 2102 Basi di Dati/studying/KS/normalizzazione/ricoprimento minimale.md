@@ -1,6 +1,3 @@
-Gentilmente offerto da [Kevin Speranza](https://github.com/Kespers)
-
----
 dato il seguente schema di attributi $R$ e dipendenze funzionali $F$
 $$
 R = \{A,B,C,D,E\}
@@ -109,4 +106,4 @@ calcolare il ricoprimento minimale
  $$
 
 #attensionplis 
-al fine di non perdere tempo, controllare solo le dipendenze in cui la lettera a destra è ripetuta più volta.
+al fine di non perdere tempo, controllare solo le dipendenze in cui la lettera a sinistra o a destra è ripetuta più di una volta.

@@ -1,6 +1,3 @@
-Gentilmente offerto da [Kevin Speranza](https://github.com/Kespers)
-
----
 $$
 R = \{a,b,c,d,e\}
 $$
@@ -59,9 +56,9 @@ cand =
 cand 
 \cup
 \begin{cases}
-\{X,Z_{1}\}::\{Z_{2},Z_{3},\dots ,Z_{n}\} \\
-\{X,Z_{2}\} :: \{Z_{3},Z_{4},\dots ,Z_{n}\} \\
-\dots \\
+\{X,Z_{1}\}::\{Z_{2},Z_{3},\dots ,Z_{n}\}, \\
+\{X,Z_{2}\} :: \{Z_{3},Z_{4},\dots ,Z_{n}\}, \\
+\dots, \\
 \{X,Z_{n}\} :: \emptyset
 \end{cases}
 $$
@@ -105,4 +102,6 @@ $$
 
 
 
+>[!hint] tricks
+> - durante le operazioni su cand, tutti i candidati che avranno a sinistra una chiave andranno scartati
 
