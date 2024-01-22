@@ -1,23 +1,46 @@
+## intro
+>[!important] perdita aggiornamento
+>![[Pasted image 20240118160329.png]]
+
+>[!important] lettura sporca
+>![[Pasted image 20240118160350.png]]
+
+>[!important] lettura incosistenti
+>![[Pasted image 20240118160403.png]]
+
+>[!important] aggiornamento fantasma
+>assumento ci sia un vincolo $y+z=1000$
+>![[Pasted image 20240118160422.png]]
+>- adesso $s=1000$
+
+>[!important] inserimento fantasma
+>![[Pasted image 20240118160811.png]]
+
 ## glossario
 
 ### schedule
+>[!important] notazione schedule
+>r: operazione di read
+>w: operazione di write
+>
+>$r_{i}(o)/w_{i }(o)$ indica la lettura/scrittura della i-esima transazione dell'oggetto o
+>
+
 >[!info] scheduler
 sistema che accetta o rifiuta le operazioni richieste dalle transazioni
 
 >[!info] schedule seriale
 >le transazioni sono separate, non si sovrappongo sui dati
-> - S: r0(x) r0(y) w0(x) r1(y) r1(x) w1(y) r2(x) r2(y) r2(z) w2(z)
+> - Schedule: r0(x) r0(y) w0(x) r1(y) r1(x) w1(y) r2(x) r2(y) r2(z) w2(z)
 
 >[!info] schedule serializzabile
 >produce lo stesso risultato di uno schedule seriale, date le stesse transazioni
-
 ### legge da / scrittura finale
 >[!info] legge da 
 $r_{i}(x)$ legge da $w_j(x)$ in uno schedule S se $w_j$ lo precede e non è presente un'altra lettura di x in mezzo
 
 >[!info] scrittura finale
 >$w_{i}(x)$ è una scrittura finale se è l'ultima scrittura dell'oggetto x in S
-
 ### VSR
 >[!info] view equivalenti
 > date due schedule $S_{i}\,, S_{j}$, si dicono view-equivalenti se:
@@ -41,6 +64,8 @@ $r_{i}(x)$ legge da $w_j(x)$ in uno schedule S se $w_j$ lo precede e non è pres
 
 >[!important] CSR
 >l'insieme degli schedule conflict serializzabili è indicato con CSR
+>- conflict serializable: conflitto equivalente ad uno schedule seriale
+>- conflict equivalente: due schedule che includono stesse operazioni e ogni coppia di operazioni in conflitto compare nello stesso ordine
 
 >[!attention] attensionpls
 >ogni schedule CSR è anche VSR.
@@ -93,7 +118,7 @@ in base alla richiesta effettuata corrisponde un esito e uno stato successivo, a
 > 
 > | attributo | operazioni |
 > | ---- | ---- |
-> | x | r1,w2, |
+> | x | r1,w2 |
 > | y | r1,r2,r3,w1,w2,w3 |
 > | z | r1,w2,r1 |
 > ```mermaid
@@ -106,7 +131,6 @@ in base alla richiesta effettuata corrisponde un esito e uno stato successivo, a
 > 		t2 --> t1
 > 		
 > 		t3 --> t1
-> 		t3 --> t2
 > ```
 > sono presenti dei cicli quindi non è CSR.
 
@@ -225,16 +249,19 @@ Verrano bloccate tutte le operazioni di T2
 - A sopra: azione che ha scatenato il blocco
 - A sotto: azioni bloccate
 
-                  A2
-r1(x)r1(y)r2(y)r3(y)<u>w2(x)</u>r1(z)w2(z)w1(y)r1(z)w3(y)
-                          A2
-
+```
+                     A2
+r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)w2(z)w1(y)r1(z)w3(y)
+                               A2
+```
 le azioni rimarrano bloccate fino al commit di T1
 
 6. r1(z)
-                 A2
-r1(x)r1(y)r2(y)r3(y)w2(x)<u>r1(z)</u>w2(z)w1(y)r1(z)w3(y)
-                            A2
+```
+                     A2
+r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)w2(z)w1(y)r1(z)w3(y)
+                               A2
+```
 
 | lettera | r_lock | w_lock |
 | ---- | ---- | ---- |
@@ -243,9 +270,11 @@ r1(x)r1(y)r2(y)r3(y)w2(x)<u>r1(z)</u>w2(z)w1(y)r1(z)w3(y)
 | z | T1 |  |
 
 7. w1(y)
-                 A2                        A1
-r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)w2(z)<u>w1(y)</u>r1(z)w3(y)
-                         A2                A1
+```
+                     A2             A1
+r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)w2(z)w1(y)r1(z)w3(y)
+                              A2         A1
+```
 
 w2(z) si salta in quanto bloccata
 
@@ -259,9 +288,11 @@ w2(z) si salta in quanto bloccata
 
 
 8. w3(y)
-                 A2                        A1
-r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)w2(z)w1(y)r1(z)<u>w3(y)</u>
-                         A2                A1
+ ```
+                     A2             A1        A3
+r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)w2(z)w1(y)r1(z)w3(y)
+                               A2        A1
+```
 
 r1(z) si salta in quanto bloccata
 
@@ -288,163 +319,196 @@ Conclusioni:
 > Se passato ad uno scheduler 2PL ci saranno transazioni che vanno in attesa? Se si elencare quali e motivare la risposta.
 
 #### soluzione
+
 1. r1(x)
+```
 
-<u>r1(x)</u>r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
+r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
 
-| lettera | r_lock | w_lock |
+
+^
+```
+
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
+| x | t1 |  |
 | y |  |  |
 | z |  |  |
 
 2. r2(y)
+```
 
-r1(x)<u>r2(y)</u>w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
+r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
 
-| lettera | r_lock | w_lock |
+      ^
+```
+
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T2 |  |
+| x | t1 |  |
+| y | t2 |  |
 | z |  |  |
 
 3. w1(y)
+```
+           a1
+r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
+                          a1   a1 
+           ^
+```
 
-        A1
-r1(x)r2(y)<u>w1(y)</u>r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
-                       A1     A1
- 
-| lettera | r_lock | w_lock |
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T2 | T1 |
+| x | t1 |  |
+| y | t2 |  |
 | z |  |  |
 
-- T1 va in attesa di T2, in quanto richiede una scrittura di y ma occupata da un lock_condiviso
+- t1 va in attesa di t2 in quanto è presente una r_lock su y
+
 
 4. r3(y)
+```
+           a1
+r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
+                          a1   a1 
+                ^
+```
 
-        A1
-r1(x)r2(y)w1(y)<u>r3(y)</u>w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
-                       A1     A1
- 
-| lettera | r_lock | w_lock |
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T2,T3 | T1 |
+| x | t1 |  |
+| y | t2,t3 |  |
 | z |  |  |
 
-5. w2(z)
 
-        A1
-r1(x)r2(y)w1(y)r3(y)<u>w2(z)</u>r1(z)w1(z)w3(y)r2(z)w3(y)
-                       A1     A1
- 
-| lettera | r_lock | w_lock |
+4. w2(z)
+```
+           a1
+r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
+                          a1   a1 
+                     ^
+```
+
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T2,T3 | T1 |
-| z |  | T2 |
+| x | t1 |  |
+| y | t2,t3 |  |
+| z |  | t2 |
 
-6. w3(y)
 
-        A1                     A3
-r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)<u>w3(y)</u>r2(z)w3(y)
-                       A1     A1                       A3
- 
-| lettera | r_lock | w_lock |
+
+5. w3(y)
+```
+           a1                       a3
+r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
+                          a1   a1             a3
+                                     ^
+```
+
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T2,T3 | T1,T3 |
-| z |  | T2 |
+| x | t1 |  |
+| y | t2,t3 |  |
+| z |  | t2 |
 
-salto le operazioni bloccate di T1
+- t3 va in attesa di t2 in quanto è presente un r_lock su y
 
-- T3 va in attesa di T2, in quanto richiede una scrittura di y ma occupata da un lock_condiviso
+5. w3(y)
+```
+           a1                       a3
+r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)r2(z)w3(y)
+                          a1   a1             a3
+                                         ^
+```
 
-6. r2(z)
-
-        A1                     A3
-r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)<u>r2(z)</u>w3(y)
-                       A1     A1                       A3
- 
-| lettera | r_lock | w_lock |
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T2,T3 | T1,T3 |
-| z | T2 | T2 |
+| x | t1 |  |
+| y | t2,t3 |  |
+| z |  | t2 |
 
-- T2 effettua la lettura di z e va in commit, rilasciando tutti i suoi lock. T3 di conseguenza si sveglia
+- t2 va in commit rilasciando tutti i lock, di conseguenza t1 e t3 si svegliano
 
-        A1                     A3
-r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)<u>r2(z)</u>w3(y)
-                       A1     A1                       A3
-
-| lettera | r_lock | w_lock |
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T3 | T1,T3 |
+| x | t1 |  |
+| y | t3 |  |
 | z |  |  |
 
-7. r2(z)
 
-        A1                     A3
-r1(x)r2(y)w1(y)r3(y)w2(z)r1(z)w1(z)w3(y)<u>r2(z)</u>w3(y)
-                       A1     A1                       A3
- 
-| lettera | r_lock | w_lock |
-| ---- | ---- | ---- |
-| x | T1 |  |
-| y | T2,T3 | T1,T3 |
-| z | T2 | T2 |
-
-- T2 effettua la lettura di z e va in commit, rilasciando tutti i suoi lock. T1 e T3 di conseguenza si svegliano
+6. w1(y)
 
 >[!attention] attensionpls
->l'ordine di sblocco dei lock è FIFO.
->in questo caso w3(y) è ancora in attesa di sbloccarsi.
+>anche se t3 è sveglio le operazioni devono essere eseguite in ordine cronologico. quindi si riparte dall'inizio.
 
-| lettera | r_lock | w_lock |
+```
+a1
+w1(y)r1(z)w1(z)w3(y)w3(y)
+      a1   a1
+^
+```
+
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y | T3 | T1,T3 |
+| x | t1 |  |
+| y | t3 |  |
 | z |  |  |
 
-8. w1(y)
+- t1 va in attesa di t3 in quanto è presente un r_lock su y
 
-w3(y) è stato saltato in quanto è attivo un w_lock in possesso di T1
+7. w3(y)
+```
+a1
+w1(y)r1(z)w1(z)w3(y)w3(y)
+      a1   a1
+                ^
+```
 
-- T1 va in attesa di T3 in quanto richiede una scrittura su Y occupata da un r_lock.
-
-
-9. w3(y), w3(y)
-
-si saltano le operazioni di T1
-
-| lettera | r_lock | w_lock |
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x | T1 |  |
-| y |  | T1 |
+| x | t1 |  |
+| y |  | t3 |
 | z |  |  |
 
-- T3 va in commit risvegliando T1.
+- lock escalation di t3 su y
 
-10. w1(y),r1(z),w1(z)
 
-- T1 va in commit
+8. w3(y)
+```
+a1
+w1(y)r1(z)w1(z)w3(y)w3(y)
+      a1   a1
+                     ^
+```
 
-| lettera | r_lock | w_lock |
+|  | r_lock | w_lock |
 | ---- | ---- | ---- |
-| x |  |  |
+| x | t1 |  |
 | y |  |  |
 | z |  |  |
 
-Conclusioni:
-- T1 va in attesa di T2, in quanto richiede una scrittura di y ma occupata da un lock_condiviso
-- T3 va in attesa di T2, in quanto richiede una scrittura di y ma occupata da un lock_condiviso
-- T2 effettua la lettura di z e va in commit, rilasciando tutti i suoi lock. T3 di conseguenza si sveglia
-- T1 va in attesa di T3 in quanto richiede una scrittura su Y occupata da un r_lock.
-- T3 va in commit risvegliando T1.
-- T1 va in commit
+- t3 va in commit, svegliando t1
+9. w1(y),r1(z),w1(z)
+```
+
+w1(y)r1(z)w1(z)
+
+^
+```
+
+- t1 va in commit
+
+
+conclusioni:
+- t1 va in attesa di t2 in quanto è presente una r_lock su y
+- t3 va in attesa di t2 in quanto è presente un r_lock su y
+- t2 va in commit rilasciando tutti i lock, di conseguenza t1 e t3 si svegliano
+- t1 va in attesa di t3 in quanto è presente un r_lock su y
+- t3 va in commit, svegliando t1
+- t1 va in commit
 - non ci sono deadlock
+
+
+
+
 

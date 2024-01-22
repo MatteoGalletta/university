@@ -52,6 +52,7 @@ $$
 O_{2\_\text{ridondanza}}=1L 
 $$
 
+in conclusione con la ridondanza avremo un costo:
 $$
 O_{\text{ridondanza}}=51L
 $$
@@ -66,7 +67,7 @@ O_{1\_\text{No Ridondanza}}=10 \cdot 1S=10 \cdot 2L =20L
 $$
 
 O2:
-assumendo ci siano 500 persone in ogni dipartimento, occore fare 500 letture
+assumendo ci siano 500 persone in ogni dipartimento, occore fare 500 letture di dipendenti
 $$
 O_{2\_\text{No Ridondanza}}=500L
 

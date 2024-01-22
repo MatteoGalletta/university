@@ -42,12 +42,12 @@ Y = {B,C}
 
 vado a calcolare $X^+$ quindi $A^+$
 $$
-A^+=\{A\}
+X^+=A^+=\{A\}
 $$
 se $X^+$ è uguale a tutti gli attributi, allore è chiave.
 altrimenti, come in questo caso, calcolo la seguente formula:
 $$
-Y-X^+=\{B,C\}=Z
+Y-X^+=\{B,C\}-\{A\}=Z
 $$
 
 aggiungo a cand i nuovi candidati:
@@ -99,9 +99,3 @@ ora cand è vuoto -> l'algoritmo restituisce
 $$
 \text{chiavi} = \{AB,AC\}
 $$
-
-
-
->[!hint] tricks
-> - durante le operazioni su cand, tutti i candidati che avranno a sinistra una chiave andranno scartati
-

@@ -8,7 +8,7 @@ $$
 F=\{A\to B\}
 $$
 $$
-R_{1} = \{A,B\} \quad R_{2}={A,C,D}
+R_{1} = \{A,B\} \quad R_{2}=\{A,C,D\}
 $$
 
 creare la seguente matrice
@@ -99,31 +99,32 @@ $$
 \bigcup_{i=1}^{n} \pi_{R_{i}}(F) \equiv F
 $$
 
-#ex
-Siano
-$$
-R = \{A,B,C\}
-$$
-$$
-F = \begin{cases}
-A\to B \\
-B\to C \\
-C\to A
-\end{cases}
-$$
-$$
-d = \begin{cases}
-R_{1} = \{A,B\} \\
-R_{2} = \{B,C\}
-\end{cases}
-$$
-verificare se $d$ preserva le dipendenze
 
-$$
-\pi_{R_{1}}(F)={A\to B} \quad\quad \pi_{R_{2}}(F)={B\to C}
-$$
-
-$$
-\pi_{R_{1}}(F) \cup \pi_{R_{2}}(F) \not\equiv F
-$$
+> [!example] esempio
+> Siano
+> $$
+> R = \{A,B,C\}
+> $$
+> $$
+> F = \begin{cases}
+> A\to B \\
+> B\to C \\
+> C\to A
+> \end{cases}
+> $$
+> $$
+> d = \begin{cases}
+> R_{1} = \{A,B\} \\
+> R_{2} = \{B,C\}
+> \end{cases}
+> $$
+> verificare se $d$ preserva le dipendenze
+> 
+> $$
+> \pi_{R_{1}}(F)={A\to B} \quad\quad \pi_{R_{2}}(F)={B\to C}
+> $$
+> 
+> $$
+> \pi_{R_{1}}(F) \cup \pi_{R_{2}}(F) \not\equiv F
+> $$
 
