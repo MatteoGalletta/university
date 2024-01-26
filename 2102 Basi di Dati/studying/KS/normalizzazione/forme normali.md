@@ -1,3 +1,4 @@
+Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 >[!attention] attensionplis 
 > - se lo schema è in BCNF allora è anche 3NF
 > - dipendenza banale: $X \to X$

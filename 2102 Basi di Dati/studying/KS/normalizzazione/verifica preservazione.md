@@ -1,3 +1,4 @@
+Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 # Preservazione Dati
 ## Algoritmo matrici
 Verifica se la decomposizione preserva i dati

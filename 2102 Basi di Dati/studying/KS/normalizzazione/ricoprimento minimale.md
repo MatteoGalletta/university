@@ -1,3 +1,5 @@
+Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
+
 dato il seguente schema di attributi $R$ e dipendenze funzionali $F$
 $$
 R = \{A,B,C,D,E\}

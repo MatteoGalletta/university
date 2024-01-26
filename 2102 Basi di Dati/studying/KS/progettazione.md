@@ -1,3 +1,4 @@
+Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 # Progettazione
 ## gerarchie entità
 dette anche ISA (x is a y)

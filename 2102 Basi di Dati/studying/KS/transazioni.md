@@ -1,21 +1,4 @@
-## intro
->[!important] perdita aggiornamento
->![[Pasted image 20240118160329.png]]
-
->[!important] lettura sporca
->![[Pasted image 20240118160350.png]]
-
->[!important] lettura incosistenti
->![[Pasted image 20240118160403.png]]
-
->[!important] aggiornamento fantasma
->assumento ci sia un vincolo $y+z=1000$
->![[Pasted image 20240118160422.png]]
->- adesso $s=1000$
-
->[!important] inserimento fantasma
->![[Pasted image 20240118160811.png]]
-
+Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 ## glossario
 
 ### schedule
@@ -98,7 +81,14 @@ lock manager gestisce tutti i lock (accetta/rifiuta)
 2PL "2 phase lock": lock manager che usiamo
 
 si basa sulla seguente tabella:
-![[Pasted image 20240121174122.png]]
+
+| richiesta | stato della richiesta |              |              |
+|-----------|-----------------------|--------------|--------------|
+| /         | libera                | r_lock       | w_lock       |
+| r_lock    | OK / r_lock           | OK / r_lock  | NO / w_lock  |
+| w_lock    | OK / w_lock           | NO / r_lock  | NO / w_lock  |
+| unlock    | error                 | OK / dipende | OK / dipende |
+
 in base alla richiesta effettuata corrisponde un esito e uno stato successivo, a seconda dello stato in cui si trova (libera, r_lock, w_lock)
 
 >[!attention] attensionpls
@@ -175,7 +165,11 @@ in base alla richiesta effettuata corrisponde un esito e uno stato successivo, a
 > - r2(y) legge da w1(y)
 > - r3(y) legge da w1(y)
 >   
->   non corrispondono quindi non è VSR
+>   non corrispondono quindi questo schedule non è VSR.
+>   
+>   
+>   >[!warning] attensionpls
+>   >  fare la prova dei "legge da" anche con l'ordine: t2t1t3
 
 ### 2PL deadlock e attese
 

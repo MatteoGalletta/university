@@ -1,3 +1,4 @@
+Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 $$
 R = \{a,b,c,d,e\}
 $$
