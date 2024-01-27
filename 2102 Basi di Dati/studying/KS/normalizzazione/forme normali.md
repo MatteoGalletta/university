@@ -76,6 +76,130 @@ F3 = {F -> A} [rispetta BCNF]
 > R3(a,f) F3(f->a)
 > R4(c,f) F4()
 > ```
+
+### caso particolare
+> [!question] data la decomposizione
+> ```
+> R1(A,B)
+> R2(B,D,E)
+> R3(B,C)
+> ```
+> e le dipendenze
+> ```
+> F = {
+> b->c,
+> c->de
+> }
+> ```
+> 
+> - È in qualche forma conosciuta? motivare la risposta ed stendere gli schemi con le rispettive dipendendenze funzionali
+#### soluzione
+>[!attention] attensionpls
+>nel caso chieda di verificare se la decomposizione sia in qualche forma normale (avendo più di una decomposizione) sarà necessario per ogni decomposizione: 
+>1. estendere l'insieme di dipendenze funzionali
+>2. verificare le condizioni BCNF con F estesa
+>   
+> per ogni decomposizione calcolare:
+> $$
+> F_{i}=\pi_{R_{i}}(F)
+> $$
+> e verificare se $F_{i}$ rispetta la BCNF rispetto ad $R_i$
+
+##### calcolo $F_1$
+$$
+F_{1}=\pi_{R_{1}}(F)=\pi_{\{A,B\}}(F)
+$$
+
+1. calcolo le seguenti chiusure:
+$$
+\begin{align}
+& A^+=\{A\} \\
+& B^+=\{B,C,D,E\} \\
+& AB^+=\{A,B,C,D,E\}
+\end{align}
+$$
+2. tolgo la lettera che li rappresenta:
+$$
+\begin{align}
+& A^+=\{\cancel{ A }\} \\
+& B^+=\{\cancel{ B },C,D,E\} \\
+& AB^+=\{\cancel{ A,B },C,D,E\}
+\end{align}
+$$
+3. vado a prendere per ogni insieme solo gli elementi che stanno in R1
+$$
+\begin{align}
+& A^+=\{\cancel{ A }\} \\
+& B^+=\{\cancel{ B },\cancelto{ \neq \{A,B\} }{ C,D,E }\} \\
+& AB^+=\{\cancel{ A,B },\cancelto{ \neq \{A,B\} }{ C,D,E }\}
+\end{align}
+
+\implies
+
+F_{1}=\pi_{R_{1}}(F)=\pi_{\{A,B\}}(F)=\{\emptyset\}
+$$
+$F_1$ rispetta la bcnf
+
+##### calcolo $F_2$
+$$
+F_{1}=\pi_{R_{2}}(F)=\pi_{\{B,D,E\}}(F)
+$$
+
+1. calcolo le seguenti chiusure:
+$$
+\begin{align}
+& B^+=\{B,C,D,E\} \\
+& D^+=\{D\} \\
+& E^+=\{E\} \\
+& BD^+=\{BCDE\} \\
+& BE=\{BCDE\} \\
+& DE=\{DE\} \\
+& BDE=\{BCDE\}
+\end{align}
+$$
+2. tolgo la lettera che li rappresenta:
+$$
+\begin{align}
+& B^+=\{\cancel{ B },C,D,E\} \\
+& D^+=\{\cancel{ D }\} \\
+& E^+=\{\cancel{ E }\} \\
+& BD^+=\{\cancel{ B }C\cancel{ D }E\} \\
+& BE^+=\{\cancel{ B }CD\cancel{ E }\} \\
+& DE^+=\{\cancel{ DE }\} \\
+& BDE^+=\{\cancel{ BC }D\cancel{ E }\}
+\end{align}
+$$
+3. vado a prendere per ogni insieme solo gli elementi che stanno in R2
+$$
+\begin{align}
+& B^+=\{\cancelto{ \neq \{B,D,E\} }{ C },D,E\} \\
+& D^+=\{\} \\
+& E^+=\{\} \\
+& BD^+=\{\cancelto{ \neq \{B,D,E\} }{ C }E\} \\
+& BE^+=\{\cancelto{ \neq \{B,D,E\} }{ C }D\} \\
+& DE^+=\{\} \\
+& BDE^+=\{D\}
+\end{align}
+
+\implies
+
+F_{2}= \begin{cases}
+& B\to D,E \\
+& BD\to E \\
+& BE \to D \\
+& BDE\to D
+\end{cases}
+$$
+
+$F_2$ rispetta
+
+##### calcolo $F_{3}$
+$$
+F_{3} = \{B\to C\} \implies \text{rispetta}
+$$
+
+
+in conclusione la decomposizione generale rispetta la BCNF.
 # Terza forma normale (3NF)
 >[!info] definizione
 >Uno schema relazionale è in **3NF** se per ogni dipendenza $X\to A$ non banale
