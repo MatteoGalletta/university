@@ -109,7 +109,7 @@ void heapSort(int *A, int n) {
 ```
 
 È comparabile al MergeSort come efficienza, ma lavora in loco.
-A differenza dell'insertion sort, l'heapsort non è adattivo (impiega sempre la stessa quantità di tempo anche sell'array è ordinato).
+A differenza dell'InsertionSort e MergeSort, l'heapsort non è adattivo (impiega sempre la stessa quantità di tempo anche sell'array è ordinato).
 
 > [!question] È stabile?
 > No. Controesempio:

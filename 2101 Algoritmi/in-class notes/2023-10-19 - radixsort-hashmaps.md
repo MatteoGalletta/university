@@ -18,16 +18,19 @@ Per ordinare numeri grossi con il counting sort si può utilizzare il metodo pre
 Si può utilizzare `n%10` per ottenere l'ultima cifra e utilizzare $\frac{n}{10^{i-1}}\mod10$ per ottenere l'`i`-esima cifra da destra.
 Questo algoritmo è detto **Radix Sort**.
 ```cpp
+/*
+se A=[8532, 2553, 2634] e i=2 il counting sort vede [5, 5, 6]
+*/
 void radixSort(int* A, int n) {
-	int c = getMaxNumberOfDigits(A, n);
-	for (int i = c-1; i >= 0; i--) {
+	int c = getMaxNumberOfDigits(A, n); // se max(A)=1'000'000   =>   c=7
+	for (int i = 0; i < c; i++) {
 		countingSort(A, n, i); // dove i è la posizione (da destra) della cifra su cui ordinare
 	}
 }
 ```
 
 ## Dizionario
-È importante avere una ricerca veloce, a costo di sacrificare inserimento e cancellazione.
+È importante avere una ricerca veloce, a costo di sacrificare tempi di inserimento e cancellazione.
 
 ### Tabella a indirizzamento diretto
 Si utilizza una tabella a indici da $0$ a $n$ dove il numero $a$ (compreso tra $0$ e $n$) si inserisce nella posizione $a$.

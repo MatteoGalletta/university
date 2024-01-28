@@ -29,7 +29,7 @@ DIJKSTRA (G, w, s):
 	Q = BuildMinHeap(G.V)         O(V)
 	FOR i=1 TO |G.V|:             O(V)
 		u = extractMin(Q)         O(log V)
-		FOR e IN G.Adj(u):        O(E)
+		FOR v IN G.Adj(u):        O(E)
 			RELAX(u, v, w)        O(log V)
 ```
 La complessità è $O(|E|\log |V|+|V|\log |V|)=O((|V|+|E|)\log |V|)$.

@@ -35,7 +35,7 @@ graph LR;
 s((s))-->u((u))
 u-->v((v))
 ```
-Sia $d[u] = \delta(s, u)$.
+Sia $d[u] = \delta(s, u)$. Sia $u$ parte del cammino minimo.
 Se si effettua una `RELAX(u, v, w)` su $v$ passando da $u$ allora $d[v] = \delta(s, v)$.
 ### Rilassamento del cammino
 Sia $p = < s, u_{0}, u_{1}, \dots, u_{k}, v >$ un cammino minimo.
@@ -55,6 +55,11 @@ Effettua l'ordinamento topologico e sulla base di quello vengono effettuati i ri
 Si iterano tutti i nodi seguendo l'ordinamento topologico e per ogni nodo vengono rilassati tutti gli archi che partono dal nodo in questione.
 ```
 DAG-SHORTEST-PATH (G, w, s)
+	FOR v IN G.V:
+		d[v] = +INF
+		PI[v] = NULL
+	d[s] = 0
+	
 	V = TOPOLOGICAL_SORT(G)
 	FOR v in V:
 		FOR u in Adj(v):
@@ -73,6 +78,7 @@ BELLMAN-FORD (G, w, s):
 	FOR 1 TO |G.V|-1:
 		FOR (u, v) IN G.E:
 			RELAX(u, v, w)
+	
 	// si individuano eventuali cicli a peso negativo
 	FOR (u, v) IN G.E:
 		// esistono archi ancora rilassabili, è solo possibile in grafi con cicli con peso negativo

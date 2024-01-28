@@ -10,29 +10,32 @@ semester: 1
 > [!summary] Algoritmi
 
 
-Il TimSort è l'algoritmo di ordinamento più veloce al momento (non lo trattiamo)
+Il TimSort è l'algoritmo di ordinamento più veloce al momento (non lo trattiamo) basato sui confronti.
 
 I problemi di ordinamento che utilizzano il confronto non possono fare meglio di $\Omega(n \log n)$.
 ### Counting Sort
 Non si basa sui confronti.
 Complessità: $O(n+k-h)$, con $k$ l'elemento massimo e $h$ l'elemento minimo.
 
-`A=[4,6,2,4,5,4,3,2,3,7]`
-`C=[2,2,3,1,1,1]`
+`A=[4,6,2,4,4,3,2,3,7]`
+`C=[2,2,3,0,1,1]`
 
 ```cpp
 void countingSort(int* A, int n) {
 	int k, h; // k: massimo - h: minimo
 	max_min(A, n, &k, &h); // prende il massimo e il minimo dell'array
 	int* C = new int[k-h+1]; // C conterrà già 0 in tutte le celle
-	for (int i = 0; i < n; i++)
-		C[A[i]-h]++;
+	for (int i = 0; i < n; i++) {
+		int idx = A[i]-h;
+		C[idx]++;
+	}
 
 	int c = 0;
-	for (int i = 0; i <= k-h; i++) {
-		for (int j = 0; j < C[i]; j++)
-			A[c++] = i+h;
-	}
+	for (int i = 0; i < k-h+1; i++) // scorro gli elementi di C
+		for (int j = 0; j < C[i]; j++) {
+			A[c] = i+h;
+			c++;
+		}
 
 }
 ```
@@ -43,7 +46,11 @@ void countingSort(int* A, int n) {
 ---
 
 Per risolvere il problema, si effettua un'ulteriore iterazione per aggiornare `C`.
-`C=[2,2,3,1,1,1] -> [2,4,7,8,9,10]`
+`A=[4,6,2,4,4,3,2,3,7]`
+`C=[2,2,3,0,1,1] -> [2,4,7,7,8,9]`
+
+`C=[0,2,4,7,7,8]` (a fine algoritmo)
+`B=[2,2,3,3,4,4,4,6,7]` (a fine algoritmo)
 
 Adesso `C[i]` indica il numero di elementi minori o uguali a `i` in `A`.
 
@@ -55,15 +62,21 @@ int* countingSort(int* A, int n) {
 	int k, h; // k: massimo - h: minimo
 	max_min(A, n, &k, &h); // prende il massimo e il minimo dell'array
 	int* C = new int[k-h+1]; // C conterrà già 0 in tutte le celle
-	for (int i = 0; i < n; i++)
-		C[A[i]-h]++;
+	for (int i = 0; i < n; i++) {
+		int idx = A[i]-h;
+		C[idx]++;
+	}
 
-	for (int i = 1; i <= k-h; i++)
-		C[A[i]-h] += C[A[i]-h-1];
+	for (int i = 1; i < k-h+1; i++)
+		C[i] += C[i-1];
 	
 	int* B = new int[n];
-	for (int i = n - 1; i >= 0; i--)
-		B[--C[A[i]-h]] = A[i];
+	for (int i = n - 1; i >= 0; i--) { // scorro A
+		int idx = A[i]-h; // mi chiedo: dove cerco in C la corrispondenza?
+		C[idx]--;
+		int pos = C[idx]; // C[idx] contiene la posizione in cui inserire A[i]
+		B[pos] = A[i];
+	}
 	
 	return B;
 }
