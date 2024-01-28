@@ -212,10 +212,10 @@ A differenza dell'InsertionSort e MergeSort, l'heapsort non è adattivo (impiega
 
 ## CountingSort
 
-Il TimSort è l'algoritmo di ordinamento più veloce al momento (non lo trattiamo) basato sui confronti.
+> [!hint] Algoritmi basati sui confronti
+> Il TimSort è l'algoritmo di ordinamento più veloce al momento (non lo trattiamo) basato sui confronti.
+> I problemi di ordinamento che utilizzano il confronto non possono fare meglio di $\Omega(n \log n)$.
 
-I problemi di ordinamento che utilizzano il confronto non possono fare meglio di $\Omega(n \log n)$.
-### Counting Sort
 Non si basa sui confronti.
 Complessità: $O(n+k-h)$, con $k$ l'elemento massimo e $h$ l'elemento minimo.
 
