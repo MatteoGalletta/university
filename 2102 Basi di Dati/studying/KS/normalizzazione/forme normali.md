@@ -3,7 +3,6 @@ Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 > - se lo schema è in BCNF allora è anche 3NF
 > - dipendenza banale: $X \to X$
 > - prima di effettuare le verifiche:
-> 	- scrivere le dipendenze nella forma X->A con A attributo singolo
 > 	- applicare l'algorimo di [[ricoprimento minimale]]
 # Boyce Codd (BCNF)
 > [!info] definizione
@@ -76,8 +75,69 @@ F3 = {F -> A} [rispetta BCNF]
 > R3(a,f) F3(f->a)
 > R4(c,f) F4()
 > ```
+# Terza forma normale (3NF)
+>[!info] definizione
+>Uno schema relazionale è in **3NF** se per ogni dipendenza $X\to A$ non banale
+> -  $X$ è una superchiave
+> oppure
+> -  $A$ è primo (appartiene a qualche chiave)
 
-### caso particolare
+## Algoritmo
+
+$$
+F = \begin{cases}
+A_{1},A_{2}\to A_{4} \\
+A_{1}\to A_{3}
+\end{cases}
+$$
+$$
+R = \{A_{1},A_{2},A_{3},A_{4},A_{5},A_{6}\}
+$$
+
+trasformare in 3NF
+
+1. creo una tabella formata dagli attributi non presenti in F
+$$
+R_{1}=\{A_{5},A_{6}\}
+$$
+2. per ogni dipendenza di F creo una tabella apposita
+$$
+R_{2}=\{A_{1},A_{2},A_{4}\} \quad R_{3} = \{A_{1},A_{3}\}
+$$
+
+>[!attention] "X" ridondanti
+> nel caso in cui F sia del tipo
+> $$
+> F = \begin{cases}
+> A_{1},A_{2}\to A_{4} \\
+> A_{1}\to A_{3} \\
+> A_{1} \to A_{7}
+> \end{cases}
+> $$
+> 
+> al posto di creare un ulteriore tabella, unisco l'attributo alla tabella già esistente
+> $$
+> \cancel{ R_{4}=\{A_{1},A_{7}\} } \implies R_{3}=\{A_{1},A_{3},A_{7}\}
+> $$
+
+>[!attention] preservazione dati
+>se vogliamo far preservare i dati, creiamo una tabella che contiene una chiave:
+>$$R_{4}=\{\text{chiave}\}$$
+
+## Verifica forma normale con più decomposizioni
+
+>[!hint] soluzione generale
+>nel caso chieda di verificare se la decomposizione sia in qualche forma normale (avendo più di una decomposizione) sarà necessario per ogni decomposizione: 
+>1. estendere l'insieme di dipendenze funzionali
+>2. verificare le condizioni della forma normale in question (con F estesa)
+>   
+> per ogni decomposizione calcolare:
+> $$
+> F_{i}=\pi_{R_{i}}(F)
+> $$
+> e verificare se $F_{i}$ rispetta la forma normale rispetto ad $R_i$
+
+### esempio di domanda
 > [!question] data la decomposizione
 > ```
 > R1(A,B)
@@ -92,24 +152,12 @@ F3 = {F -> A} [rispetta BCNF]
 > }
 > ```
 > 
-> - È in qualche forma conosciuta? motivare la risposta ed stendere gli schemi con le rispettive dipendendenze funzionali
-#### soluzione
->[!attention] attensionpls
->nel caso chieda di verificare se la decomposizione sia in qualche forma normale (avendo più di una decomposizione) sarà necessario per ogni decomposizione: 
->1. estendere l'insieme di dipendenze funzionali
->2. verificare le condizioni BCNF con F estesa
->   
-> per ogni decomposizione calcolare:
-> $$
-> F_{i}=\pi_{R_{i}}(F)
-> $$
-> e verificare se $F_{i}$ rispetta la BCNF rispetto ad $R_i$
+> - È in qualche forma conosciuta? motivare la risposta ed stendere gli schemi con le rispettive dipendenze funzionali
 
+### soluzione
+
+#### estendo F
 ##### calcolo $F_1$
-$$
-F_{1}=\pi_{R_{1}}(F)=\pi_{\{A,B\}}(F)
-$$
-
 1. calcolo le seguenti chiusure:
 $$
 \begin{align}
@@ -138,8 +186,9 @@ $$
 
 F_{1}=\pi_{R_{1}}(F)=\pi_{\{A,B\}}(F)=\{\emptyset\}
 $$
-$F_1$ rispetta la bcnf
+per ogni insieme $R_i=\{r_{1},\dots,r_{n}\}$ considerare la dipendenza "$R_{i}\to a_{1},\dots,a_{n}$"
 
+in questo caso, $F_1$ rispetta la bcnf
 ##### calcolo $F_2$
 $$
 F_{1}=\pi_{R_{2}}(F)=\pi_{\{B,D,E\}}(F)
@@ -200,52 +249,3 @@ $$
 
 
 in conclusione la decomposizione generale rispetta la BCNF.
-# Terza forma normale (3NF)
->[!info] definizione
->Uno schema relazionale è in **3NF** se per ogni dipendenza $X\to A$ non banale
-> -  $X$ è una superchiave
-> oppure
-> -  $A$ è primo (appartiene a qualche chiave)
-
-## Algoritmo
-
-$$
-F = \begin{cases}
-A_{1},A_{2}\to A_{4} \\
-A_{1}\to A_{3}
-\end{cases}
-$$
-$$
-R = \{A_{1},A_{2},A_{3},A_{4},A_{5},A_{6}\}
-$$
-
-trasformare in 3NF
-
-1. creo una tabella formata dagli attributi non presenti in F
-$$
-R_{1}=\{A_{5},A_{6}\}
-$$
-2. per ogni dipendenza di F creo una tabella apposita
-$$
-R_{2}=\{A_{1},A_{2},A_{4}\} \quad R_{3} = \{A_{1},A_{3}\}
-$$
-
->[!attention] "X" ridondanti
-> nel caso in cui F sia del tipo
-> $$
-> F = \begin{cases}
-> A_{1},A_{2}\to A_{4} \\
-> A_{1}\to A_{3} \\
-> A_{1} \to A_{7}
-> \end{cases}
-> $$
-> 
-> al posto di creare un ulteriore tabella, unisco l'attributo alla tabella già esistente
-> $$
-> \cancel{ R_{4}=\{A_{1},A_{7}\} } \implies R_{3}=\{A_{1},A_{3},A_{7}\}
-> $$
-
->[!attention] preservazione dati
->se vogliamo far preservare i dati, creiamo una tabella che contiene una chiave:
->$$R_{4}=\{\text{chiave}\}$$
-

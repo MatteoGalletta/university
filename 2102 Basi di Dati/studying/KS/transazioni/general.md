@@ -137,7 +137,7 @@ in base alla richiesta effettuata corrisponde un esito e uno stato successivo, a
 > | y | w3 (y)|
 > | z | w2 (z)|
 > 
-> 2. scriviamo i [[transazioni#legge da / scrittura finale | legge da]]: r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)<u>w2(z)</u>w1(y)<u>r1(z)</u>w3(y)
+> 2. scriviamo i [[general#legge da / scrittura finale| legge da]]: r1(x)r1(y)r2(y)r3(y)w2(x)r1(z)<u>w2(z)</u>w1(y)<u>r1(z)</u>w3(y)
 > - r1(z) legge da w2(z)
 > 
 > 3. per ogni transazione scriviamo le operazioni che fanno:

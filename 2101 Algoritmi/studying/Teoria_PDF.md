@@ -1,3 +1,7 @@
+# Appunti di Algoritmi (Teoria)
+Made by [Matteo Galletta](https://github.com/MatteoGalletta/university), A.A. 2023/2024
+
+---
 ## Algoritmi di ordinamento
 
 Un problema di ottimizzazione è un problema che ammette più soluzioni

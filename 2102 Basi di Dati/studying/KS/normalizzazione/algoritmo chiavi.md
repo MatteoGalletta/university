@@ -48,7 +48,7 @@ $$
 se $X^+$ è uguale a tutti gli attributi, allore è chiave.
 altrimenti, come in questo caso, calcolo la seguente formula:
 $$
-Y-X^+=\{B,C\}-\{A\}=Z
+Y-X^+=\{B,C\}-\{A\}=\{B,C\}=Z
 $$
 
 aggiungo a cand i nuovi candidati:
