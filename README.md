@@ -1,4 +1,4 @@
-#### [Checkout the web version](https://matteogalletta.github.io/university-deploy) 
+# [Checkout the web version](https://matteogalletta.github.io/university-deploy) 
 Powered by [Quartz](https://quartz.jzhao.xyz/). Only contains `md` files. It's not perfect since some LaTeX expressions are broken but it still should be better than the bare GitHub viewer.
 
 ---

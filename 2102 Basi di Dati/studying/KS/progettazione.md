@@ -3,7 +3,7 @@ Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 ## gerarchie entità
 dette anche ISA (x is a y)
 - "t" totale: ogni istanza del padre deve appartenere ad una delle figlie
-- "nt" non totale: ogni istanza del padre può non appartenere
+- "nt" non totale: ogni istanza del padre può non appartenere ad una delle figlie
 - "e" esclusiva: ogni istanza del padre può appartenere ad una solo delle figlie
 - "ne" non esclusiva: ogni istanza del padre può appartenere a più istanze
 

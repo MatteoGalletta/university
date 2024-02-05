@@ -432,7 +432,7 @@ Definiamo una funzione ausiliaria: $h':U \to \{0,1,\dots,m\}$ (può essere imple
 La funzione hash diventa quindi: $h(k, i) = (h'(k) + i) \mod m$
 Prende il nome di **Scan Lineare** (perché appunto una volta presa la posizione $h'(k)$ viene effettuato uno shift di $i$ posizioni).
 Le permutazioni sono però $m$ e non $m!$ come quelle supposte dall'ipotesi dell'hashing uniforme.
-Soffre del problema dell'**agglomerazione primaria**: la probabilità della singola cella si somma con quella delle celle occupate che la precedono. Si creano quindi dei blocchi di celle occupate. [[../exercises/hashTables.txt|Esempio]]
+Soffre del problema dell'**agglomerazione primaria**: la probabilità della singola cella si somma con quella delle celle occupate che la precedono. Si creano quindi dei blocchi di celle occupate. [[hashTables.txt|Esempio]]
 
 ##### Scansione Quadratica
 $h(k, i) = (h'(k)+c\cdot i^{2}) \mod m$
