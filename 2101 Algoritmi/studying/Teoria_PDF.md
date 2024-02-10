@@ -275,7 +275,7 @@ int* countingSort(int* A, int n) {
 
 	for (int i = 1; i < k-h+1; i++)
 		C[i] += C[i-1];
-	
+		
 	int* B = new int[n];
 	for (int i = n - 1; i >= 0; i--) { // scorro A
 		int idx = A[i]-h; // mi chiedo: dove cerco in C la corrispondenza?
@@ -1088,7 +1088,7 @@ In questo caso invece, se esiste un arco che unisce i nodi `A` e `C`, allora è 
      |--C--|
 ```
 
-Quindi, si confronta il tempo di fine visita del nodo nero da visitare con il tempo di inizio visita del nodo attuale. Se il primo è minore del secondo, si tratta di un nodo di attraversamento, viceversa si tratta di un nodo in avanti.
+Quindi, si confronta il tempo di inizio visita del nodo nero da visitare con il tempo di inizio visita del nodo attuale. Se il primo è minore del secondo, si tratta di un nodo di attraversamento, viceversa si tratta di un nodo in avanti.
 ### Ordinamento Topologico
 $$< u_{0}, u_{1}, \dots, u_{n-1} >$$
 Ordina sulla base della topologia:
@@ -1368,7 +1368,7 @@ EXTEND-SHORTEST-PATH(Dn_1, w):
 
 APSP(w, n):
 	D1 = w
-	FOR m=2 TO n:
+	FOR m=2 TO n-1:
 		Dm = EXTEND-SHORTEST-PATH(Dm_1, w)
 	// si potrebbe controllare che non siano presenti cicli con peso negativo come fatto con BF.
 	RETURN D

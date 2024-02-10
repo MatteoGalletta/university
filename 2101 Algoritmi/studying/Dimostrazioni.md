@@ -61,5 +61,7 @@ Di seguito degli appunti per ripassare molto velocemente i passaggi delle varie 
 Si dimostra che un problema gode della proprietà della sottostruttura ottima dimostrando che ipotizzando che non utilizzi un sottoproblema non ottimo si arriva a una contraddizione.
 - Rod-Cut
 - Parentesizzazione Matrici
+- LCS
 
+### Programmazione Greedy
 
