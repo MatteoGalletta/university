@@ -1066,7 +1066,7 @@ Indicheremo con `|--A--|` la rappresentazione del nodo `A` attraverso data inizi
 Non può mai accadere che esistono tempo di inizio e fine di due nodi che non siano contenuti l'uno nell'altro, come ad esempio:
 ```
 |---A---|
-	|---B---|
+    |---B---|
 ```
 
 Il nodo `A` è un predecessore diretto del nodo `B` (è presente quindi un nodo albero che unisce `A` e `B`)

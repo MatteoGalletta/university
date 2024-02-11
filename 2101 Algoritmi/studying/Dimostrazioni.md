@@ -11,6 +11,7 @@ semester: 1
 
 Di seguito degli appunti per ripassare molto velocemente i passaggi delle varie dimostrazioni.
 ### Heap
+
 #### Proprietà Invariante
 #### Build Max-Heap
 **Thm**: "la complessità di BuildMaxHeap è $O(n)$"

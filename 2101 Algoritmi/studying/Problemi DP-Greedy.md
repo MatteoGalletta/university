@@ -36,7 +36,7 @@ $$
 $$
 \pi[i] = k \text{ tale che } dp[i-w_{k}]+v_{k} \text{ è il massimo}
 $$
-### Matrix Parenthesization
+### Matrix Chain Multiplication
 `[1, 5, 8, 3, 24]`
 `1x5 * 5x8 * 8x3 * 3*24`
 $$
