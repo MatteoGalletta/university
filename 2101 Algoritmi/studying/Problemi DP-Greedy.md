@@ -19,12 +19,14 @@ dp[i-1, j-1]+1 \qquad& i,j>0 \,\land\, x_{i}=y_{j} \\
 \end{cases}
 $$
 #### Ricostruzione soluzione
-$$\pi[i,j] = \begin{cases}
+$$
+\pi[i,j] = \begin{cases}
 \text{nil} \qquad& \text{se } i=0 \lor j=0 \\
 \nwarrow \qquad& \text{se } i,j > 0 \land x_{i}=y_{j} \\
 \uparrow \qquad& \text{se } i,j > 0 \land x_{i}\neq y_{j} \,\land\, dp[i-1, j] \geq dp[i, j-1] \\
 \leftarrow \qquad& \text{se } i,j > 0 \land x_{i}\neq y_{j} \,\land\, dp[i-1, j] < dp[i, j-1]
-\end{cases}$$
+\end{cases}
+$$
 ### Rod-Cutting
 $$
 dp[i] = \begin{cases}
