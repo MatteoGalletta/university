@@ -1468,8 +1468,8 @@ In Floyd-Warshall questo non è possibile. Bisogna assicurarsi che il grafo pass
 L'implementazione precedente non salva in `PI` la cronologia dei nodi percorsi. Bisogna quindi modificare l'algoritmo.
 $$
 \pi^{0}[i, j] = \begin{cases}
-i &\text{se } i \neq j \,\lor\, (i, j) \in E \\
-\text{null} &\text{se } i = j \,\land\, (i, j) \not\in E
+i &\text{se } i \neq j \,\land\, (i, j) \in E \\
+\text{null} &\text{se } i = j \,\lor\, (i, j) \not\in E
 \end{cases}
 $$
 
