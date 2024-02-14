@@ -462,7 +462,7 @@ Si prende $k$, si moltiplica per $A$ e si ottiene un numero arbitrariamente gran
 
 A differenza del caso precedente, la scelta di $m$ non influenza l'ipotesi dell'hashing uniforme semplice. Si può quindi considerare $m=2^{p}$ e adattare l'algoritmo per ottimizzarlo.
 Considerando $w$ come il numero di bit della parola della macchina, l'algoritmo diventa:
-$$h(k)=[(S\cdot k)\gg(w-p)] \,\&\, (m-1)$$
+$$h(k)=[(A\cdot k)\gg(w-p)] \,\&\, (m-1)$$
 
 ## RBT
 
