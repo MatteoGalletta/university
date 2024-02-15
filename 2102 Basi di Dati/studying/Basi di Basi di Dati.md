@@ -369,3 +369,8 @@ UNTIL stop_iterating = 1
 
 CLOSE cursor_name;
 ```
+
+Qualora si utilizzasse un `TRIGGER` con clausola `BEFORE`, può essere utile restituire un errore all'utente quando l'input non è valido. Si utilizza quindi quanto segue:
+```
+SIGNAL SQLSTATE ‘00001’ (‘MESSAGGIO DI ERRORE’)
+```

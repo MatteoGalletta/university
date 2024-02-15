@@ -39,7 +39,7 @@ $r_{i}(x)$ legge da $w_j(x)$ in uno schedule S se $w_j$ lo precede e non è pres
 
 ### CSR
 >[!info] azioni in conflitto
->$a_{i}$ è conflitto $a_j$ ($i\neq j$)se operano sullo stesso dato e si trovano in uno dei due casi:
+>$a_{i}$ è conflitto $a_j$ ($i\neq j$) se operano sullo stesso dato e si trovano in uno dei due casi:
 >- read-write
 >- write-write
 >  
