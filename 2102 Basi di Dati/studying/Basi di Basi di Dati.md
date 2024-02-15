@@ -168,8 +168,7 @@ Si usa `SET` per aggiornare i campi NEW, ad esempio:
 CREATE VIEW NomeView(col1, col2) AS
 SELECT ...
 ```
-`col1` e `col2` sono i nomi delle colonne ritornate. Possono essere omesse (verrebbero prese in automatico dai 
-campi del select).
+`col1` e `col2` sono i nomi delle colonne ritornate. Possono essere omesse (verrebbero prese in automatico dai campi del select).
 
 `WITH CHECK OPTION` fa controllare in fase di inserimento all'interno della view che vengano rispettate le condizioni del `WHERE`.
 ### Check
