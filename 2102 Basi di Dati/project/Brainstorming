@@ -1,0 +1,40 @@
+Ecco la traccia di progetto.
+Gestione di un Centro di Adozione Animali:
+Progettare un sistema per la gestione di un centro di adozione animali, includendo informazioni su animali, adozioni, volontari e donazioni. Implementare funzionalità di ricerca avanzata degli animali.
+Questa va completata con ipotesi aggiuntive e ulteriori considerazioni da parte sua.
+
+---Relazione---
+Il progetto consiste nella creazione di una base di dati per ospitare la gestione di un Centro di Adozioni Animali.
+La base di dati deve consentire la gestione del centro includendo informazioni su animali, adozioni, volontari e donazioni.
+Inoltre, la struttura del database prevede la gestione del personale, con relativi orari di lavoro, ruolo e retribuzione (se presente), la gestione di prestazioni, forniture, strutture ospitanti.
+
+---Schema Logico---
+
+I campi con [x] sono attributi ridondanti.
+I campi con [?] sono attributi facoltativi (nullable).
+
+- Razze(Id, Id_Specie, Nome, Descrizione)
+- Specie(Id, Nome)
+- Animali(Id, Nome, Descrizione, DataDiNascita[?], DataDiArrivo[x], Maschio[?], Taglia, Colore, Id_Razza)
+- ImmaginiAnimali(Id, NomeFile, Id_Animale)
+- Utente(Id, Nome, Cognome, CodiceFiscale, DataDiNascita)
+- Adozioni(Id, Id_Utente, Id_Animale, Data)
+- Donazioni(Id, Id_Utente, Importo, Data)
+- Personale(Id, DataAssunzione[?], DataLicenziamento[?], Esterno, StipendioMensile, Id_Utente, Id_Ruolo)
+	[StipendioMensile: può essere 0 se si tratta di un volontario, o di una persona retribuita a prestazione]
+- OrariDiLavoro(Id, Id_Personale, WeekDay, HourFrom, HourTo)
+- Ruolo(Id, Nome)
+	[Nome: veterinario/??]
+- StruttureOspitante(Id, Nome, Dimensioni [Lunghezza, Larghezza, Altezza], Tipo)
+	[Tipo: gabbia/recinto/stanza]
+- CollocamentoAnimali(Id, DataDiArrivo, DataDiUscita[x], Id_Animale, Id_Struttura)
+- Prestazioni(Id, Data, Descrizione, Importo, Note, Id_Personale, Id_Animale[?], Id_Struttura[?])
+- PrestazioniAnimale(Id, Data, Descrizione, Importo, Note, Id_Personale, Id_Animale)
+- PrestazioniStruttura(Id, Data, Descrizione, Importo, Note, Id_Personale, Id_Struttura)
+- UtilizzoProdotti(Id, Quantità, Id_Prestazione, Id_Prodotto)
+- Prodotti(Id, Nome, Descrizione, QuantitàDisponibile)
+- Fornitori(Id, Nome, Indirizzo[?], Email[?], NumeroTelefono[?])
+- Forniture(Id, Importo, Data, Quantità, Id_Prodotto, Id_Fornitore)
+- StoricoSpese(Id, Importo, Descrizione, Tipo, Id_Prestazione[?], Id_Personale[?], Id_Fornitura[?])
+	[una spesa generica come un pagamento di una bolletta di una luce]
+

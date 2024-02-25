@@ -51,6 +51,15 @@ $$
 $$
 \pi[i, j] = k \text{ tale che } dp[i, k]+dp[k+1, j] + m_{i-1}\cdot m_{k}\cdot m_{j} \text{ è il massimo}
 $$
+#### Indici Pseudocodice
+```cpp
+...
+FOR l=2 TO n:
+	FOR i=1 TO n-l+1:
+		j = i + l - 1
+		...
+```
+
 ### Knapsack 0-1
 $$
 dp[n, W] = \begin{cases}

@@ -16,7 +16,7 @@ Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 >"la decomposizione trovata non è l’unica, dipende dall’ordine con cui vengono analizzate le dipendenze"
 
 > [!hint] passaggi
-> ad ogni chiamata si decompone F in 2 sottorelazionicon annessi insiemi di dipendenze funzionali e ricorsivamente si controllano le condizioni BCNF.
+> ad ogni chiamata si decompone F in 2 sottorelazioni con annessi insiemi di dipendenze funzionali e ricorsivamente si controllano le condizioni BCNF.
 > 
 > Sia X->A la dipendenza che viola:
 > $$

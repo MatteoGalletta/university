@@ -371,12 +371,12 @@ Dobbiamo trovare un modo di mettere elementi diversi in posizioni diverse.
 $$h(k, i)\neq h(k, j) \iff i \neq j$$
 La definizione di $h$ diventa
 $$h: U \times \{0, 1, \dots, m-1\} \to \{0, 1, \dots, m-1\}$$
-In altre parole, la funzione $h$, al variare di $i$ deve ritornare una **permutazione** (diversa per ogni chiave). Tale permutazione è detta **ricerca di scansione**.
+In altre parole, la funzione $h$, al variare di $i$ deve ritornare una **permutazione** (diversa per ogni chiave). Tale permutazione è detta **sequenza di scansione**.
 Tutte le permutazione sono $m!$.
 
 **Ipotesi di hashing uniforme**: dato un indice "tentativo" e una chiave, la probabilità che questi ultimi vengano associati a una determinata sequenza di scansione è $\frac{1}{m!}$ (la probabilità è uniformemente distribuita).
 
-> [!hint] Ricerca di scansione
+> [!hint] Sequenza di scansione
 > Posso vedere la funzione $h$ come una funzione che prende in input la chiave e restituisce un'array di $m$ elementi. L'indice $i$ indica l'indice dell'array a cui accedere per ottenere l'indirizzo.
 >
 >**Esempio**: $h(2) \to [1, 5, 0, 3, 2, 4] \qquad h(2,4) \to 2$
@@ -435,14 +435,14 @@ Le permutazioni sono però $m$ e non $m!$ come quelle supposte dall'ipotesi dell
 Soffre del problema dell'**agglomerazione primaria**: la probabilità della singola cella si somma con quella delle celle occupate che la precedono. Si creano quindi dei blocchi di celle occupate. [[hashTables.txt|Esempio]]
 
 ##### Scansione Quadratica
-$h(k, i) = (h'(k)+c\cdot i^{2}) \mod m$
+$h(k, i) = (h'(k)+c\cdot i^{2}) \mod m$ con $c \in \mathbb{R}$.
 Anche qui le permutazioni sono esattamente $m$ per chiave, siamo quindi ancora lontani dall'ipotesi di hashing uniforme.
 Questa scansione soffre del problema dell'**agglomerazione secondaria**: simile a quella primaria ma con effetti inferiori.
 
 ##### Hashing Doppio
 Si utilizzano due funzioni ausiliarie:
-- $h':U \to \{0,1,\dots,m\}$
-- $h'':U \to \{0,1,\dots,m\}$
+- $h':U \to \{0,1,\dots,m-1\}$
+- $h'':U \to \{0,1,\dots,m-1\}$
 La definizione è la seguente: $h(k, i) = (h'(k) + i\cdot h''(k)) \mod m$
 Le permutazioni sono $m^{2}$, che è più accettabile.
 
@@ -462,7 +462,7 @@ Si prende $k$, si moltiplica per $A$ e si ottiene un numero arbitrariamente gran
 
 A differenza del caso precedente, la scelta di $m$ non influenza l'ipotesi dell'hashing uniforme semplice. Si può quindi considerare $m=2^{p}$ e adattare l'algoritmo per ottimizzarlo.
 Considerando $w$ come il numero di bit della parola della macchina, l'algoritmo diventa:
-$$h(k)=[(A\cdot k)\gg(w-p)] \,\&\, (m-1)$$
+$$h(k)=[(kA)\gg(w-p)] \,\&\, (m-1)$$
 
 ## RBT
 
@@ -929,6 +929,7 @@ La programmazione dinamica trasforma l'approccio da Top-Down in Bottom-Up.
 ### Proprietà e passaggi per problemi ricorsivi
 ###### 1. Sotto-struttura ottima
 Il problema è ricorsivo. Per risolvere il problema di ottimizzazione è necessario aver risolto i problemi di ottimizzazione dei sotto-problemi.
+"Data una soluzione ottima a un sotto-problema, se si prende una restrizione del problema, allora le soluzioni di quest'ultimo saranno ottime".
 ###### 2. Definizione ricorsiva ottima
 Definire ricorsivamente una funzione ricorsiva per il calcolo del costo di una soluzione ottima
 ###### 3. Calcolo del costo di una soluzione ottima
@@ -1008,7 +1009,7 @@ Se i cammini presentano un ciclo, questi possono essere infiniti.
 
 Un cammino che non contiene cicli (e quindi nodi duplicati) si dice **semplice**.
 
-*non sono sicuro:* La **BFS** per trovare cammini minimi non è adatta con grafi pesati. Ci potrebbero essere cammini meno costosi con un numero superiore di nodi rispetto ad altri.
+La **DFS** per trovare cammini minimi non è adatta con grafi pesati. Ci potrebbero essere cammini meno costosi con un numero superiore di nodi rispetto ad altri.
 
 La funzione
 $$\delta(u_{i}, u_{j})$$
@@ -1282,11 +1283,11 @@ DIJKSTRA (G, w, s):
 ```
 La complessità è $O(|E|\log |V|+|V|\log |V|)=O((|V|+|E|)\log |V|)$.
 #### Complessità Algoritmi
-| Algoritmo    | Liste        | Matrici      |
-| ------------ | ------------ | ------------ |
-| Dijkstra     | O((V+E) * logV) | O(V^2 * log V) | 
-| Bellman-Ford | O(VE)        | O(V^3)       |
-| Dag-SP       | O(V+E)       | O(V^2)       |
+| Algoritmo    | Liste           | Matrici        |
+| ------------ | --------------- | -------------- |
+| Dijkstra     | O((V+E) * logV) | O(V^2 * logV) |
+| Bellman-Ford | O(VE)           | O(V^3)         |
+| Dag-SP       | O(V+E)          | O(V^2)         |
 
 ### APSP
 **All Pairs Shortest Path**
@@ -1336,7 +1337,7 @@ Indichiamo con $m$ la lunghezza massima di un cammino minimo.
 Indichiamo con $\delta^{m}(i, j)$ il cammino minimo da $i$ a $j$ di lunghezza al massimo $m$.
 In tutti i grafi vale
 $$\delta(i, j) = \delta^{|V|-1}(i, j) \quad \forall\, i,j \in V$$
-in quanto in un cammino minimo non può essere più lungo di $|V|-1$ archi (stesso ragionamento utilizzato in [[2023-12-12 - label correcting#Algoritmo di Bellman Ford|Bellman Ford]]). Se si ottiene un cammino minimo inferiore anche un numero di archi superiore, vuol dire che sono presenti cicli con peso negativo.
+in quanto in un cammino minimo non può essere più lungo di $|V|-1$ archi (stesso ragionamento utilizzato in [[2023-12-12 - label correcting#Algoritmo di Bellman Ford|Bellman Ford]]). Se si ottiene un cammino minimo inferiore con un numero di archi superiore, vuol dire che sono presenti cicli con peso negativo.
 
 $$D^{1}=w\to D^{2}\to \dots \to D^{V-1}$$
 dove $w$ è la matrice che rappresenta i pesi del grafo (e quindi il grafo vero e proprio).
@@ -1421,7 +1422,7 @@ Se non esistono cicli di peso negativo, $D^{11} = D^{16}$.
 
 #### Algoritmo di Floyd-Warshall
 A differenza del metodo della moltiplicazione delle matrici, la dimensione non è più data dalla lunghezza del cammino, bensì dai **nodi intermedi che possono essere coinvolti in un cammino minimo**.
-Per nodo intermedio si intende, dato un cammino, l'insieme dei nodi che non comprendono nodo iniziale e nodo finale.
+Per nodo intermedio si intende, dato un cammino, l'insieme dei nodi che non sono nodo iniziale e nodo finale.
 Tale numero lo chiamiamo $n$.
 
 Sia $V$ l'insieme dei nodi del grafo.
@@ -1504,3 +1505,22 @@ FLOYD-WARSHALL(w, n):
 
 
 *facendo gli esercizi "a mano", se $D[i,m]$ o $D[m, j]$ contiene più infinito, l'intera riga o colonna può essere ricopiata direttamente*
+
+```
+PRINT-SINGLE-SOURCE-SHORTEST-PATH(PI, s, i):
+	IF s == i:
+		PRINT s
+	ELSE IF PI[i] == nil:
+		PRINT "no path"
+	ELSE:
+		PRINT-SINGLE-SOURCE-SHORTEST-PATH(PI, s, PI[i])
+		PRINT i
+PRINT-ALL-PAIRS-SHORTEST-PATH(PI, i, j):
+	IF i == j:
+		PRINT i
+	ELSE IF PI[i, j] == nil:
+		PRINT "no path"
+	ELSE:
+		PRINT-SHORTEST-PATH(PI, i, PI[i, j])
+		PRINT j
+```
