@@ -1,4 +1,6 @@
 
+USE CentroAdozioneAnimali;
+
 INSERT INTO Specie (Id, Nome) VALUES
 	(1, 'Cane'),
 	(2, 'Gatto'),
@@ -40,7 +42,7 @@ INSERT INTO Animali (Id, Nome, Descrizione, DataDiNascita, Maschio, Taglia, Colo
 	(2, 'Rex', 'Persiano adorabile e coccolone', '2020-01-15', FALSE, 'piccola', 'bianco', 6),
 	(3, 'Luna', 'Gatto nero con occhi verdi', '2018-09-20', FALSE, 'piccola', 'nero', 2),
 	(4, 'Charlie', 'Coniglio dal pelo riccio e affettuoso', '2021-03-02', TRUE, 'piccola', 'marrone', 5),
-	(5, 'Nemo', 'Pesce rosso vivace e facile da mantenere', '2020-07-08', NULL, NULL, 'rosso', 9),
+	(5, 'Nemo', 'Pesce rosso vivace e facile da mantenere', '2020-07-08', NULL, 'piccola', 'rosso', 9),
 	(6, 'Buddy', 'Canarino dal canto melodioso', '2019-11-30', TRUE, 'piccola', 'giallo', 11),
 	(7, 'Lucky', 'Tartaruga russa', '2017-08-12', NULL, 'media', 'verde', 16),
 	(8, 'Molly', 'Hamster cinese molto vivace', '2020-04-25', FALSE, 'piccola', 'grigio', 18),
@@ -49,22 +51,20 @@ INSERT INTO Animali (Id, Nome, Descrizione, DataDiNascita, Maschio, Taglia, Colo
 	(11, 'Bella', 'Cane bulldog affettuoso', '2020-10-10', FALSE, 'media', 'bianco e marrone', 2),
 	(12, 'Toby', 'Cane beagle molto energico', '2019-02-28', TRUE, 'media', 'tricolore', 3),
 	(13, 'Simba', 'Gatto siamese con mantello morbido', '2020-04-12', TRUE, 'media', 'marrone', 7),
-	(14, 'Rocky', 'Pesce Guppy colorato', '2021-01-03', NULL, NULL, 'blu', 10),
+	(14, 'Rocky', 'Pesce Guppy colorato', '2021-01-03', NULL, 'piccola', 'blu', 10),
 	(15, 'Oliver', 'Coniglio olandese nano', '2020-09-08', TRUE, 'piccola', 'bianco e nero', 13),
 	(16, 'Coco', 'Cavia Abissino con pelo corto e riccio', '2019-07-17', FALSE, 'piccola', 'marrone', 15),
 	(17, 'Daisy', 'Hamster siriano molto docile', '2020-03-20', FALSE, 'piccola', 'arancione', 17),
 	(18, 'Spike', 'Tartaruga acquatica', '2016-06-25', TRUE, 'media', 'marrone', 20),
-	(19, 'Sunny', 'Iguana albina', '2018-11-14', TRUE, 'media', 'bianco', 23),
-	(20, 'Kiwi', 'Pappagallo dalle dimensioni medie', '2019-04-30', FALSE, 'media', 'verde', 24),
+	(19, 'Sunny', 'Iguana albina', '2018-11-14', TRUE, 'media', 'bianco', 22),
+	(20, 'Kiwi', 'Pappagallo dalle dimensioni medie', '2019-04-30', FALSE, 'media', 'verde', 21),
 	(21, 'Bailey', 'Cane chihuahua adorabile', '2021-07-05', TRUE, 'piccola', 'bianco', 5),
 	(22, 'Milo', 'Cane poodle dall''aspetto elegante', '2020-08-22', TRUE, 'media', 'grigio', 4),
 	(23, 'Ziggy', 'Gatto Maine Coon di grande taglia', '2019-10-11', TRUE, 'grande', 'nero', 8),
 	(24, 'Lola', 'Coniglio rex con pelo riccio', '2018-04-27', FALSE, 'piccola', 'grigio', 14),
 	(25, 'Speedy', 'Cavia peruviana con pelo lungo', '2021-02-14', TRUE, 'piccola', 'bianco e marrone', 16),
 	(26, 'Rosie', 'Hamster cinese molto curioso', '2020-06-09', FALSE, 'piccola', 'marrone', 18),
-	(27, 'Turbo', 'Tartaruga gigante', '2015-09-30', TRUE, 'grande', 'verde scuro', 19),
-	(28, 'Spike', 'Iguana verde e marrone', '2017-12-18', TRUE, 'media', 'verde e marrone', 21),
-	(29, 'Ruby', 'Pappagallo rosso', '2019-08-03', FALSE, 'media', 'rosso', 22);
+	(27, 'Turbo', 'Tartaruga gigante', '2015-09-30', TRUE, 'grande', 'verde scuro', 19);
 
 INSERT INTO ImmaginiAnimali (Id, NomeFile, Id_Animale) VALUES
     (1, 'immagine1.jpg', 1),
@@ -123,9 +123,9 @@ INSERT INTO Adozioni (Id_Utente, Id_Animale, Data) VALUES
 	(10, 25, '2023-05-07'),
 	(11, 26, '2023-05-12'),
 	(12, 27, '2023-05-17'),
-	(13, 28, '2023-05-22'),
-	(14, 29, '2023-05-27'),
-	(15, 1, '2023-06-01');
+	(13, 1, '2023-05-22'),
+	(14, 2, '2023-05-27'),
+	(15, 3, '2023-06-01');
 
 INSERT INTO Donazioni (Id, Id_Utente, Importo, Data) VALUES
 	(1, 1, 50.00, '2023-01-05'),
@@ -143,7 +143,7 @@ INSERT INTO Donazioni (Id, Id_Utente, Importo, Data) VALUES
 	(13, 13, 55.00, '2023-03-08'),
 	(14, 14, 110.00, '2023-03-13'),
 	(15, 15, 70.00, '2023-03-18'),
-	(16, 1, 30.00, '2023-05-22');
+	(16, 1, 30.00, '2023-05-22'),
 	(17, 2, 85.00, '2023-03-23'),
 	(18, 3, 95.00, '2023-03-28'),
 	(19, 4, 105.00, '2023-04-02'),
@@ -179,21 +179,7 @@ INSERT INTO Personale (Id, DataAssunzione, DataLicenziamento, Esterno, Stipendio
 	(12, '2022-06-15', NULL, FALSE, 2200.00, 12, 2),
 	(13, '2022-07-01', NULL, FALSE, 2000.00, 13, 3),
 	(14, '2022-07-15', NULL, FALSE, 2300.00, 14, 4),
-	(15, '2022-08-01', NULL, FALSE, 2500.00, 15, 5),
-	(16, '2022-08-15', NULL, FALSE, 2600.00, 16, 1),
-	(17, '2022-09-01', NULL, FALSE, 2300.00, 17, 2),
-	(18, '2022-09-15', NULL, FALSE, 2100.00, 18, 3),
-	(19, '2022-10-01', NULL, FALSE, 2400.00, 19, 4),
-	(20, '2022-10-15', NULL, FALSE, 2200.00, 20, 5),
-	(21, '2022-11-01', NULL, FALSE, 2000.00, 21, 1),
-	(22, '2022-11-15', NULL, FALSE, 1900.00, 22, 2),
-	(23, '2022-12-01', NULL, FALSE, 1800.00, 23, 3),
-	(24, '2022-12-15', NULL, FALSE, 1700.00, 24, 4),
-	(25, '2023-01-01', NULL, FALSE, 1600.00, 25, 5),
-	(26, '2023-01-15', NULL, FALSE, 2200.00, 26, 1),
-	(27, '2023-02-01', NULL, FALSE, 2000.00, 27, 2),
-	(28, '2023-02-15', NULL, FALSE, 2100.00, 28, 3),
-	(29, '2023-03-01', NULL, FALSE, 2300.00, 29, 4);
+	(15, '2022-08-01', NULL, FALSE, 2500.00, 15, 5);
 
 INSERT INTO OrariDiLavoro (Id, Id_Personale, WeekDay, HourFrom, HourTo) VALUES
 	(1, 1, 1, 8, 17),
@@ -218,14 +204,14 @@ INSERT INTO StruttureOspitanti (Id, Nome, Lunghezza, Larghezza, Altezza, Tipo) V
 	(3, 'Stanza 3', 700, 500, 300, 'stanza'),
 	(4, 'Stanza 4', 500, 800, 300, 'stanza'),
 	(5, 'Stanza 5', 400, 400, 450, 'stanza'),
-	(6, 'Cortile A', 3400, 1300, 300, 'cortile'),
-	(7, 'Cortile B', 1200, 1800, 300, 'cortile'),
-	(8, 'Cortile retro', 1400, 1500, 300, 'cortile'),
+	(6, 'Recinto A', 3400, 1300, 300, 'recinto'),
+	(7, 'Recinto B', 1200, 1800, 300, 'recinto'),
+	(8, 'Recinto retro', 1400, 1500, 300, 'recinto'),
 	(9, 'Gabbia interna', 400, 300, 200, 'gabbia'),
 	(10, 'Gabbia grande', 400, 300, 200, 'gabbia'),
 	(11, 'Gabbia alta', 400, 300, 200, 'gabbia');
 	
-INSERT INTO CollocamentoAnimali (DataDiArrivo, DataDiAdozione, Id_Animale, Id_Struttura) VALUES
+INSERT INTO CollocamentoAnimali (Id, DataDiArrivo, DataDiAdozione, Id_Animale, Id_Struttura) VALUES
 	(1, '2023-03-01', '2023-03-01', 1, 1),
 	(2, '2023-05-01', '2023-05-01', 2, 2),
 	(3, '2023-07-01', '2023-07-10', 3, 3),
@@ -245,10 +231,10 @@ INSERT INTO CollocamentoAnimali (DataDiArrivo, DataDiAdozione, Id_Animale, Id_St
 	(17, '2023-01-01', NULL, 17, 8),
 	(18, '2023-02-01', NULL, 18, 8),
 	(19, '2023-02-01', NULL, 19, 9),
-	(20, '2023-02-01', NULL, 20, 10),
-	(21, '2023-03-01', NULL, 21, 11),
-	(22, '2023-08-01', NULL, 22, 12),
-	(23, '2023-03-01', NULL, 23, 13);	
+	(20, '2023-02-01', NULL, 20, 6),
+	(21, '2023-03-01', NULL, 21, 6),
+	(22, '2023-08-01', NULL, 22, 7),
+	(23, '2023-03-01', NULL, 23, 7);	
 
 INSERT INTO Prestazioni (Id, Data, Descrizione, Importo, Note, PrestazioneAnimale, Id_Personale) VALUES
 	(1, '2023-03-01', 'Controllo veterinario', 0, '', TRUE, 1),
@@ -287,7 +273,7 @@ INSERT INTO AnimaliPrestazione (Id, Id_Prestazione, Id_Animale) VALUES
 	(15, 10, 10),
 	(16, 11, 9);
 
-INSERT INTO StrutturePrestazione (Id, Id_Prestazione, Id_Animale) VALUES
+INSERT INTO StrutturePrestazione (Id, Id_Prestazione, Id_Struttura) VALUES
 	(1, 16, 1),
 	(2, 16, 2),
 	(3, 16, 3),
@@ -331,7 +317,7 @@ INSERT INTO Fornitori (Id, Nome, Indirizzo, Email, NumeroTelefono) VALUES
 	(9, 'Whiskers & Paws Enterprises', '123 Pet Street, Sydney, Australia', 'info@whiskersandpaws.com.au', '+61 2 8765 4321'),
 	(10, 'Purrfect Pets Co.', '4 Meow Lane, Tokyo, Japan', 'info@purrfectpets.co.jp', '+81 3 4567 8901');
 
-INSERT INTO Forniture (Id, Importo, Data, Id_Prodotto, Id_Fornitura, Quantita) VALUES
+INSERT INTO Forniture (Id, Importo, Data, Id_Prodotto, Id_Fornitore, Quantita) VALUES
 	(1, 50.00, '2024-02-01', 1, 1, 10),
 	(2, 30.00, '2024-02-03', 2, 2, 20),
 	(3, 20.00, '2024-02-05', 3, 3, 15),
