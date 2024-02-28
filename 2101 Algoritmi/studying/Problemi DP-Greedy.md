@@ -44,19 +44,19 @@ $$
 $$
 dp[i,j] = \begin{cases}
 0 &\text{se } i=j \\
-\max\limits_{1\leq k<j}(dp[i, k]+dp[k+1, j] + m_{i-1}\cdot m_{k}\cdot m_{j})  &\text{se } i< j
+\min\limits_{1\leq k<j}(dp[i, k]+dp[k+1, j] + m_{i-1}\cdot m_{k}\cdot m_{j})  &\text{se } i< j
 \end{cases}
 $$
 #### Ricostruzione soluzione
 $$
-\pi[i, j] = k \text{ tale che } dp[i, k]+dp[k+1, j] + m_{i-1}\cdot m_{k}\cdot m_{j} \text{ è il massimo}
+\pi[i, j] = k \text{ tale che } dp[i, k]+dp[k+1, j] + m_{i-1}\cdot m_{k}\cdot m_{j} \text{ è il minimo}
 $$
 #### Indici Pseudocodice
 ```cpp
 ...
 FOR l=2 TO n:
 	FOR i=1 TO n-l+1:
-		j = i + l - 1
+		j=i+l-1
 		...
 ```
 

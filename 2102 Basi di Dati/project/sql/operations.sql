@@ -5,11 +5,11 @@ FROM Animali a
 JOIN Razze r ON r.Id = a.Id_Razza
 JOIN Specie s ON s.Id = r.Id_Specie
 WHERE
-	s.Nome LIKE '%cane%' AND
-	r.Nome LIKE '%pitbull%' AND
-	a.Colore LIKE '%marrone%' AND
+	LOWER(s.Nome) LIKE '%cane%' AND
+	LOWER(r.Nome) LIKE '%pitbull%' AND
+	LOWER(a.Colore) LIKE '%marrone%' AND
 	a.Taglia IN ('piccola', 'media') AND
-	DATEDIFF(a.DataDiNascita, CURDATE()) AS 'Years' <= 5;
+	(DATEDIFF(a.DataDiNascita, CURDATE()) AS 'Years' <= 5 OR a.DataDiNascita IS NULL);
 
 --- Op. 2 Ottenere gli animali arrivati da più di un determinato numero di giorni ---
 -- (in questo caso un gatto arrivato da più di 6 mesi)
@@ -33,15 +33,14 @@ WHERE EXISTS (
 SELECT p.*
 FROM Personale p
 JOIN OrarioDiLavoro odl ON odl.Id_Persona = p.Id
-WHERE odl.WeekDay = 4 AND CURTIME() BETWEEN odl.HourFrom AND odl.HourTo;
+WHERE odl.WeekDay = WEEKDAY(CURDATE()) AND CURTIME() BETWEEN odl.HourFrom AND odl.HourTo;
 
---- Op. 4 Individuare il numero medio di persone che dona mensilmente ---
-SELECT AVG(c) AS 'Numero medio di persone che dona mensilmente'
-FROM (
-	SELECT COUNT(d.Id_Utente) AS c
-	FROM Donazioni d
-	GROUP BY MONTH(d.Data)
-);
+--- Op. 4 Individuare il numero di animali disponibili di una determinata razza ---
+-- (in questo caso i pitbull disponibili)
+SELECT COUNT(*)
+FROM Animali a
+JOIN Razze r ON a.Id = a.Id_Razza
+WHERE LOWER(r.Nome) LIKE '%pitbull%'
 
 --- Op. 5 Individuare il ricavo medio mensile derivato da donazioni ---
 SELECT AVG(c) AS 'Ricavo medio mensile da donazioni'
@@ -59,13 +58,10 @@ FROM (
 	GROUP BY MONTH(d.Data)
 );
 
---- Op. 7 Ottenere la disponibilità finanziaria attuale ---
-SELECT (
-	SELECT SUM(d.Importo)
-	FROM Donazioni d
-) - (
-	SELECT SUM(ss.Importo)
-	FROM StoricoSpese ss
-) AS 'Disponibilità attuale';
+--- Op. 7 Inserimento di un animale ---
+INSERT INTO Animale (Nome, Maschio, Taglia, Colore, Id_Razza) VALUES
+('Tino', 1, 'piccola', 'nero', 1);
 
+--- Op. 8 Effettuare il pagamento degli stipendi ai dipendenti ---
+CALL PagaStipendiInStoricoSpese();
 

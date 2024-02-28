@@ -27,7 +27,7 @@ CREATE TABLE Animali (
     Id_Razza INT NOT NULL,
     FOREIGN KEY (Id_Razza) REFERENCES Razze(Id),
     
-    CHECK Taglia IN ('piccola', 'media', 'grande')
+    CHECK (Taglia IN ('piccola', 'media', 'grande'))
 );
 
 CREATE TABLE ImmaginiAnimali (
@@ -46,10 +46,10 @@ CREATE TABLE Utenti (
 );
 
 CREATE TABLE Adozioni (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
     Id_Utente INT NOT NULL,
     Id_Animale INT NOT NULL,
     Data DATE NOT NULL,
+    PRIMARY KEY (Id_Utente, Id_Animale),
     FOREIGN KEY (Id_Utente) REFERENCES Utenti(Id),
     FOREIGN KEY (Id_Animale) REFERENCES Animali(Id)
 );
@@ -75,7 +75,7 @@ CREATE TABLE Personale (
     StipendioMensile DECIMAL(10, 2) NOT NULL DEFAULT 0,
     Id_Utente INT NOT NULL,
     Id_Ruolo INT NOT NULL,
-    FOREIGN KEY (Id_Utenti) REFERENCES Utenti(Id),
+    FOREIGN KEY (Id_Utente) REFERENCES Utenti(Id),
     FOREIGN KEY (Id_Ruolo) REFERENCES Ruoli(Id)
 );
 
@@ -87,6 +87,7 @@ CREATE TABLE OrariDiLavoro (
     HourTo TIME NOT NULL,
     FOREIGN KEY (Id_Personale) REFERENCES Personale(Id),
     CHECK (HourFrom < HourTo)
+    CHECK (WeekDay BETWEEN 1 AND 7)
 );
 
 CREATE TABLE StruttureOspitanti (
@@ -96,7 +97,7 @@ CREATE TABLE StruttureOspitanti (
     Larghezza FLOAT NOT NULL,
     Altezza FLOAT NOT NULL,
     Tipo VARCHAR(20) NOT NULL,
-    CHECK Tipo IN ('gabbia', 'recinto', 'stanza')
+    CHECK (Tipo IN ('gabbia', 'recinto', 'stanza'))
 );
 
 CREATE TABLE CollocamentoAnimali (
@@ -159,8 +160,8 @@ CREATE TABLE Forniture (
     Id_Fornitore INT NOT NULL,
     Quantita INT NOT NULL,
     FOREIGN KEY (Id_Prodotto) REFERENCES Prodotti(Id),
-    FOREIGN KEY (Id_Fornitore) REFERENCES Fornitori(Id)
-    CHECK Quantita > 0
+    FOREIGN KEY (Id_Fornitore) REFERENCES Fornitori(Id),
+    CHECK (Quantita > 0)
 );
 
 CREATE TABLE UtilizzoProdotto (
@@ -168,20 +169,23 @@ CREATE TABLE UtilizzoProdotto (
     Quantita INT NOT NULL,
     Id_Prestazione INT NOT NULL,
     Id_Prodotto INT NOT NULL,
-    FOREIGN KEY (Id_Prestazione) REFERENCES Prestazione(Id),
-    FOREIGN KEY (Id_Prodotto) REFERENCES Prodotto(Id)
+    FOREIGN KEY (Id_Prestazione) REFERENCES Prestazioni(Id),
+    FOREIGN KEY (Id_Prodotto) REFERENCES Prodotti(Id)
 );
 
 CREATE TABLE StoricoSpese (
     Id INT AUTO_INCREMENT PRIMARY KEY,
+    Data DATE NOT NULL,
     Importo DECIMAL(10, 2) NOT NULL,
-    Descrizione TEXT NOT NULL
-    Tipo ENUM('prestazione', 'stipendio', 'fornitura', 'altro') NOT NULL,
+    Descrizione TEXT NOT NULL,
+    Tipo VARCHAR(15) NOT NULL,
     Id_Prestazione INT,
     Id_Personale INT,
     Id_Fornitura INT,
-    FOREIGN KEY (Id_Prestazione) REFERENCES Prestazione(Id),
-    FOREIGN KEY (Id_Persona) REFERENCES Persona(Id),
-    FOREIGN KEY (Id_Fornitura) REFERENCES Fornitura(Id)
+    FOREIGN KEY (Id_Prestazione) REFERENCES Prestazioni(Id),
+    FOREIGN KEY (Id_Personale) REFERENCES Personale(Id),
+    FOREIGN KEY (Id_Fornitura) REFERENCES Forniture(Id),
+    
+    CHECK (Tipo IN ('prestazione', 'stipendio', 'fornitura', 'altro'))
 );
 
