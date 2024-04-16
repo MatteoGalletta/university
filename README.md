@@ -29,4 +29,4 @@ I take this opportunity to share it since I'm proud of how it came out. Feel fre
 
 ### Contribution
 
-I'm open to errors reports, if you find any I'll correct them as soon as possible.
+I'm open to errors reports, if you find any I'd be happy to correct.
