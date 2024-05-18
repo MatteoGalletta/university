@@ -13,7 +13,7 @@ The markdown files have been written using Obsidian; to properly render all the 
 
 I've written everything just for myself (just to study), didn't really plan to make all of this public.
 
-The main reason I'm choosing to share this material is that some people has asked me to send them some subjects' content. Having this space allows me to redirect them in this repository instead of zippping and sending the files or folders individually.
+The main reason I'm choosing to share this material is that some people has asked me to send them some subjects' content. Having this space allows me to redirect them in this repository instead of zipping and sending the files or folders individually.
 
 ### Folders Structure
 
