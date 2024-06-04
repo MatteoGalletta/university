@@ -1,3 +1,4 @@
+Gentilmente offerto da [Kevin Speranza](https://github.com/kespers).
 > [!hint] attensions
 > begin: B(T)
 > insert: I(T,O,AS)
