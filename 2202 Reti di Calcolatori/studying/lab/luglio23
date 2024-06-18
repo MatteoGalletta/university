@@ -1,0 +1,36 @@
+149.54.0.0/16
+
+Assumo che ci sia un router aggiuntivo tra Router a Server.
+
+--- Networks ---
+LAN 1
+	149.54.0.0/22
+
+LAN 2
+	149.54.4.0/22
+
+LAN 3
+	149.54.8.0/22
+
+LAN R
+	149.54.12.0/30
+
+
+--- Hosts ---
+[LAN 1]: Client 1
+	- Address: 149.58.0.100/22
+	- Gateway: 149.58.0.1
+[LAN 2]: Client 2
+	- Address: 149.58.4.100/22
+	- Gateway: 149.58.4.1
+[LAN 3]: Server
+	- Address: 149.58.8.100/22
+	- Gateway: 149.58.8.1
+Router A
+	- enp0s8: 149.58.0.1/22	[LAN 1]
+	- enp0s9: 149.58.4.1/22	[LAN 2]
+	- enp0s10: 149.58.12.1/30 [LAN R]
+Router B
+	- enp0s8: 149.58.12.2/30 [LAN R]
+	- enp0s9: 149.58.8.1/22 [LAN 3]
+

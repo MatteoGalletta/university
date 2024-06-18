@@ -16,6 +16,9 @@ semester: 2
 - il bit di scrittura, se 0, in caso di scrittura viene sempre fatto COW?
 - vedere come funzionano i file (esempio: come si capisce se il flusso è finito?)
 
+- Vedere meglio gli slab allocator
+- Vedere Memory Management: Implementation Issues (pg 179 pdf Tanenbaum)
+
 VEDI PARAGRAFO PRIMA COW
 per curiosità:
 - vedere elenco di tutte le syscall
