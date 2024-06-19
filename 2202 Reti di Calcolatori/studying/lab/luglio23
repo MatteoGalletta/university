@@ -33,4 +33,3 @@ Router A
 Router B
 	- enp0s8: 149.58.12.2/30 [LAN R]
 	- enp0s9: 149.58.8.1/22 [LAN 3]
-
