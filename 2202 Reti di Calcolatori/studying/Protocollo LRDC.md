@@ -59,7 +59,7 @@ Router B
 
 Convenzione nodi in IPv4 (se la rete è abbastanza grande):
 - `.100`, `.101`,  `...` sono gli host
-- `.1`, `.2`,  `...`, `.99` sono i router (nelle LAN tra router, ci sono più router)
+- `.1`, `.2`,  `...` sono i router (nelle LAN tra router, ci sono più router)
 
 Convenzione nodi in IPv6:
 - non prevista
@@ -81,8 +81,8 @@ LAN 1 (5000 host)
 	[:0001 1111 1111 1111] -> 3:1::1FFF
 
 	Ottengo intervallo utilizzabile (escludo primo e ultimo indirizzo)
-	[:0000 0000 0000 000E] -> 3:1::1
-	[:0001 1111 1111 111E] -> 3:1::1FFE
+	[:0000 0000 0000 0001] -> 3:1::1
+	[:0001 1111 1111 1110] -> 3:1::1FFE
 
 LAN 2 (2046 host)
 	Mi servono 11 bit
