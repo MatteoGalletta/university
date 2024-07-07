@@ -126,10 +126,20 @@ int main(int argc, char** argv) {
 	
 	srand(time(NULL));
 
-	shared_data shared;
-	
 	long n = atoi(argv[1]);
 	long m = atoi(argv[2]);
+	
+	shared_data shared;
+	shared.state = WAITING_EXTRACTION;
+	
+	if (pthread_mutex_init(&shared.mutex, NULL))
+		exit_with_err_msg("pthread_mutex_init");
+	if (pthread_cond_init(&shared.cond_wait_extraction, NULL))
+		exit_with_err_msg("pthread_cond_init");
+	if (pthread_cond_init(&shared.cond_wait_check, NULL))
+		exit_with_err_msg("pthread_cond_init");
+	if (pthread_barrier_init(&shared.barrier_check_done, NULL, n) != 0)
+		exit_with_err_msg("pthread_barrier_init");
 	
 	printf("D: ci saranno %d giocatori con %d card ciascuno\n", n, m);
 
@@ -152,15 +162,6 @@ int main(int argc, char** argv) {
 	random_fill_numbers(deck);
 	
 	
-	if (pthread_mutex_init(&shared.mutex, NULL))
-		exit_with_err_msg("pthread_mutex_init");
-	if (pthread_cond_init(&shared.cond_wait_extraction, NULL))
-		exit_with_err_msg("pthread_cond_init");
-	if (pthread_cond_init(&shared.cond_wait_check, NULL))
-		exit_with_err_msg("pthread_cond_init");
-	if (pthread_barrier_init(&shared.barrier_check_done, NULL, n) != 0)
-		exit_with_err_msg("pthread_barrier_init");
-	
 	bool isPlaying = true;
 	while (isPlaying) {
 		int random_number = extract_random_number(deck, &deck_size);
@@ -169,6 +170,8 @@ int main(int argc, char** argv) {
 		}
 		
 		pthread_mutex_lock(&shared.mutex);
+		
+		pthread_cond_broadcast(&shared.cond_wait_extraction);
 		
 		shared.last_extracted_number = random_number;
 		shared.state = WAITING_EXTRACTION;
