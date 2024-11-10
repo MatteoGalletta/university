@@ -23,8 +23,8 @@ N.B.
 dato un vettore $v$ ^58131f
 $$
 \begin{cases}
-v_{x}=\cos \alpha \\
-v_{y}=\sin \alpha
+v_{x}=v \cdot \cos \alpha \\
+v_{y}=v \cdot \sin \alpha
 \end{cases}
 $$
 
@@ -474,7 +474,7 @@ x(t)\left( -\omega^2+\frac{K}{m} \right) &= 0 \\
 \end{align}
 $$
 quando $x(t)=0$ non interessa.
-a noi interessa risolvere:
+a noi interessa risDall'esperienza sappiamo che la traiettoria percorsa dal filo, formerà un arco della circonferenza, di raggio $r = l$.olvere:
 $$
 \begin{align}
 \left( -\omega^2+\frac{K}{m} \right) &= 0  \\
@@ -551,7 +551,8 @@ $$
 
 
 
-## 4.3 Forza viscosa
+# 5 Forza di attrito
+## 5.1 Forza viscosa
 Primo esempio di forza d'attrito.
 Data una pallina dentro un cilindro che si muove verso il basso a causa della forza peso $\overrightarrow{P}$
 ![[Pasted image 20241109193703.png|200]]
@@ -566,17 +567,17 @@ ma dall'esperienza sappiamo:
 ![[Pasted image 20241109194257.png|500]]
 
 
-Si osserva sperimentalmente che la velocità di un punto materiale in un liquido arriva a una velocità $V_{\text{limite}}$ a $t \to \infty$.
+Si osserva sperimentalmente che la velocità di un punto materiale in un liquido arriva a una velocità $V_{\text{limite}}$ per $t \to \infty$.
 $$
 \overrightarrow{f_{v}} = -\beta \overrightarrow{v}
 $$
 - $\beta$ si chiama **resistenza viscosa**, dipende dal fluido e dalla sua geometria.
-- il segno
-- meno è dato dal verso opposto rispetto a $\overrightarrow{P}$
+- il segno meno è dato dal verso opposto rispetto a $\overrightarrow{P}$
 
 $$
 \begin{align}
-\overrightarrow{P} + \overrightarrow{f_{v}} &= m \cdot \overrightarrow{a}
+\overrightarrow{F} &= m \cdot \overrightarrow{a}\\
+\overrightarrow{P} + \overrightarrow{f_{v}} &= m \cdot \overrightarrow{a}\\
 \\ -mg - \beta v_{y}&= m \cdot a_{y}
 \\ -mg - \beta v_{y}&= m \cdot \frac{d v_{y}}{dt}
 
@@ -589,12 +590,12 @@ v_{y} &= - \frac{mg}{\beta} \\
 |v_{y}| &=  \frac{mg}{\beta}
 \end{align}
 $$
-### 4.3.1 Equazione del moto
+### 5.1.1 Equazione del moto
 Si dimostra matematicamente che vale:
 $$
 \large
 \begin{align}
-v_{y}(t)&=\frac{mg}{\beta}\cdot \left( e^{- \frac{\beta t}{m}}-1 \right) \\
+v_{y}(t)&=\frac{mg}{\beta}\cdot \left( e^{- \frac{\beta t}{m}}-1 \right) & [\text{Axx}] \\
 \frac{d v_{y}}{dt}&=\frac{\cancel{ m }g}{\cancel{ \beta }}\cdot e^{- \frac{\beta t}{m}} \cdot \left(-\frac{\cancel{ \beta }}{\cancel{ m }}\right)  \\
 \frac{d v_{y}}{dt}&= -g \cdot e^{- \frac{\beta t}{m}} \\ \\
 
@@ -611,4 +612,105 @@ l'accelerazione sarà:
 $$
 \overrightarrow{a}=g \cdot e^{-\frac{\beta t}{m}}
 $$
+
+### 5.1.2 Lavoro
+$$
+\begin{align}
+dL &= \overrightarrow{f}_{v} \cdot d \overrightarrow{s} \\ \\
+
+&= -\beta \overrightarrow{v} \cdot d \overrightarrow{s} \\
+&= -\beta \overrightarrow{v} \cdot \underbrace{ \frac{d\overrightarrow{s}}{dt} }_{ \overrightarrow{v} } \cdot dt \\
+&=-\beta \underbrace{ \overrightarrow{v} \cdot \overrightarrow{v}  }_{ v^2 }dt \\ \\
+&=-\underbrace{ \beta v^{2 } }_{ > \, 0 } dt < 0 \\
+ \\
+\implies& L_{v} < 0 \\
+\implies& E_{fin} < E_{in}
+\end{align}
+$$
+
+
+La forza d'attrito è una forza che si oppone al movimento della particella, rallentandone la velocità.
+Vengono dette **dissipative**: dissipano energia cinetica.
+
+## 5.2 Attrito statico
+Quando si applica una forza a un oggetto serve una forza minima per farlo spostare.
+![[Pasted image 20241110102810.png|500]]
+L'attrito con il piano è detto **attrito statico**.
+
+Coefficienti di attrito:
+- $\mu_{s}$: coefficiente di attrito statico, ovvero quello relativo alla forza minima per fare spostare il corpo
+- $\mu_{c}$: coefficiente di attrito cinematico (o dinamico), ovvero quello relativo al rallentamento del corpo in movimento (fino a fermarsi)
+Vale che: $\mu_{c} \leq \mu_{s}$
+I coefficienti di attrito $\mu_{c}, \mu_{s}$ sono compresi tra $[0.1, 1]$
+
+- $\overrightarrow{N}$: Reazione vincolare o normale, ovvero la forza sviluppata dal piano
+- $\overrightarrow{P}$: Forza peso 
+- $\overrightarrow{F}_{max}$: Forza di attrito massima che superata fa spostare il corpo
+	- $F_{max} = \mu_{s} N$
+- $\overrightarrow{F_{A}}$: Forza applicata
+- $\overrightarrow{F_{a}}$ o $\overrightarrow{F}_{t}$ o $\overrightarrow{F}_{\text{CRITICA}}$: Forza di attrito / forza critica.
+	- Finché $\overrightarrow{F}_{max} \leq F_{A} \implies \overrightarrow{F}_{A} = -\overrightarrow{F}{a}$
+
+Il corpo è in quiete, quindi vuol dire che:
+- Le forze verticali si annullano: $\overrightarrow{N} - \overrightarrow{P} = 0 \implies N = m g$
+- Le forze orizzontali si annullano: $\overrightarrow{F}_{A} < \overrightarrow{F}_{max}$
+
+## 5.3 Attrito cinematico (o dinamico)
+![[Pasted image 20241110110118.png|200]]
+Vale che:
+$$
+\overrightarrow{F}_{a}=- \mu_{c} \cdot N \cdot \hat{v}
+$$
+### 5.3.1 Lavoro
+come la dimostrazione della [[#5.1.2 Lavoro|forza viscosa]]
+$$
+\begin{align}
+dL &= \overrightarrow{F}_{a \\} \cdot d \overrightarrow{s} \\ \\
+
+&= - \mu_{c} \cdot N \cdot \hat{v} \cdot d \overrightarrow{s} \\
+&= - \mu_{c} \cdot N \cdot \hat{v} \cdot \underbrace{ \frac{d\overrightarrow{s}}{dt} }_{ \overrightarrow{v} } \cdot dt \\
+&=- \mu_{c} \cdot N \cdot  \underbrace{ \hat{v} \cdot \overrightarrow{v}  }_{ \frac{v^2}{v}=v }dt\\ \\
+&=-\underbrace{ \mu_{c} \cdot N \cdot  v \, }_{ > \, 0 } dt < 0 \\
+ \\
+\implies& L_{a} < 0 \\
+\implies& E_{fin} < E_{in}
+\end{align}
+$$
+
+
+# 6 Pendolo
+Un oggetto puntiforme $P$ di massa $m$ è sospeso a un filo inestensibile, di massa trascurabile e flessibile di lunghezza $l$.
+![[Pasted image 20241110123339.png|400]]
+- $l$: lunghezza del filo inestensibile
+
+Si scompongono le componenti delle forze.
+Consideriamo il nostro piano:
+- asse X: coincide con $l$
+- asse Y: coincide con la circonferenza
+
+Per studiare il moto si pongono le seguenti equazioni sulle due assi
+- asse perpendicolare: $\tau - mg \cos \theta = 0 \implies \tau = mg \cos \theta$
+	- Ponendo $\theta = 0$ possiamo semplificare: $\tau = mg$
+- asse parallela: dall'esperienza sappiamo che la traiettoria percorsa dal filo, formerà un arco della circonferenza, di raggio $r = l$.
+$$
+\begin{align}
+-mg \cdot \sin \theta &= ma \\
+&= m\frac{d^{2}S}{dt^{2}} \\
+&= m\cdot l \frac{d^{2}\theta}{dt^{2}}  &[s=l \cdot \theta] \\
+-g \cdot \sin \theta &= l \frac{d^{2}\theta}{dt^{2}} \\
+\frac{d^{2} \theta}{dt^{2}} + \frac{g}{l} \cdot sin \theta &= 0
+\end{align}
+$$
+
+
+Risolvendo questa equazione trovata troviamo $\theta(t)$.
+La risolveremo tramite una guess come nella [[#4.1 Equazione del moto|forza elastica]].
+
+Si assume che $\theta_{0} \to 0$. Siccome $\sin \theta \approx \theta \quad [\lim_{ x \to 0} \frac{\sin x}{x}=1]$, si prova che:
+
+$$
+\theta(t) = \theta_{0} \cdot \cos (wt) \quad \text{con } w=\sqrt{\frac{g}{l}}
+$$
+
+Il periodo trovato è indipendente dalla massa e dall'angolo $\theta_{0}$ (sperimentalmente si nota che vale fino a $\theta_{0} \approx 10°$)
 
