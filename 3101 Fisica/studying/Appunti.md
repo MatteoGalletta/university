@@ -347,7 +347,7 @@ $$
 ## 3.1 Lavoro durante lo spostamento
 Supponendo che m si sposta da un punto A ad un punto B (allontandosi da M con stessa direzione di $\overrightarrow{d}$ )
 ![[Pasted image 20241109130207.png|300]]
-Si [[3anno/FISICA/lezioni/6.pdf|dimostra]]:
+Si [[3anno/FISICA/lezioni/6.pdf|dimostra]]: (to fix)
 $$
 L_{AB} = \underbrace{ - \frac{Gmm}{d_{A}}+\frac{Gmm}{d_{B}}<0 }_{ d_{B} > d_{A} }
 $$
