@@ -201,11 +201,11 @@ $$
 $$
 
 ### 2.2.1 legge oraria punto materiale su un piano
-da vedere, esotico rn.
-STILL ESOTICO
+da vedere
+#todo
 
-## 2.3 quantità di moto / impulso
-Si dice impulso:
+## 2.3 quantità di moto
+Si dice quantità di moto:
 $$
 \overrightarrow{p}= m \cdot \overrightarrow{v}
 $$
@@ -601,7 +601,7 @@ v_{y}(t)&=\frac{mg}{\beta}\cdot \left( e^{- \frac{\beta t}{m}}-1 \right) & [\tex
 
 \frac{m \cdot d v_{y}}{dt}&= -m \cdot g \cdot e^{- \frac{\beta t}{m}} \\ \\
  
-\dots \text{esotico rn} \\
+\dots \text{??? \#todo} \\
  \\
  -mg-\beta v_{y}&=mge^{-\frac{\beta t}{m}}
 \end{align}
@@ -677,8 +677,39 @@ dL &= \overrightarrow{F}_{a \\} \cdot d \overrightarrow{s} \\ \\
 \end{align}
 $$
 
+## 5.4 Piano inclinato
+![[Pasted image 20241110163504.png|400]]
+Vogliamo cercare la condizione di $\theta$ affinché un corpo in quiete rimanga in quiete.
 
+$$
+\begin{align}
+f_{a} &\leq \mu_{s}\underbrace{ N }_{ mg\cos \theta } \\
+f_{a} &\leq \mu_{s}mg\cos \theta \\ \\
+
+\cancel{ mg }\sin \theta &\leq \mu_{s}\cancel{ mg }\cos \theta  \\
+ \frac{\sin \theta}{\cos \theta} &\leq \mu s\\ \\
+
+\tan \theta &\leq \mu s
+\end{align}
+$$
+
+se non soddisfa vuol dire che la forza di attrito statico non è sufficiente per bilanciare il corpo.
+### 5.4.1 Moto del corpo nel piano inclinato
+$$
+\begin{align}
+\overrightarrow{F} &= m \overrightarrow{a} \\
+mg\sin \theta -\mu_{c}\underbrace{ N }_{ mg\cos \theta }&=ma \\ \\
+
+\cancel{ m }g\sin \theta -\mu_{c}\cancel{ m }g\cos \theta&=\cancel{ m }a \\ \\
+a &= g(\sin \theta - \mu_{c}\cos \theta)
+\end{align}
+$$
+L'accelerazione è quindi costante, non dipende dal tempo.
+$$
+S = \frac{1}{2} \cdot a \cdot t^2
+$$
 # 6 Pendolo
+## 6.1 Equazione del moto
 Un oggetto puntiforme $P$ di massa $m$ è sospeso a un filo inestensibile, di massa trascurabile e flessibile di lunghezza $l$.
 ![[Pasted image 20241110123339.png|400]]
 - $l$: lunghezza del filo inestensibile
@@ -713,4 +744,80 @@ $$
 $$
 
 Il periodo trovato è indipendente dalla massa e dall'angolo $\theta_{0}$ (sperimentalmente si nota che vale fino a $\theta_{0} \approx 10°$)
+
+# 7 Urto elastico
+Un urto si dice elastico quando valgono le seguenti condizioni:
+$$
+\begin{cases}
+\overrightarrow{P}_{in} = \overrightarrow{P}_{fin} & \text{[qnt. moto]} \\
+K_{in} = K_{fin}
+\end{cases}
+$$
+Siano due particelle con velocità iniziale $v_{1}$ e $v_{2}$ con massa $m_{1}$ e $m_{2}$. Indichiamo con $V_{1}$ e $V_{2}$ le velocità dopo la collisione della prima particella verso la seconda. Assumiamo che $v_{2} = 0$.
+
+Utilizzando l'ipotesi della quantità di moto:
+$$
+\begin{align}
+\overrightarrow{P}_{in} &= \overrightarrow{P}_{fin} \\
+ \\
+m_{1}V_{1}&=m_{1}V_{1}+m_{2}V_{2}
+\end{align}
+$$
+
+Aggiugendo la seconda ipotesi si ottiene:
+$$
+\begin{cases}
+V_{1} = \frac{m_{1} - m_{2}}{m_{1} + m_{2}}v_{1} \\
+V_{2} = \frac{2m_{1}}{m_{1} + m_{2}}v_{1}
+\end{cases}
+$$
+## 7.1 Come il rapporto delle masse cambiano il sistema
+### 7.1.1 Masse uguali $m_{1} = m_{2}$
+Usando le formule si ottiene:
+$$
+\begin{cases}
+V_{1} = 0 \\
+V_{2} = v_{1}
+\end{cases}
+$$
+Il moto (la velocità) viene trasferito dalla prima alla seconda particella.
+### 7.1.2 Massa maggiore: $m_{1} \gg m_{2}$
+Usando le formule si ottiene:
+$$
+\begin{cases}
+V_{1} \approx v_{1} \\
+V_{2} \approx 2 v_{1}
+\end{cases}
+$$
+La velocità della prima particella rimane costante, mentre la seconda particella prende il doppio della velocità della prima.
+### 7.1.3 Massa minore: $m_{1} \ll m_{2}$
+Usando le formule si ottiene:
+$$
+\begin{cases}
+V_{1} \approx -v_{1} \\
+V_{2} \approx 0
+\end{cases}
+$$
+La prima particella torna indietro con la stessa velocità e la seconda rimane ferma.
+## 7.2 Urti completamente anelastici
+Avviene quando la collisione comporta l'unione delle due particelle come se fossero un unico corpo.
+Un urto si dice completamente anelastico quando vale:
+$$
+\overrightarrow{P}_{in} = \overrightarrow{P}_{fin}
+$$
+
+Siccome le particelle si uniscono (si fondono), $V_1=V_2$, che chiameremo $V$.
+
+$$
+\begin{cases}
+P_{in}=m_{1}V_{1} \\
+P_{fin}=m_{1}V+m_{2}V
+\end{cases}
+$$
+
+Si trova che:
+$$
+V = \frac{m_{1}}{m_{1} + m_{2}} v_{1}
+$$
+
 
