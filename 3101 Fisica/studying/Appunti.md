@@ -317,7 +317,7 @@ lavoro per unità di tempo
 $$
 \begin{align}
 dL &= \overrightarrow{F} \cdot d \overrightarrow{s} \\
-\frac{dL}{dt} &= \frac{{\overrightarrow{F} \cdot d \overrightarrow{s}}}{dt} & \left[ \frac{d \overrightarrow{s}}{dt} = \overrightarrow{v} \right] \\
+\frac{dL}{dt} &= \frac{\overrightarrow{F} \cdot d \overrightarrow{s}}{dt} & \left[ \frac{d \overrightarrow{s}}{dt} = \overrightarrow{v} \right] \\
 W = \frac{dL}{dt} &= \overrightarrow{F} \cdot \overrightarrow{v}
 \end{align}
 $$
