@@ -1,6 +1,16 @@
 ---
+type: university
+date: 2024-11-01
+subjectId: 3101
+year: 3
+semester: 1
 number headings: auto, first-level 1, max 6, 1.1
 ---
+#university #studying #subject-3101
+
+> [!summary] Fisica
+
+Realizzato in collaborazione con [Kevin Speranza](https://github.com/kespers).
 # 1 Cinematica del punto materiale
 si occupa di descrivere il moto degli oggetti, senza porsi il problema di collegare il moto alle cause che lo determinano.
 
