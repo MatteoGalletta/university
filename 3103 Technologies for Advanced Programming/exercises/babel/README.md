@@ -11,7 +11,9 @@
 
 ---
 
-To send messages to Fluentd: `curl -d 'json={"message": "Ciao", "author": "Matteo", "lang": "farfallino"}' "http://127.0.0.1:9880/"`
+To send messages to Fluentd:
+	- `curl -d 'json={"message": "Tanti auguri, Kevin!", "author": "Matteo", "lang": "farfallino"}' "http://127.0.0.1:9880/"`
+	- `curl -d 'json={"message": "Grazie", "author": "Kevin", "lang": "farfallino"}' "http://127.0.0.1:9880/"`
 
 To subscribe to `babel_input`: `docker exec -it kafkaServer /opt/kafka/bin/kafka-console-consumer.sh --topic babel-input --bootstrap-server http://127.0.0.1:9092 --property print.key=true`
 

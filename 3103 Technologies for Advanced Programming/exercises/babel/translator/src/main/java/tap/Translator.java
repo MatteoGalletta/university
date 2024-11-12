@@ -109,10 +109,10 @@ public class Translator {
         builder.<String, Message>stream("babel-input", Consumed.with(Serdes.String(), messageSerde))
                .mapValues((key, msg) -> {
 
-                   ITranslator translator;
-                   if (key.equals("farfallino")) translator = new FarfallinoTranslator();
-                   else if (key.equals("spongebob")) translator = new SpongebobTranslator();
-                   else translator = new CopyTranslator();
+                    ITranslator translator;
+                    if (key.equals("farfallino")) translator = new FarfallinoTranslator();
+                    else if (key.equals("spongebob")) translator = new SpongebobTranslator();
+                    else translator = new CopyTranslator();
 
                     Message newMessage = new Message();
                     newMessage.setAuthor(msg.getAuthor());
