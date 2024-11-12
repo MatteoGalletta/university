@@ -5,7 +5,7 @@
 	- "author": contains the author's name
 	- "lang": contains the algorithm name
 2. Kafka (`babel_input`): topic containing the messages to be translated. The key is the lang and the value is the JSON (excluding the lang field).
-3. Kafka Streams: based on the key, it translates the messages and it write them to the Kafka topic `babel_output`. The current available algorithms are `farfallino` and `spongebob`.
+3. Kafka Streams: based on the key, it translates the messages and it write them to the Kafka topic `babel_output`. The currently available algorithms are `farfallino` and `spongebob`.
 4. Kafka (`babel_output`): topic containing the translated messages. Same format as `babel_input`.
 5. Logstash: listens for new messages from babel_output and logs them in a file with the following format: `<author>: <message>`
 
