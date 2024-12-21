@@ -52,7 +52,7 @@ $$
 $$
 DEF: velocità istantanea
 $$
-\overrightarrow{v}(t)=\lim_{ \Delta t \to 0 } =\frac{\overrightarrow{r}(\Delta t+t)-\overrightarrow{r}(t)}{\Delta t}=\lim_{ \Delta t \to 0 } \frac{\Delta \overrightarrow{r}}{\Delta t}
+\overrightarrow{v}(t)=\lim_{ \Delta t \to 0 } \frac{\overrightarrow{r}(t+\Delta t)-\overrightarrow{r}(t)}{\Delta t}=\lim_{ \Delta t \to 0 } \frac{\Delta \overrightarrow{r}}{\Delta t}
 $$
 ### 1.1.1 moto rettilineo uniforme
 Ipotesi:
@@ -135,7 +135,7 @@ inoltre:
 4. $a_{y}=-g=-9,81 \frac{m}{s^2}$
 
 dobbiamo trovare la gittata $x_g$ massima
-- Per gittata si intende la distanza in ricoperta dalla particella prima di toccare terra
+- Per gittata si intende la distanza ricoperta dalla particella prima di toccare terra
 
 Soluzione:
 Nel momento in cui toccherà terra:
@@ -156,8 +156,6 @@ y(t)=&\frac{1}{2}a_{y}t^2 + v_{0y} \cdot t + \underbrace{ y_{0} }_{ = 0 } = 0 \\
 \end{align}
 $$
 sostituiamo nella $x(t)$
-
-
 $$
 \begin{align}
 x_{g}=x(t =  \frac{2v_{0y}}{g})&=v_{0x} \cdot \frac{2v_{0y}}{g} + \underbrace{ x_{0} }_{ = 0 } \\
@@ -178,7 +176,7 @@ $$
 
 quindi $x_{g}$ è massima quando $\theta = 45°$
 # 2 dinamica
-DEF: La dinamica tratta infatti le relazioni fra il moto degli oggetti e le cause (dette forze) che tale moto determinano.
+DEF: La dinamica tratta le relazioni fra il moto degli oggetti e le cause (dette forze) che tale moto determinano.
 
 ## 2.1 Principi
 1. Un punto materiale libero se messo in quiete rimane in quiete
@@ -349,12 +347,12 @@ Supponendo che m si sposta da un punto A ad un punto B (allontandosi da M con st
 ![[Pasted image 20241109130207.png|300]]
 Si [[3anno/FISICA/lezioni/6.pdf|dimostra]]: (to fix)
 $$
-L_{AB} = \underbrace{ - \frac{Gmm}{d_{A}}+\frac{Gmm}{d_{B}}<0 }_{ d_{B} > d_{A} }
+L_{AB} = \underbrace{ - \frac{GMm}{d_{A}}+\frac{GMm}{d_{B}}<0 }_{ d_{B} > d_{A} }
 $$
 
 supponendo $d_{B}\to \infty$, e che il lavoro, a meno di una costante nell'energia potenziale, non cambia:
 $$
-U_{A} = - \frac{GMm}{d_{A}}+\underbrace{ U_{\infty} }_{ \text{costante} }
+U_{A} = - \frac{GMm}{d_{A}}+\underbrace{ U_{\infty} }_{ =0\text{ per axx} }
 $$
 
 ## 3.2 Energia meccanica di $m$
@@ -423,9 +421,9 @@ $$
 \begin{align}
 \overrightarrow{F} &= m \cdot \overrightarrow{a} \\
 &= m \cdot \frac{d \overrightarrow{v}}{dt} \\
-&= m \cdot \frac{d^2 x}{dt} \\
+&= m \cdot \frac{d^2 x}{dt^{2}} \\
  \\
--Kx&= m \cdot \frac{d^2 x}{dt} \\
+-Kx&= m \cdot \frac{d^2 x}{dt^{2}} \\
 \end{align}
 $$
 
@@ -433,7 +431,7 @@ da cui ricaviamo la seguente equazione differenziale lineare omogenea:
 $$
 \begin{align}
 y''+ay&=0 \\ \\
-\frac{d^2x}{dt^2}+\frac{k}{m}x&=0 & [1]
+\frac{d^2x}{dt^2}+\frac{K}{m}x&=0 & [1]
 \end{align}
 $$
 
@@ -474,7 +472,7 @@ x(t)\left( -\omega^2+\frac{K}{m} \right) &= 0 \\
 \end{align}
 $$
 quando $x(t)=0$ non interessa.
-a noi interessa risDall'esperienza sappiamo che la traiettoria percorsa dal filo, formerà un arco della circonferenza, di raggio $r = l$.olvere:
+a noi interessa risolvere:
 $$
 \begin{align}
 \left( -\omega^2+\frac{K}{m} \right) &= 0  \\
@@ -649,7 +647,7 @@ I coefficienti di attrito $\mu_{c}, \mu_{s}$ sono compresi tra $[0.1, 1]$
 	- $F_{max} = \mu_{s} N$
 - $\overrightarrow{F_{A}}$: Forza applicata
 - $\overrightarrow{F_{a}}$ o $\overrightarrow{F}_{t}$ o $\overrightarrow{F}_{\text{CRITICA}}$: Forza di attrito / forza critica.
-	- Finché $\overrightarrow{F}_{max} \leq F_{A} \implies \overrightarrow{F}_{A} = -\overrightarrow{F}{a}$
+	- Finché ${} \overrightarrow{F}_{A} < \overrightarrow{F}_{max} \implies \overrightarrow{F}_{A} = -\overrightarrow{F}{a}$
 
 Il corpo è in quiete, quindi vuol dire che:
 - Le forze verticali si annullano: $\overrightarrow{N} - \overrightarrow{P} = 0 \implies N = m g$
@@ -687,9 +685,9 @@ f_{a} &\leq \mu_{s}\underbrace{ N }_{ mg\cos \theta } \\
 f_{a} &\leq \mu_{s}mg\cos \theta \\ \\
 
 \cancel{ mg }\sin \theta &\leq \mu_{s}\cancel{ mg }\cos \theta  \\
- \frac{\sin \theta}{\cos \theta} &\leq \mu s\\ \\
+ \frac{\sin \theta}{\cos \theta} &\leq \mu_{s}\\ \\
 
-\tan \theta &\leq \mu s
+\tan \theta &\leq \mu_{s}
 \end{align}
 $$
 
@@ -810,7 +808,7 @@ Siccome le particelle si uniscono (si fondono), $V_1=V_2$, che chiameremo $V$.
 
 $$
 \begin{cases}
-P_{in}=m_{1}V_{1} \\
+P_{in}=m_{1}v_{1} \\
 P_{fin}=m_{1}V+m_{2}V
 \end{cases}
 $$
@@ -820,4 +818,594 @@ $$
 V = \frac{m_{1}}{m_{1} + m_{2}} v_{1}
 $$
 
+
+# 8 Termodinamica
+## 8.1 Principio zero
+due corpi (sono il sistema) inizialmente in stati termici differenti, posti in contatto tra loro e isolati rispetto a tutto ciò che hanno intorno (ambiente esterno), dopo un certo tempo si trovano nello stesso stato termico.due corpi (sistema) inizialmente in stati termici differenti, posti in contatto tra loro e isolati
+rispetto a tutto ciò che hanno intorno (ambiente esterno), dopo un certo tempo si trovano nello stesso
+stato termico.
+
+
+## 8.2 Tipi di sistemi
+![[Pasted image 20241130150323.png]]
+
+Un sistema chiuso si dice in equilibrio termodinamico quando:
+- **equilibrio meccanico**: l'insieme delle forze applicate è uguale a 0
+- **equilibrio termico**: in tutti i punti del sistema la temperatura è la stessa (omogenea)
+- **equilibrio chimico**: garantisce che non ci siano in corso reazioni che alterino la composizione relativa del sistema
+
+I parametri di stato principali sono Temperatura, Pressione e Volume. C'è anche densità e altri...
+
+## 8.3 Temperatura e caloria
+**Temperatura**: grandezza fisica che quantifica lo stato termico in cui si trova un corpo
+
+**Calore**: Energia scambiata tra due sistemi tra cui sussiste una differenza di temperatura
+- Ex: pezzo di ghiaccio scaldato. La caloria corrisponde alla quantità di ghiaccio fuso in seguito al riscaldamento
+
+**Caloria**: calore che va fornito ad un grammo di acqua per aumentare la sua temperatura da 14.5 Celsius a 15.5 Celsius
+## 8.4 Trasformazioni
+- **Trasformazione termodinamica**: Cambio dei parametri di stato di un sistema.
+- **Trasformazione tra stati di equilibrio**: Stato iniziale e finale sono stati di equilibrio termodinamico.
+- **Trasformazione ciclica**: Stato iniziale e finale coincidono. ^b9c3ae
+- **Trasformazione quasi-statica**: durante la quale il sistema passa solo attraverso stati di equilibrio termodinamico
+- **Trasformazione reversibile**:
+	- Quando consente di tornare dallo stato finale a quello iniziale.
+	- Trasformazione quasi-statica da uno stato iniziale (SI) ad uno finale (SF), per la quale è possibile andare da SF a SI ripercorrendo gli stessi stati intermedi che da SI hanno portato a SF
+- **Trasformazione irreversibile**: quando avvengono fenomeni dissipativi oppure la trasformazione non è quasi statica
+- **Trasformazione spontanea**: Trasformazione di un sistema isolato da uno stato di non equilibrio ad uno stato di equilibrio termodinamico
+
+## 8.5 Variabili di stato
+- intensiva: se non dipende dall'estensione del sistema
+	- ex: pressione, temperatura, densità
+- estensiva: se dipende dall'estensione del sistema
+	- ex: massa, volume
+
+## 8.6 Gas perfetti
+- Gas formato da un gran numero di molecole
+- Volume molecole trascurabile
+- Forze tra le molecole trascurabili
+- Gli urti delle molecole con le pareti del recipiente sono elastici.
+
+I gas rarefatti si comportano in maniera simile (approssimando).
+
+### 8.6.1 Trasformazioni
+$P_{0}$: pressione a 0 gradi celsius
+$V_{0}$: volume a 0 gradi celsius
+$\alpha=\frac{1}{273.15} °C$: costante indipendente dalla natura del gas
+
+avremo le seguenti trasformazioni:
+- isocora
+	- a volume costante
+	- $P=P_{0}(1+\alpha \cdot T(°C))$
+- isobara
+	- a pressione costante
+	- $V=V_{0}(1+\alpha \cdot T(°C))$
+- isoterma
+	- a temperatura costante
+	- $PV = P_{0}V_{0}$
+
+possiamo riscrivere queste trasformazioni usando la scala di temperatura in kelvin:
+$$
+T(K)= T(°C) + 273.15
+$$
+Quando la temperatura in gradi celsius è zero avremo:
+$$
+T_{0}(K)=273.15
+$$
+
+prendendo ad esempio la trasformazione a volume costante
+$$
+\begin{align}
+P&=P_{0}(1+\alpha \cdot T(°C)) \\
+&=P_{0}\left( 1+\frac{1}{273.15 °C} T(°C) \right) \\
+&=P_{0}\cdot \frac{1}{273.15 °C}(273.15+T(°C))  \\
+&=P_{0} \cdot \frac{1}{T_{0}(K)} T(K) \implies \frac{P}{P_{0}} = \frac{T(K)}{T_{0}(K)}\\
+\end{align}
+$$
+
+le trasformazioni saranno quindi:
+- **a volume costante**: $P=P_{0}\frac{T}{T_{0}}$
+- **a pressione costante**: $V=V_{0}\frac{T}{T_{0}}$
+
+Si osserva sperimentalmente che a temperatura di $T=0 K$ la pressione del gas va a zero
+
+### 8.6.2 Equazione di stato
+Data la trasformazione isocora da $T_{0}$ a $T$
+$$
+P_{1}=P_{0} \frac{T}{T_{0}}
+$$
+mantenendo la temperatura $T$ (trasformazione temperatura costante) ed effettuando la trasformazione isoterma da $V_{0}$ a $V$ avremo:
+$$
+P_{1}V_{0}=PV
+$$
+
+pongo le trasformazioni a sistema e ottengo:
+$$
+\frac{P_{0}V_{0}}{T_{0}}=\frac{PV}{T}
+$$
+
+La quantità $\frac{PV}{T}=n \cdot R$ è costante
+- $n$: numero di moli
+- $R = 8.314 \cdot \frac{J}{mol \cdot K}$: costante universale gas perfetti.
+
+quindi: ^0113c8
+$$
+PV = n \cdot R \cdot T
+$$
+### 8.6.3 numero totale di atomi
+$$
+N_{tot}= n \cdot N_{A}
+$$
+- $N_{A}= 6.022 \cdot 10^{23}$: numero di Avogadro
+
+### 8.6.4 Energia cinetica
+L'energia cinetica totale sarà uguale:
+$$
+K_{tot}=\sum^{N_{tot}}_{i=1}\frac{mv_{i}^2}{2}
+$$
+- $v_{i}$: velocità i-esimo atomo
+
+
+#### 8.6.4.1 relazione tra energia cinetica media e temperatura
+data l'energia cinetica media:
+$$
+\begin{align}
+\langle K\rangle &= \frac{1}{N_{tot}}\sum^{N_{tot}}_{i=1}\frac{mv_{i}^2}{2} \\
+&=\frac{1}{n \cdot N_{A}}\sum^{n \cdot N_{A}}_{i=1}\frac{mv_{i}^2}{2}  \\
+\langle K\rangle &= \frac{K_{tot}}{n \cdot N_{A}} & [1]
+\end{align}
+$$
+
+si può dimostrare la relazione:
+$$
+\begin{align}
+PV &= \frac{2}{3}K_{tot} \\
+&= \frac{2}{3}n \cdot N_{A} \langle K\rangle & [\text{isolo nella 1}]\\
+\end{align}
+$$
+
+mettendo a sistema questo risultato con il [[#^0113c8|precedente]]:
+$$
+\begin{cases}
+PV = n \cdot R \cdot T \\
+PV = \frac{2}{3}n \cdot N_{A} \langle K\rangle
+\end{cases}
+$$
+
+la relazione sarà dunque:
+$$
+T = \frac{2}{3}\frac{N_{A}}{R} \langle K\rangle
+$$
+
+questa relazione si può riscrivere usando la costante di boltzman:
+$$
+k_{B}=\frac{R}{N_{A}} \approx 1.38 \cdot 10^{-23} \frac{J}{K}
+$$
+
+
+$$
+T = \frac{2}{3k_{b}}\langle K\rangle
+$$
+La temperatura è una misura dell'energia cinetica media delle particelle.
+## 8.7 Calore scambiato in una trasformazione termodinamica
+$\delta Q$: quantità di calore scambiato
+- dipende dalla trasformazione e non solo dalle temperature iniziali / finali
+
+Tipi di calore:
+- $c(T)$: calore specifico $(cal \cdot kg^{-1}K^{-1})$. Calore necessario per innalzare la temperatura di 1 kg di 1 grado Kelvin
+$$
+\delta Q = m \cdot c(T) \cdot dT
+$$
+
+
+- $C(T)$: calore molare $(cal \cdot mol^{-1}K^{-1})$. Calore necessario per innalzare la temperatura di 1 mole di 1 grado Kelvin
+$$
+\delta Q = n \cdot C(T) \cdot dT
+$$
+
+Approssimando:
+- il calore specifico è indipendente dalla temperatura
+- il calore molare è indipendente dal solido
+
+approssimando avremo:
+$$
+C = 3R
+$$
+
+indichiamo con $Q$ il calore che scambia un corpo per passare da una temperatura $T_{1}$ a $T_{2}$:
+$$
+Q = mc(T_{2}-T_{1})=nC(T_{2}-T_{1})
+$$
+
+### 8.7.1 Equilibrio termico
+Siano $T_{1}, T_{2}$ ($T_{1} > T_{2}$) le temperature di due corpi all'interno di un sistema isolato.
+
+In quanto il sistema isolato:
+$$
+Q_{1} = -Q_{2}
+$$
+$$
+\begin{align}
+Q_{1} &= m_{1}c_{1}(T_{eq}-T_{1}) \\
+Q_{2} &= m_{2}c_{2}(T_{eq}-T_{2})
+\end{align}
+$$
+
+La temperatura di equilibrio è data dalla media pesata delle temperature dei due corpi, dove i pesi sono il prodotto tra massa e calore specifico dei corpi:
+$$
+T_{eq}=\frac{m_{1}c_{1}T_{1}+m_{2}c_{2}T_{2}}{m_{1}c_{1}+m_{2}c_{2}}
+$$
+
+Caso limite $m_{1}c_{1} \gg m_{2}c_{2}$:
+- $T_{eq} \approx T_{1}$
+- $Q_{2} \approx m_{2}c_{2}(T_{1}-T_{2})$
+
+
+## 8.8 Lavoro in una trasformazione termodinamica
+![[Pasted image 20241130193055.png|500]]
+- S: superficie
+- P: pressione
+
+Diremo **lavoro di espansione**:
+$$
+\delta L = \underbrace{ PS }_{ \text{forza} }\underbrace{ dh }_{ \text{ spostamento } }
+$$
+Siccome:
+$$
+S \cdot h = V
+$$
+la variazione di volume dopo la trasformazione sarà (derivata del prodotto, ma l'altro membro è nullo dato che $S$ è costante):
+$$
+Sdh = dV
+$$
+quindi:
+$$
+\delta L = PdV
+$$
+
+
+il lavoro di un sistema termodinamico dipende dalla trasformazione seguita.
+
+## 8.9 Primo principio della termodinamica
+in ogni [[#^b9c3ae|trasformazione ciclica]] il rapporto tra lavoro e calore è costante:
+$$
+\frac{L}{Q} = J = 4.186 \, \frac{Joule}{cal}
+$$
+
+
+quindi potremmo esprimere il calore Q:
+- in calorie
+- in Joule: moltiplicando per la costante J $JQ (Joule)$
+
+Dunque calore e lavoro possono essere espressi nelle stesse unità di misura: il calore è una delle forme in cui l’energia si trasmette.
+
+Se esprimiamo il calore in Joule possiamo scrivere:
+$$
+\begin{align}
+\frac{L}{\cancel{ J }Q}&=\cancel{ J }  \\
+\frac{L}{Q}&=1 \\ \\
+
+Q - L &= 0 
+\end{align}
+$$
+
+In ogni trasformazione ciclica, il calore ed il lavoro scambiato sono uguali.
+Presa una qualunque trasformazione che passa tra stati intermedi di una trasformazione ciclica, $Q-L$ dipende solo dallo stato iniziale e finale:
+$$
+\begin{align}
+Q-L &=F(A,B)
+\end{align}
+$$
+![[Pasted image 20241201102934.png|500]]
+
+con $U=U(P,V,T)$ misuriamo l'energia interna del sistema.
+Vale per tutte le trasformazioni (reversibili e non):
+$$ Q - L = U(B)-U(A)$$
+### 8.9.1 Altri tipi di trasformazione
+**Adiabatica**:
+- $Q = 0$
+- $-L = U(B)-U(A)$
+
+nel caso di espansione adiabatica, ovvero lavoro associato a variazione di volume, se il lavoro è positivo avremo:
+$$
+\begin{align}
+\underbrace{ \Delta U }_{ <0 } &= \underbrace{ -\underbrace{ L }_{ >0 } }_{ <0 } \\ \\
+
+U(B)-U(A) &<0  \\
+U(B) &<U(A)  \\
+\end{align}
+$$
+Quindi il sistema compie del lavoro verso l'esterno a spese della proprie energia interna che diminuisce.
+
+**Isocora**:
+- $L=0$
+- $Q = U(B)-U(A)$
+
+nel caso di trasformazione isocora, se $Q>0$, ovvero è a contatto con un corpo più caldo (cede calore al nostro sistema)
+$$
+\begin{align}
+\underbrace{ \Delta U }_{ >0 } &= \underbrace{ Q }_{ >0 }\\ \\
+
+U(B)-U(A) &>0  \\
+U(B) &>U(A)  \\
+\end{align}
+$$
+
+quindi aumenta la propria energia interna.
+
+Per tutte e due le trasformazioni vale il caso contrario.
+
+### 8.9.2 Energia interna
+
+#### 8.9.2.1 Corpo solido
+Volume e pressione sono immutabili:
+$$
+\begin{align}
+U &= U(T)\\
+ \\
+Q &= \Delta U &[\Delta V=0]  \\
+ \\
+\delta Q &= dU &[\text{derivo}] \\
+ \\
+dU &= mc(T)dT & [\delta Q = mc(T)dT]\\ \\
+U(T_{B})-U(T_{A}) &= m \int^{T_{B}}_{T_{A}}c(T)dT \\ \\
+U(T_{B})-U(T_{A}) &= mc \int^{T_{B}}_{T_{A}}dT & [c(T) \approx c] \\ \\
+U(T_{B})-U(T_{A}) &\approx mc(T_{B}-T_{A})  \\ \\
+\end{align}
+$$
+
+dato un $T$ generico avremo:
+$$
+U(T)=mcT+\text{costante}
+$$
+
+#### 8.9.2.2 Gas perfetto
+Data un espansione libera e adiabatica di un gas rarefatto:
+- $Q=0$: non scambia calore con l'esterno
+- $L=0$: le pareti non si spostano
+
+![[Pasted image 20241201112734.png|500]]
+
+dal primo principio:
+$$
+\begin{align}
+\Delta U&=0 \\
+ \\
+\Delta T&=0 & [\text{sperimentalmente}]\\
+\end{align}
+$$
+
+l'energia interna dipenderà solo dalla temperatura:
+- $P_{i}\neq P_{f}$
+- $V_{i}\neq V_{f}$
+- $\Delta U=0$
+
+$$
+U=U(T)
+$$
+Infatti, in base alla trasformazione avremo:
+- trasformazione a **volume costante**:
+
+$$
+\begin{align}
+\delta Q &= \underbrace{ PdV }_{ \text{lavoro} }+dU \\ \\
+
+\delta Q &= dU & [dV=0]\\ \\
+
+dU &= nC_{v}dT\\
+\end{align}
+$$
+
+
+- $C_{v}$: calore molare a volume costante
+
+dato un $T$ generico avremo:
+$$
+U(T)=nC_{v}T+\text{costante}
+$$
+
+- trasformazione a **pressione costante**:
+
+$$
+\large
+\begin{align}
+\delta Q &= \underbrace{ PdV }_{ \text{lavoro} }+dU \\ \\
+
+\delta Q &= nC_{p}dT\\ \\
+nC_{p}dT&=PdV+\underbrace{ dU }_{ =nC_{v}dT } \\ \\
+
+&=PdV + nC_{v}dT  &[1] \\
+\end{align}
+$$
+
+dai risultati precedenti abbiamo:
+
+$$
+\begin{align}
+PV&=nRT & [\text{derivo rispetto al tempo}]\\
+ \\
+\underbrace{ \frac{d(PV)}{\cancel{ dt }} }_{ \text{der. prodotto} }&=\underbrace{ nR }_{ \text{indipendente dal tempo} }\frac{dT}{\cancel{ dt }} \\
+\end{align}
+$$
+
+per ipotesi la pressione è costante quindi $dP = 0$:
+
+$$
+\begin{align}
+\underbrace{ VdP }_{ =0 }+PdV &= nRdT \\
+PdV &= nRdT \\ \\
+\end{align}
+$$
+
+ripartendo dalla 1:
+
+$$
+\begin{align}
+nC_{p}dT&=PdV + nC_{v}dT \\
+\cancel{ n }C_{p}\cancel{ dT }&=\cancel{ n }R\cancel{ dT } + \cancel{ n }C_{v}\cancel{ dT } \\
+ \\
+C_{p}&=C_{v}+R
+\end{align}
+$$
+
+
+#### 8.9.2.3 cosa comportano le trasformazioni
+![[Pasted image 20241201132544.png|500]]
+
+![[Pasted image 20241201132603.png|500]]
+
+**Temperatura Costante**
+si ricorda che $U=U(T)$. siccome $T$ è costante $dU=0$.
+siccome
+![[Pasted image 20241201132758.png|500]]
+allora
+![[Pasted image 20241201133113.png|500]]
+
+#todo da capire better
+
+![[Pasted image 20241201132640.png|500]]
+
+
+#todo fixare numeri headings
+## 8.10 Secondo principio termodinamica
+Il Primo Principio della Termodinamica non pone limiti alla conversione di calore in
+lavoro e viceversa.
+
+In natura non esista le simmetria per cui:
+$$
+\Delta U=0 \implies Q = L
+$$
+
+Ex: frigorifero che ha bisogno del lavoro aggiuntivo per funzionare.
+
+![[Pasted image 20241201155523.png|500]]
+
+**Enunciato di Clausius**: La realizzazione di una trasformazione termodinamica il cui unico risultato sia quello di trasferire calore da un sistema a temperatura inferiore a uno con temperatura superiore è impossibile.
+
+**Enunciato di Kelvin-Planck**: La realizzazione di una trasformazione termodinamica ciclica il cui unico risultato sia quello di assorbire calore da una sola sorgente e di trasformarlo integralmente in lavoro è impossibile.
+
+sono equivalenti questi enunciati.
+
+### 8.10.1 Ciclo di Carnot
+Macchina termica reversibile, a gas perfetto.
+Lavora con due sorgenti a temperature rispettivamente: $T_{c}$,  $T_{f}$.
+![[Pasted image 20241201160351.png|500]]
+![[Pasted image 20241201160441.png|500]]
+In quanto è un sistema chiuso avremo che $\Delta U= 0$, quindi:
+$$
+\begin{align}
+Q&=L \\
+&= |Q_{c}|-|Q_{f}|
+\end{align}
+$$
+
+#### 8.10.1.1 Rendimento
+$$
+\begin{align}
+\eta&=\frac{L}{|Q_{c}|} \\ \\
+
+&=\frac{|Q_{c}|-|Q_{f}|}{|Q_{c}|} & [\text{sostituisci dalla formula di prima}]\\ \\
+\eta&=1-\frac{|Q_{f}|}{|Q_{c}|} \\ \\
+
+\end{align}
+$$
+
+si può dimostrare che per il ciclo di carnot:
+$$
+\eta = 1 - \frac{T_{F}}{T_{C}}
+$$
+
+#### 8.10.1.2 disuguaglianza di Clausius
+il teorema di carnot impone anche un limite superiore al rendimento della macchina termica reale:
+$$
+\eta=1 - \frac{|Q_{F}|}{|Q_{C}|}\leq 1 - \frac{T_{F}}{T_{C}}
+$$
+
+quindi:
+$$
+\begin{align}
+\cancel{ 1 } - \frac{|Q_{F}|}{|Q_{C}|}&\leq \cancel{ 1 } - \frac{T_{F}}{T_{C}} \\  \\
+
+\frac{|Q_{C}|}{T_{C}}&\leq \frac{|Q_{F}|}{T_{F}} \\ \\
+\frac{\underbrace{ |Q_{C}| }_{ >0 }}{T_{C}}- \frac{\underbrace{ |Q_{F}| }_{ <0 }}{T_{F}} &\leq 0\\ \\
+\frac{Q_{C}}{T_{C}}+ \frac{Q_{F}}{T_{F}} &\leq 0\\ \\
+
+
+\end{align}
+$$
+questa conclusione prende il nome di **disuguaglianza di clausius**
+
+un enunciato alternativo:
+$$
+\begin{align}
+\sum_{i=C,F} &\frac{Q_{i}}{T_{i}}\leq 0 \\
+ \\
+\oint \frac{\delta Q}{T} &\leq 0
+\end{align}
+$$
+
+### 8.10.2 entropia
+nel caso di cicli reversibili:
+$$
+\begin{align}
+\oint \frac{\delta Q}{T} &=0 \\
+
+\underbrace{ \int^{B}_{A} \frac{\delta Q_{rev}}{T} }_{S(B)-S(A)}+\int^{A}_{B} \frac{\delta Q_{rev}}{T}&=0
+\end{align}$$
+
+definiremo come Entropia:
+$$
+S(B)-S(A)
+$$
+sarà una funzione che dipende solo stato del sistema termodinamico.
+
+#### 8.10.2.1 trasformazioni: irreversibile, reversibile
+![[Pasted image 20241212192340.png]]
+
+$$
+\begin{align}
+\oint \frac{\delta Q}{T}&=\int_{I}\frac{\delta Q_{irr}}{T}+\int_{II}\frac{\delta Q_{rev}}{T} \leq 0  \\
+ \\
+
+&= \int_{I}\frac{\delta Q_{irr}}{T} - \int^{B}_{A}\frac{\delta Q_{rev}}{T} \leq 0\\
+ \\
+&= \int_{I}\frac{\delta Q_{irr}}{T} - (S(B)-S(A)) \leq 0 \\
+ \\
+&= \int_{I}\frac{\delta Q_{irr}}{T} \leq S(B)-S(A) = \Delta S \\
+\end{align}
+$$
+
+#### 8.10.2.2 trasformazione adiabatica
+se la trasformazione è reversibile ($\delta Q_{irr}=0$):
+$$
+\Delta S_{\text{adiabatica}}\geq 0
+$$
+
+#### 8.10.2.3 sistema isolato
+se la trasformazione è reversibile:
+$$
+\Delta S_{\text{Sist. isolato}}\geq 0
+$$
+
+## 8.11 In termini di entropia
+L’entropia di un sistema isolato non può diminuire.
+- Ogni trasformazione irreversibile comporta un aumento dell’entropia dell’intero sistema.
+- Ogni trasformazione reversibile non comporta una variazione di entropia dell’intero sistema.
+
+Un sistema termodinamico + ambiente: sistema isolato.
+
+L'entropia sarà:
+$$
+S = S_{\text{ambiente}} + S_{\text{sistema}}
+$$
+
+quindi:
+$$
+\Delta S_{\text{sistema + ambiente}}\geq 0 \quad [1]
+$$
+
+- Le trasformazioni irreversibili comportano un aumento dell’entropia totale di sistema e ambiente
+- Le reversibili non cambiano l’entropia totale.
+
+può accadere che $\Delta S_{\text{sistema}} > 0$ oppure $\Delta S_{\text{sistema}} < 0$, l'importante che la relazione $[1]$ rimanga
 
