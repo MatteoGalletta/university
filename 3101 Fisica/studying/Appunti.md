@@ -1375,19 +1375,19 @@ $$
 \end{align}
 $$
 
-#### 8.10.2.2 trasformazione adiabatica
+#### 8.10.2.2 in una trasformazione adiabatica
 se la trasformazione è reversibile ($\delta Q_{irr}=0$):
 $$
 \Delta S_{\text{adiabatica}}\geq 0
 $$
 
-#### 8.10.2.3 sistema isolato
+#### 8.10.2.3 in un sistema isolato
 se la trasformazione è reversibile:
 $$
 \Delta S_{\text{Sist. isolato}}\geq 0
 $$
 
-## 8.11 In termini di entropia
+#### 8.10.2.4 caratteristiche
 L’entropia di un sistema isolato non può diminuire.
 - Ogni trasformazione irreversibile comporta un aumento dell’entropia dell’intero sistema.
 - Ogni trasformazione reversibile non comporta una variazione di entropia dell’intero sistema.
@@ -1408,4 +1408,123 @@ $$
 - Le reversibili non cambiano l’entropia totale.
 
 può accadere che $\Delta S_{\text{sistema}} > 0$ oppure $\Delta S_{\text{sistema}} < 0$, l'importante che la relazione $[1]$ rimanga
+
+#### 8.10.2.5 calcolo
+$$
+\begin{align}
+\delta Q_{rev}&=dU + \delta L_{\text{rev}} & [Q-L=\Delta U] \\
+ \\
+\underbrace{ \frac{\delta Q_{rev}}{T} }_{ dS }&=\frac{{dU + \delta L_{\text{rev}}}}{T} \\
+dS&=\frac{{dU + \delta L_{\text{rev}}}}{T}  \\  \\
+\Delta S=S(B)-S(A) &= \int^{B}_{A}\frac{{dU + \delta L_{\text{rev}}}}{T} & [1] \\
+\end{align}
+$$
+
+
+- nel **corpo solido** (per semplicità $dV=0$):
+$$
+dU = mcdT \quad \quad \delta L_{\text{rev}}=0
+$$
+
+sostituendo alla $1$:
+$$
+\begin{align}
+S(B)-S(A)&=\int^{B}_{A}\frac{{dU + \cancel{ \delta L_{\text{rev}} }}}{T} \\
+S(B)-S(A)&=\int^{B}_{A}\frac{{mcdT }}{T} \\
+&=mc \log \frac{T_{B}}{T_{A}}
+\end{align}
+$$
+
+dato una generico $T$:
+$$
+S(T)=mc\log T + \text{costante}
+$$
+
+
+- durante uno **scambio termico**:
+assumendo che $m_{1}=m_{2}=m$ e $c_{1}=c_{2}=c$
+
+$$
+\Delta S_{1}=mc \log \frac{T_{eq}}{T_{1}} \quad \quad \Delta S_{2}=mc \log \frac{T_{eq}}{T_{2}}
+$$
+
+sapendo che $T_{eq}=\frac{T_{1}+T_{2}}{2}$:
+$$
+\begin{align}
+\Delta S_{tot}&=\Delta S_{1}+\Delta_{S_{2}} \\
+&=mc \log \frac{T_{eq}}{T_{1}}+mc \log \frac{T_{eq}}{T_{2}} \\
+&=mc \log \frac{\frac{T_{1}+T_{2}}{2}}{T_{1}}+mc \log \frac{\frac{T_{1}+T_{2}}{2}}{T_{2}} \\
+&=mc \log \underbrace{ \frac{(T_{1}+T_{2})^2}{4T_{1}T_{2}} }_{ \geq 1 } \geq 0 & [\text{prop. log}]
+\end{align}
+$$
+
+
+- per un **gas perfetto**:
+$$
+dU = nC_{v}dT \quad \quad \delta L_{\text{rev}}=PdV=\frac{nRT}{V}dV
+$$
+
+$$
+\begin{align}
+S(B)-S(A)&=\int^{B}_{A}dT \frac{nC_{V}}{T}+\int^{B}_{A}dV \frac{nR}{V} \\
+&=nC_{V}\log \frac{T_{B}}{T_{A}}+nR\log \frac{V_{B}}{V_{A}}
+\end{align}
+$$
+
+data una $T$ generica:
+$$
+S(T)=nC_{V}\log T+nR\log V + \text{costante}
+$$
+
+per calcolare la variazione di entropia (assumendo che la temperatura sia costante e la trasformazione non è quasi-statica):
+$$
+\Delta S=nR\log \frac{V_{B}}{V_{A}}
+$$
+
+#### 8.10.2.6 probabilità termodinamica
+è più corretto legare l'entropia alla probabilità termodinamica.
+
+Equazione di Boltzman:
+$$
+S=k_{B}\log W
+$$
+- $W$: probabilità termodinamica. misura il numero di modi, a livello microscopico (microstati), in cui uno stato macroscopico (macrostato) può essere realizzato.
+
+ex: modi in cui può uscire il numero 2 lanciando un dado
+![[Pasted image 20241221155958.png]]
+
+
+Il **secondo principio della termodinamica** sarà quindi:
+> Le trasformazioni spontanee sono quelle che comportano un aumento della probabilità termodinamica.
+
+**Equazione di Gibbs**:
+$$
+S=-k_{B}\sum^{W}_{i=1}p_{i}\log p_{i}
+$$
+- $p_{i}$: prob. del singolo macrostato
+
+![[Pasted image 20241221160458.png]]
+
+
+#### 8.10.2.7 nei buchi neri
+Corpo celeste con campo gravitazionale molto intenso, così intenso che la sua velocità di fuga è superiore alla velocità della luce. si forma per collasso gravitazionale di stelle massicce.
+
+![[Pasted image 20241221160840.png]]
+![[Pasted image 20241221160856.png]]
+![[Pasted image 20241221160949.png]]
+
+In genere la temperatura dei buchi neri astronomici è molto piccola, ma a lungo andare la radiazione causa la loro evaporazione.
+
+![[Pasted image 20241221161039.png]]
+
+### 8.10.3 Terzo principio della termodinamica: irraggiungibilità dello zero assoluto
+![[Pasted image 20241221161351.png]]
+
+![[Pasted image 20241221161559.png]]
+![[Pasted image 20241221161619.png]]
+![[Pasted image 20241221162118.png]]
+
+
+# 9 Onde
+#todo da capire la dimostrazione
 
