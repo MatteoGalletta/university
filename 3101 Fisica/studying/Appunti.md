@@ -1526,5 +1526,166 @@ In genere la temperatura dei buchi neri astronomici è molto piccola, ma a lungo
 
 
 # 9 Onde
-#todo da capire la dimostrazione
+Modo di trasmettere (far propagare) energia senza un trasferimento di materia.
+
+ex: Onde sulla superficie libera dell’acqua provocate da una perturbazione (fanno muovere solo in verticale)
+- le molecole di acqua oscillano intorno alle proprie posizioni di equilibrio, per cui alla propagazione del massimo, cui corrisponde la propagazione dell’energia, non corrisponde un trasferimento di materia
+
+Tipo di onde:
+- **trasversali**: Le vibrazioni sono perpendicolari alla direzione di propagazione dell’onda (ex: sismiche ad S, corda tesa, elettromagnetiche)
+	- ![[Pasted image 20241222140906.png]]
+- **longitudinali**: Le vibrazioni sono concordi alla direzione di propagazione dell’onda (sismiche a P, acustiche)
+	- ![[Pasted image 20241222140940.png]]
+
+
+## 9.1 Onde sinusoidali
+![[Pasted image 20241222141011.png]]
+- $\lambda$: lunghezza d'onda (periodo spaziale dell'onda)
+	- ![[Pasted image 20241222141127.png|500]]
+- $T$: Periodo dell'onda (periodo temporale)
+	- ![[Pasted image 20241222141139.png|500]]
+
+
+velocità di propagazione:
+$$
+c = \frac{\lambda}{T}
+$$
+
+## 9.2 Onde di pressione
+Suono: Onde di pressione generate dalle oscillazione delle particelle del mezzo attorno alle loro posizioni di equilibrio
+
+### 9.2.1 equazione
+Ipotesi: l'onda si sposta verso un'unica direzione.
+
+Considerando un volume di area $A$ e uno spessore $dx$
+![[Pasted image 20241222155122.png|500]]
+
+A seguito del passaggio dell'onda questo volume può subire un'espansione o decompressione.
+Quindi il suo spessore passa da $dx$ a $dx + d\xi$
+
+Avremo una variazione di pressione:
+$$
+dP = \frac{\partial P}{\partial x}dx \quad [Axx]
+$$
+
+Ora ricordiamo che nei gas perfetti la pressione:
+$$
+\begin{align}
+P &= \frac{F}{A} \\ \\
+F&= PA
+\end{align}
+$$
+per passare al prossimo passaggio ci sono due strade:
+- def chat:
+	- ![[Pasted image 20241222160203.png]]
+- def prof:
+	- metti la formula della prima riga dicendo "in quanto $F \propto - \frac{\partial P}{\partial x}$, la forza sarà opposta al gradiente della pressione"
+
+ricapitolando, avendo quindi una variazione infinitesima avremo:
+$$
+\begin{align} \\
+dF &=-AdP \\ \\
+&=-A\frac{\partial P}{\partial x} dx \\
+\\
+&=-dV\frac{\partial P}{\partial x} \\ \\
+
+\end{align}
+$$
+piccolo assiomino:
+$$
+\frac{\partial P}{\partial x} =(\frac{\partial P}{\partial \rho} )\frac{\partial P}{\partial x} 
+$$
+
+sostituendo $\frac{\partial P}{\partial x}$:
+$$
+\begin{align}
+dF &= -dV(\frac{\partial P}{\partial \rho} )\frac{\partial P}{\partial x} & [1]
+\end{align}
+$$
+
+lasciamo l'equazione 1 da parte, la useremo dopo.
+
+Noi sappiamo che
+$$
+F = m \cdot a
+$$
+
+data una massa infinitesima avremo:
+$$
+dF = dm \cdot a
+$$
+
+per il passaggio dell'onda avremo uno spostamento:
+$$
+\begin{align}
+dF &= dm \cdot \frac{\partial^2 \xi}{\partial t^2} & [2]
+\end{align}
+$$
+
+eguagliamo le equazioni 1 e 2:
+$$
+\begin{align}
+\underbrace{ -dV\left( \frac{\partial P}{\partial \rho}  \right)\frac{\partial P}{\partial x} }_{ 1 } &= \underbrace{ dm \cdot \frac{\partial^2 \xi}{\partial t^2} }_{ 2 } \\
+ \\
+-\cancel{ dV } \left( \frac{dP}{\partial \rho} \right) \frac{\partial P}{dx}&= \rho_{0}\cancel{ dV }\frac{\partial^2 \xi}{\partial t^2}  & [\text{DEF densità: }dm = \rho dV]
+\end{align}
+$$
+
+$\rho_{0}$: densità a tempo $0$
+
+vogliamo calcolare $\frac{\partial P}{\partial x}$.
+Nonostante l'onda passi e il volume si espande / comprime, la massa non cambia:
+$$
+\text{massa}_{\text{prima}} = \text{massa}_{\text{dopo}}
+$$
+
+quindi:
+$$
+\begin{align} 
+dm &= \rho_{0}dV \\  \\
+
+&\underbrace{ \rho \cancel{ A } (dx + d \xi) }_{ \text{massa}_{\text{dopo}} } = \underbrace{ \rho_{0}\cancel{ A } dx }_{ \text{massa}_{\text{prima}} } \\
+ \\
+& \rho_{0} dx = \rho (dx + d\xi) \\
+ \\
+& \rho_{0}= \rho\left( 1 + \frac{d \xi}{dx} \right) \\
+ \\
+& \rho = \rho_{0} \frac{1}{1 + \frac{d \xi}{dx}} \\
+ \\
+& \rho \approx \rho_{0} \left( 1 - \frac{d\xi}{dx} \right) & \left[\text{con x piccolo: } \frac{1}{1+x} \approx 1-x \right] \\
+ \\
+\end{align}
+$$
+
+
+assiomaticando:
+$$
+\begin{align}
+\frac{\partial \rho}{dx}&= - \rho_{0}\frac{\partial^2\xi}{dx^2} \\
+ \\
+-\frac{dP}{d\rho}-\cancel{ \rho_{0} }\frac{\partial^2\xi}{\partial x^2}&=\cancel{ \rho_{0} }\frac{\partial^2\xi}{\partial t^2} \\
+ \\
+\frac{dP}{d\rho}\frac{\partial^2\xi}{\partial x^2}-\frac{\partial^2\xi}{\partial t^2}&=0
+\end{align}
+$$
+
+in quanto
+$$
+c^2=\frac{dP}{d\rho}
+$$
+
+concludiamo:
+$$
+c^2\frac{\partial^2\xi}{\partial x^2}-\frac{\partial^2\xi}{\partial t^2}=0
+$$
+che è soddisfatto solo per $c=\frac{\lambda}{T}$
+
+
+## 9.3 Intensità
+Energia per unità di superficie e di tempo trasportata da un’onda ($\frac{J}{m^2s}$)
+
+
+## 9.4 Diffrazione
+La diffrazione è importante quando l’ostacolo attraversato dall’onda ha dimensioni comparabili con la lunghezza d’onda
+![[Pasted image 20241222164558.png]]
 
