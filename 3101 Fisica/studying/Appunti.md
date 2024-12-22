@@ -1375,19 +1375,19 @@ $$
 \end{align}
 $$
 
-#### 8.10.2.2 trasformazione adiabatica
+#### 8.10.2.2 in una trasformazione adiabatica
 se la trasformazione è reversibile ($\delta Q_{irr}=0$):
 $$
 \Delta S_{\text{adiabatica}}\geq 0
 $$
 
-#### 8.10.2.3 sistema isolato
+#### 8.10.2.3 in un sistema isolato
 se la trasformazione è reversibile:
 $$
 \Delta S_{\text{Sist. isolato}}\geq 0
 $$
 
-## 8.11 In termini di entropia
+#### 8.10.2.4 caratteristiche
 L’entropia di un sistema isolato non può diminuire.
 - Ogni trasformazione irreversibile comporta un aumento dell’entropia dell’intero sistema.
 - Ogni trasformazione reversibile non comporta una variazione di entropia dell’intero sistema.
@@ -1408,4 +1408,284 @@ $$
 - Le reversibili non cambiano l’entropia totale.
 
 può accadere che $\Delta S_{\text{sistema}} > 0$ oppure $\Delta S_{\text{sistema}} < 0$, l'importante che la relazione $[1]$ rimanga
+
+#### 8.10.2.5 calcolo
+$$
+\begin{align}
+\delta Q_{rev}&=dU + \delta L_{\text{rev}} & [Q-L=\Delta U] \\
+ \\
+\underbrace{ \frac{\delta Q_{rev}}{T} }_{ dS }&=\frac{{dU + \delta L_{\text{rev}}}}{T} \\
+dS&=\frac{{dU + \delta L_{\text{rev}}}}{T}  \\  \\
+\Delta S=S(B)-S(A) &= \int^{B}_{A}\frac{{dU + \delta L_{\text{rev}}}}{T} & [1] \\
+\end{align}
+$$
+
+
+- nel **corpo solido** (per semplicità $dV=0$):
+$$
+dU = mcdT \quad \quad \delta L_{\text{rev}}=0
+$$
+
+sostituendo alla $1$:
+$$
+\begin{align}
+S(B)-S(A)&=\int^{B}_{A}\frac{{dU + \cancel{ \delta L_{\text{rev}} }}}{T} \\
+S(B)-S(A)&=\int^{B}_{A}\frac{{mcdT }}{T} \\
+&=mc \log \frac{T_{B}}{T_{A}}
+\end{align}
+$$
+
+dato una generico $T$:
+$$
+S(T)=mc\log T + \text{costante}
+$$
+
+
+- durante uno **scambio termico**:
+assumendo che $m_{1}=m_{2}=m$ e $c_{1}=c_{2}=c$
+
+$$
+\Delta S_{1}=mc \log \frac{T_{eq}}{T_{1}} \quad \quad \Delta S_{2}=mc \log \frac{T_{eq}}{T_{2}}
+$$
+
+sapendo che $T_{eq}=\frac{T_{1}+T_{2}}{2}$:
+$$
+\begin{align}
+\Delta S_{tot}&=\Delta S_{1}+\Delta_{S_{2}} \\
+&=mc \log \frac{T_{eq}}{T_{1}}+mc \log \frac{T_{eq}}{T_{2}} \\
+&=mc \log \frac{\frac{T_{1}+T_{2}}{2}}{T_{1}}+mc \log \frac{\frac{T_{1}+T_{2}}{2}}{T_{2}} \\
+&=mc \log \underbrace{ \frac{(T_{1}+T_{2})^2}{4T_{1}T_{2}} }_{ \geq 1 } \geq 0 & [\text{prop. log}]
+\end{align}
+$$
+
+
+- per un **gas perfetto**:
+$$
+dU = nC_{v}dT \quad \quad \delta L_{\text{rev}}=PdV=\frac{nRT}{V}dV
+$$
+
+$$
+\begin{align}
+S(B)-S(A)&=\int^{B}_{A}dT \frac{nC_{V}}{T}+\int^{B}_{A}dV \frac{nR}{V} \\
+&=nC_{V}\log \frac{T_{B}}{T_{A}}+nR\log \frac{V_{B}}{V_{A}}
+\end{align}
+$$
+
+data una $T$ generica:
+$$
+S(T)=nC_{V}\log T+nR\log V + \text{costante}
+$$
+
+per calcolare la variazione di entropia (assumendo che la temperatura sia costante e la trasformazione non è quasi-statica):
+$$
+\Delta S=nR\log \frac{V_{B}}{V_{A}}
+$$
+
+#### 8.10.2.6 probabilità termodinamica
+è più corretto legare l'entropia alla probabilità termodinamica.
+
+Equazione di Boltzman:
+$$
+S=k_{B}\log W
+$$
+- $W$: probabilità termodinamica. misura il numero di modi, a livello microscopico (microstati), in cui uno stato macroscopico (macrostato) può essere realizzato.
+
+ex: modi in cui può uscire il numero 2 lanciando un dado
+![[Pasted image 20241221155958.png]]
+
+
+Il **secondo principio della termodinamica** sarà quindi:
+> Le trasformazioni spontanee sono quelle che comportano un aumento della probabilità termodinamica.
+
+**Equazione di Gibbs**:
+$$
+S=-k_{B}\sum^{W}_{i=1}p_{i}\log p_{i}
+$$
+- $p_{i}$: prob. del singolo macrostato
+
+![[Pasted image 20241221160458.png]]
+
+
+#### 8.10.2.7 nei buchi neri
+Corpo celeste con campo gravitazionale molto intenso, così intenso che la sua velocità di fuga è superiore alla velocità della luce. si forma per collasso gravitazionale di stelle massicce.
+
+![[Pasted image 20241221160840.png]]
+![[Pasted image 20241221160856.png]]
+![[Pasted image 20241221160949.png]]
+
+In genere la temperatura dei buchi neri astronomici è molto piccola, ma a lungo andare la radiazione causa la loro evaporazione.
+
+![[Pasted image 20241221161039.png]]
+
+### 8.10.3 Terzo principio della termodinamica: irraggiungibilità dello zero assoluto
+![[Pasted image 20241221161351.png]]
+
+![[Pasted image 20241221161559.png]]
+![[Pasted image 20241221161619.png]]
+![[Pasted image 20241221162118.png]]
+
+
+# 9 Onde
+Modo di trasmettere (far propagare) energia senza un trasferimento di materia.
+
+ex: Onde sulla superficie libera dell’acqua provocate da una perturbazione (fanno muovere solo in verticale)
+- le molecole di acqua oscillano intorno alle proprie posizioni di equilibrio, per cui alla propagazione del massimo, cui corrisponde la propagazione dell’energia, non corrisponde un trasferimento di materia
+
+Tipo di onde:
+- **trasversali**: Le vibrazioni sono perpendicolari alla direzione di propagazione dell’onda (ex: sismiche ad S, corda tesa, elettromagnetiche)
+	- ![[Pasted image 20241222140906.png]]
+- **longitudinali**: Le vibrazioni sono concordi alla direzione di propagazione dell’onda (sismiche a P, acustiche)
+	- ![[Pasted image 20241222140940.png]]
+
+
+## 9.1 Onde sinusoidali
+![[Pasted image 20241222141011.png]]
+- $\lambda$: lunghezza d'onda (periodo spaziale dell'onda)
+	- ![[Pasted image 20241222141127.png|500]]
+- $T$: Periodo dell'onda (periodo temporale)
+	- ![[Pasted image 20241222141139.png|500]]
+
+
+velocità di propagazione:
+$$
+c = \frac{\lambda}{T}
+$$
+
+## 9.2 Onde di pressione
+Suono: Onde di pressione generate dalle oscillazione delle particelle del mezzo attorno alle loro posizioni di equilibrio
+
+### 9.2.1 equazione
+Ipotesi: l'onda si sposta verso un'unica direzione.
+
+Considerando un volume di area $A$ e uno spessore $dx$
+![[Pasted image 20241222155122.png|500]]
+
+A seguito del passaggio dell'onda questo volume può subire un'espansione o decompressione.
+Quindi il suo spessore passa da $dx$ a $dx + d\xi$
+
+Avremo una variazione di pressione:
+$$
+dP = \frac{\partial P}{\partial x}dx \quad [Axx]
+$$
+
+Ora ricordiamo che nei gas perfetti la pressione:
+$$
+\begin{align}
+P &= \frac{F}{A} \\ \\
+F&= PA
+\end{align}
+$$
+per passare al prossimo passaggio ci sono due strade:
+- def chat:
+	- ![[Pasted image 20241222160203.png]]
+- def prof:
+	- metti la formula della prima riga dicendo "in quanto $F \propto - \frac{\partial P}{\partial x}$, la forza sarà opposta al gradiente della pressione"
+
+ricapitolando, avendo quindi una variazione infinitesima avremo:
+$$
+\begin{align} \\
+dF &=-AdP \\ \\
+&=-A\frac{\partial P}{\partial x} dx \\
+\\
+&=-dV\frac{\partial P}{\partial x} \\ \\
+
+\end{align}
+$$
+piccolo assiomino:
+$$
+\frac{\partial P}{\partial x} =(\frac{\partial P}{\partial \rho} )\frac{\partial P}{\partial x} 
+$$
+
+sostituendo $\frac{\partial P}{\partial x}$:
+$$
+\begin{align}
+dF &= -dV(\frac{\partial P}{\partial \rho} )\frac{\partial P}{\partial x} & [1]
+\end{align}
+$$
+
+lasciamo l'equazione 1 da parte, la useremo dopo.
+
+Noi sappiamo che
+$$
+F = m \cdot a
+$$
+
+data una massa infinitesima avremo:
+$$
+dF = dm \cdot a
+$$
+
+per il passaggio dell'onda avremo uno spostamento:
+$$
+\begin{align}
+dF &= dm \cdot \frac{\partial^2 \xi}{\partial t^2} & [2]
+\end{align}
+$$
+
+eguagliamo le equazioni 1 e 2:
+$$
+\begin{align}
+\underbrace{ -dV\left( \frac{\partial P}{\partial \rho}  \right)\frac{\partial P}{\partial x} }_{ 1 } &= \underbrace{ dm \cdot \frac{\partial^2 \xi}{\partial t^2} }_{ 2 } \\
+ \\
+-\cancel{ dV } \left( \frac{dP}{\partial \rho} \right) \frac{\partial P}{dx}&= \rho_{0}\cancel{ dV }\frac{\partial^2 \xi}{\partial t^2}  & [\text{DEF densità: }dm = \rho dV]
+\end{align}
+$$
+
+$\rho_{0}$: densità a tempo $0$
+
+vogliamo calcolare $\frac{\partial P}{\partial x}$.
+Nonostante l'onda passi e il volume si espande / comprime, la massa non cambia:
+$$
+\text{massa}_{\text{prima}} = \text{massa}_{\text{dopo}}
+$$
+
+quindi:
+$$
+\begin{align} 
+dm &= \rho_{0}dV \\  \\
+
+&\underbrace{ \rho \cancel{ A } (dx + d \xi) }_{ \text{massa}_{\text{dopo}} } = \underbrace{ \rho_{0}\cancel{ A } dx }_{ \text{massa}_{\text{prima}} } \\
+ \\
+& \rho_{0} dx = \rho (dx + d\xi) \\
+ \\
+& \rho_{0}= \rho\left( 1 + \frac{d \xi}{dx} \right) \\
+ \\
+& \rho = \rho_{0} \frac{1}{1 + \frac{d \xi}{dx}} \\
+ \\
+& \rho \approx \rho_{0} \left( 1 - \frac{d\xi}{dx} \right) & \left[\text{con x piccolo: } \frac{1}{1+x} \approx 1-x \right] \\
+ \\
+\end{align}
+$$
+
+
+assiomaticando:
+$$
+\begin{align}
+\frac{\partial \rho}{dx}&= - \rho_{0}\frac{\partial^2\xi}{dx^2} \\
+ \\
+-\frac{dP}{d\rho}-\cancel{ \rho_{0} }\frac{\partial^2\xi}{\partial x^2}&=\cancel{ \rho_{0} }\frac{\partial^2\xi}{\partial t^2} \\
+ \\
+\frac{dP}{d\rho}\frac{\partial^2\xi}{\partial x^2}-\frac{\partial^2\xi}{\partial t^2}&=0
+\end{align}
+$$
+
+in quanto
+$$
+c^2=\frac{dP}{d\rho}
+$$
+
+concludiamo:
+$$
+c^2\frac{\partial^2\xi}{\partial x^2}-\frac{\partial^2\xi}{\partial t^2}=0
+$$
+che è soddisfatto solo per $c=\frac{\lambda}{T}$
+
+
+## 9.3 Intensità
+Energia per unità di superficie e di tempo trasportata da un’onda ($\frac{J}{m^2s}$)
+
+
+## 9.4 Diffrazione
+La diffrazione è importante quando l’ostacolo attraversato dall’onda ha dimensioni comparabili con la lunghezza d’onda
+![[Pasted image 20241222164558.png]]
 
