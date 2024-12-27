@@ -1,4 +1,4 @@
-og---
+---
 type: university
 date: 2022-12-13
 subjectId: 1101

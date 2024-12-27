@@ -9,10 +9,6 @@ semester: 1
 ### Teoria
 > [!summary] Artificial Intelligence
 
-da vedere:
-- Complessità algoritmi di ricerca
-- Ammissibilità, Ottimalità e Consistenza/Monotonia di A*
-
 libro: Artificial Intelligence - S. Russell, P. Norvig
 ## Artificial Intelligence
 ### 2. Intelligent Agents
@@ -158,6 +154,7 @@ We have access to a heuristic function that estimates the path cost of a solutio
 	- $h(n) \text{ is consistent} \implies h(n) \text{ is admissible}$
 	- A* Tree-Search is optimal if $h$ is admissible.
 	- A* Graph-Search is optimal if $h$ is consistent.
+	- #todo see proofs
 - It uses a lot of space, making it unsuitable for large state space problems.
 ##### Iterative Deepening A\* Search:
 It's essentially iterative deepening depth-first search with the newly defined $f$ function as depth.
@@ -181,14 +178,72 @@ This is a variant of Memory-bounded A* Search, which is not explained.
 #todo
 ### 6. Constraint Satisfaction Problem
 Until now we assumed all the states were black boxes.
+Now states are [[#Agent components|factored]], so if we're able to formulate a problem as CSP we can get more efficient solutions.
 A constraint satisfaction problem consists of:
-- X: a set of variables, $\{ X_{1}, \dots, X_{n} \} {}$.
-- D: a set of domains, $\{D_{1}, \dots, D_{n} \}$, one for each variable.
+- $X$: a set of variables, $\{ X_{1}, \dots, X_{n} \}$.
+- $D$: a set of domains, $\{D_{1}, \dots, D_{n} \}$, one for each variable.
 	- $D_{i}$ is a set of allowable values $\{ v_{1}, \dots, v_{k}\}$ for $X_{i}$.
-- C: a set of constraints that specify allowable combinations of values.
+- $C$: a set of constraints that specify allowable combinations of values.
 	- $C_{i}$ is a pair $\langle\text{scope}, \,\text{relation}\rangle$
 		- $\text{scope}$: tuple of variables ($X_{i}$) that partecipate in the constraint
 		- $\text{relation}$: set of values (each value is a tuple of $D_{i}$) that variables in $scope$ can take on.
+
+In a given state, we can set some values to one of more variables. Those are called **assignments**.
+- An assignment is **consistent** if it doesn't violate any constraint.
+- An assignment is **complete** if it's consistent and every variable is assigned.
+- An assignment is **partial** if it's consistent and at least one variable is assigned.
+
+We can represent a CSP with a **Constraint Chart**:
+- Nodes are the variables of the problem $X$.
+- Edges between two nodes exists if there's at least a constraint $C$ that includes both of the nodes as $\text{scope}$.
+
+#### N-Queens example
+$$\begin{align}
+X&=\{ Q_{1}, Q_{2}, \dots, Q_{n}\} \\
+D&=\{ 1, 2, \dots, n \} \\
+C&=\{ Q_{i} \neq Q_{k}, \quad|Q_{i} - Q_{k} | \neq  |i-k|\} \quad\small{\text{ technically not respecting formal definition}}
+\end{align}
+$$
+
+#### Implementation with Search
+We can implement any CSP using the [[#3. Solving Problems by Searching|Search]]. The entities are defined as follows:
+- Initial state: all the variables are unassigned.
+- Actions: assign a value to a variable
+- Goal function: the variables assignment is **complete**.
+
+In each state, we store:
+- The $\small\text{UNASSIGNED}$ list: all the variables not assigned.
+- The $\small\text{ASSIGNED}$ list: all the variables assigned.
+- Additionally, for every variable:
+	- $\small\text{NAME}$: *not really useful for the algorithm itself*
+	- $\small\text{DOMAIN}$: $D_{i}$
+	- $\small\text{VALUE}$: the current value, if present.
+
+Constraints could be represented as sets or as functions that check for validity.
+
+We can use DFS as search algorithm.
+- $m=n$ (number of variables)
+- ${} d=n$ (number of variables)
+- $b=\sum\limits_{i} |D_{i}|$
+
+The constraint could be redundant. We can apply a series of reductions to simplify the constraints.
+#### Constraints Reductions
+- Node Consistency:
+	- we consider the unary constraints.
+	- this is straightforward: we iterate all the variables and exclude the values in the domain that don't match the unary constraints.
+- Arc Consistency:
+	- we consider the binary constraints
+	- we say $X_{i}$ is arc-consistent to $X_{j}$ if for every value $D_{i}$ there is some value in $D_{j}$ that satisfies the binary constraint on the arc $(X_{i}, X_{j})$
+	- *there aren't useless values in $D_{i}$*
+- Path Consistency
+	- we consider the ternary constraints
+	- "A two-variable set $\{X_{i}, X_{j} \}$ is path-consistent with respect to a third variable $X_{m}$ if, for every assignment $\{X_{i} = a, X_{j} = b\}$ consistent with the constraints on $\{X_{i} , X_{j} \}$, there is an assignment to $X_{m}$ that satisfies the constraints on $\{X_{i}, X_{m} \}$ and $\{X_{m}, X_{j} \}$"
+- $K$-Consistency
+	- it's the generalisation of the previous reductions
+		- $K=1$ -> Node
+		- ${} K=2 {}$ -> Arc
+		- $K=3$ -> Path
+#todo
 ## Knowledge, reasoning, and planning
 ### 7. Logical Agents
 ### 8. First-Order Logic
