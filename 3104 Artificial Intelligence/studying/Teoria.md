@@ -227,7 +227,8 @@ We can use DFS as search algorithm.
 - $b=\sum\limits_{i} |D_{i}|$
 
 The constraint could be redundant. We can apply a series of reductions to simplify the constraints.
-#### Constraints Reductions
+#### Consistency
+These can be used to reduce the amount of legal values and could potentially find the solution directly.
 - Node Consistency:
 	- we consider the unary constraints.
 	- this is straightforward: we iterate all the variables and exclude the values in the domain that don't match the unary constraints.
@@ -235,18 +236,103 @@ The constraint could be redundant. We can apply a series of reductions to simpli
 	- we consider the binary constraints
 	- we say $X_{i}$ is arc-consistent to $X_{j}$ if for every value $D_{i}$ there is some value in $D_{j}$ that satisfies the binary constraint on the arc $(X_{i}, X_{j})$
 	- *there aren't useless values in $D_{i}$*
+	- A real implementation algorithm is called $\text{AC-3}$
 - Path Consistency
 	- we consider the ternary constraints
 	- "A two-variable set $\{X_{i}, X_{j} \}$ is path-consistent with respect to a third variable $X_{m}$ if, for every assignment $\{X_{i} = a, X_{j} = b\}$ consistent with the constraints on $\{X_{i} , X_{j} \}$, there is an assignment to $X_{m}$ that satisfies the constraints on $\{X_{i}, X_{m} \}$ and $\{X_{m}, X_{j} \}$"
+	- A real implementation algorithm is called $\text{PC-2}$
 - $K$-Consistency
 	- it's the generalisation of the previous reductions
 		- $K=1$ -> Node
 		- ${} K=2 {}$ -> Arc
 		- $K=3$ -> Path
-#todo
+
+If we impose $K$-Consistency with $K=|X|$, we just get the solution, but this is exponentially expensive.
+#### Backtracking Search
+We use DFS with fixed assignment order: variable assignment is a commutative operation, doing this ensures getting a faster algorithm.
+The algorithm is recursive and it does the following: iterates all values of all variables in $X$ and searches using the following criteria:
+- It returns failure if the state is inconsistent (to let the caller iterate the other values)
+- It continues until the values are finished (there's no solution) or the assignment is complete (the problem has been solved).
+- For each variable it imposes a certain level of consistency, depending on the problem ^a6a0fe
+	- note we do this **before** performing the search.
+
+If we need to just find a solution, we can apply some ordering tweaks to improve performance.
+Of course, if we need all the solutions, ordering doesn't matter: we have to explore the whole graph.
+##### Variables ($X$) Order
+How do we order the iterated variables?
+-  Minimum Remaining Values (MRV) Heuristics:
+	- The variables chosen first are the ones with fewer legal values
+	- a.k.a. "fail-first" heurstic -> if we found a variable fails, we can avoid checking other permutations on the other variables.
+	- This fails if the variables have the same amount of legal values.
+- Degree Heuristics:
+	- The variables chosen first are the ones involved in the largest number of constraints.
+We could combine both of the heuristics: default to MRV and switch to Degree Heuristics in case of legal values amount equality.
+
+##### Domain $D_{i}$ values Order 
+We then need an heuristic to iterate the values in the domain of the selected variable in a more efficient manner.
+- Least Constraining Value:
+	- we apply the same (but opposite) logic of MRV. We choose the values that rule out the fewest amount of choices for the neighboring variables in the constraint graph.
+
+##### Forwarding Checking
+**Inference**: imposing a level of consistency to a variable. 
+Whenever a variable is assigned, we can perform a simple form of *inference* called Forward Checking: applying arc-consistency for it. Only useful if we don't already do it in the [[#^a6a0fe|preprocessing]] step 
+
+#### Local Search
+Instead of iterating all the values in all the variables, we select a random variable that violates some constraint.
+This algorithm can use an heuristics called min-conflicts which selects the variable that violates the minimum amount of constraint conflicts.
+
+This works very well for big problems, because it doesn't depend by the problem size.
 ## Knowledge, reasoning, and planning
 ### 7. Logical Agents
+Now, agents will use Logic. Instead of working with states and having `code` to define the actions, now we use logic.
+We use a Knowledge Base (KB), which is a set of sentences.
+The knowledge base contains sentences that can either be axioms (taken for granted) or derived (from other sentences).
+It's possibile to interact with the knowledge base with two operations:
+- `TELL`: a way to add a sentence
+- `ASK`: a way to query what is known.
+The *derivation* is a way of *inference*, and is hidden behind the `TELL` and `ASK` operations.
+
+An agent starts maintains a knowledge base, which at start may contain some background knowledge.
+Each time an agent is called, it performs the following operations:
+1. `MAKE-PERCEPT-SENTENCE`: it uses `TELL` and it constructs a sentence asserting that the agent perceived the given percept at the given time
+2. `MAKE-ACTION-QUERY`: it `ASK`s what action should be done at the current time
+3. `MAKE-ACTION-SENTENCE`: constructs a sentence asserting that the chosen action was executed
+
+```pseudocode
+function KB-AGENT( percept ) returns an action
+	persistent:
+		KB # a knowledge base
+		t #, a counter, initially 0, indicating time
+	
+	TELL(KB, MAKE-PERCEPT-SENTENCE(percept, t))
+	action ← ASK(KB, MAKE-ACTION-QUERY(t))
+	TELL(KB, MAKE-ACTION-SENTENCE(action,t ))
+	t ← t + 1
+	
+	return action
+```
+
+This approach is *declarative* (not *procedural* as we used before). We use the **knowledge level** just by specifying the desired goal, when querying we don't know how the **implementation level** works, since it's independent.
+
+*details about logic and propositional logic already covered in **Strutture Discrete** and **Fondamenti di Informatica** subjects*.
+
+How can we prove a sentence $\alpha$ is true in some KB?
+We can either:
+1. Iterate the truth table
+2. Generate the derivation sequence
+
+| Language            | Ontological Commitment<br>(what exists in the world) | Epistemological Commitment<br>(what an agent believes about facts) |
+| ------------------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
+| Propositional logic | facts                                                | true/false/unknown                                                 |
+| First-order logic   | facts, objects, relations                            | true/false/unknown                                                 |
+| Temporal logic      | facts, objects, relations, times                     | true/false/unknown                                                 |
+| Probability theory  | facts                                                | degree of belief ∈ [0, 1]                                          |
+| Fuzzy logic         | facts with degree of truth ∈ [0, 1]                  | known interval value                                               |
+
 ### 8. First-Order Logic
+This kind of logic allows us to represent the world in an *easier way*. Propositional Logic isn't suitable to represent knowledge of complex environments. First-Order Logic is sufficiently expressive to represent a good deal of our commonsense knowledge.
+#todo
+
 ### 9. Inference in First-Order Logic
 
 
