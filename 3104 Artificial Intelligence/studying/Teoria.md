@@ -331,10 +331,46 @@ We can either:
 
 ### 8. First-Order Logic
 This kind of logic allows us to represent the world in an *easier way*. Propositional Logic isn't suitable to represent knowledge of complex environments. First-Order Logic is sufficiently expressive to represent a good deal of our commonsense knowledge.
+#### Base Elements
+- Constant symbols: objects (e.g. `Richard` or `John`)
+- Predicate symbols: relations (e.g. `Person`, `King` or `Crown`)
+- Function symbols: functions (e.g. `Brother`, `AgeOf`, `SquareRoot`)
+- Variables: $a, x, s, \dots$
+- Connectors: $\lor, \land, \lnot, \implies, \iff$
+- Quantifier: $\forall, \exists$
+- Equality: $=$
+
+Difference between predicate and function symbols:
+- functions *return* a value, predicate are relations among values in a tuple of objects.
+- $Red(x)$ is a predicate since it just asserts $x$ is red.
+- $FatherOf(x)$ is a function since it returns the father of $x$.
+	- $IsFatherOf(x, y)$ could be a predicate if it meant "$x$ is the father of $y$"
+#### General Rules for Exercises
+- $\forall x \forall y = \forall y \forall x$
+- $\exists x \exists y = \exists y \exists x$
+- $\exists x \forall y \neq \exists y \forall x$
+- $(\forall x) f(x) = (\lnot \exists x)\lnot f(x)$
+- $(\exists x) f(x) = (\lnot \forall x)\lnot f(x)$
+#### Universal Elimination
+We remember the **Modus Ponens** inference rule: $\frac{\alpha, \alpha \implies \beta}{\beta}$
+The **Universal Elimination** is useful when we're dealing with quantifiers: $\frac{(\forall x) \alpha}{\alpha \{ x / \tau \}}$
+Of course, $\tau$ must be a sentence (and not a variable)
+We call $\{ x / t\}$ **unifier** and is often referred to as  $\sigma$.
+This uses the concept of **substitution**.
+
+We need something to understand that $Knows(John, x) = Knows(John, Jane)$.
+We need a process that finds $\{x / Jane\}$.
+We call this process **unification** - it's a function that returns a unifier, if such exists:
+$$\text{UNIFY}(Knows(John, x), \,Knows(John, Jane)) = \{x/Jane\}$$
+### 9. Inference in First-Order Logic
+We have our KB. In practice, how do we *apply* inference?
+#### Forward Chaining Algorithm
+#todo
+#### Backward Chaining Algorithm
 #todo
 
-### 9. Inference in First-Order Logic
-
-
-
-continua da: pg 206
+## Uncertain knowledge and reasoning
+### 13. Quantifying Uncertainty
+### 16. Making Simple Decisions
+## Learning
+### 18. Learning From Examples
