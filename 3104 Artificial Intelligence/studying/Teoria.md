@@ -362,13 +362,24 @@ We need something to understand that $Knows(John, x) = Knows(John, Jane)$.
 We need a process that finds $\{x / Jane\}$.
 We call this process **unification** - it's a function that returns a unifier, if such exists:
 $$\text{UNIFY}(Knows(John, x), \,Knows(John, Jane)) = \{x/Jane\}$$
+#### Generalized Modus Ponens
+#todo
 ### 9. Inference in First-Order Logic
 We have our KB. In practice, how do we *apply* inference?
 #### Forward Chaining Algorithm
-#todo
+It's called "Forward" since it gets executed whenever a new fact is added to the KB.
+It iterates all the rules in the Knowledge Base and for each of them it checks if there are new inferences that can be done. If so, the algorithm continues, until there are no more.
+This is like brute force.
+Let's analyze the algorithm:
+- Every inference is an application of Generalized Modus Ponens
+- It is complete if the knowledge base has definite clauses.
+- The naive implementation is highly inefficient but it can be improved considerably.
 #### Backward Chaining Algorithm
+It's called "Backward" since it gets executed whenever a new query is performed on the KB.
+It starts from the goal and reaches the axioms *backwards*.
 #todo
-
+#### Resolution
+#todo
 ## Uncertain knowledge and reasoning
 ### 13. Quantifying Uncertainty
 ### 16. Making Simple Decisions
