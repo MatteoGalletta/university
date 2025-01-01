@@ -426,7 +426,7 @@ We perform basically a DFS.
 - We generate the unifiers and proceed recursively
 #### Resolution
 
-#### Conversion to CNF
+##### Conversion to CNF
 > **Theorem**
 > Every sentence of first-order logic can be converted into an inferentially equivalent CNF sentence
 
@@ -451,9 +451,9 @@ These are the steps:
 6. Distribute $\land$ over $\lor$
 	- We use the distribution property
 
-#### Proof
+##### Proof
 Now, we have to prove a sentence $\alpha$.
-Resolution proves that $\text{KB} \vDash \alpha$ by proving $\text{KB} \lor \lnot \alpha$ unsatisfiable, that is, by deriving the empty clause.
+Resolution proves that $\text{KB} \vDash \alpha$ by proving ${} \text{KB} \land \lnot \alpha {}$ unsatisfiable, that is, by deriving the empty clause.
 We assume the knowledge is already in CNF. If not, we using the previous algorithm.
 1. We negate $\alpha$ to $\lnot \alpha$
 2. We transform $\alpha$ to CNF
