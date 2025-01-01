@@ -175,6 +175,50 @@ This is a variant of Memory-bounded A* Search, which is not explained.
 - It uses a temperature variable that decreases over time (over iterations).
 - The algorithm chooses randomly the successor node: if it has a better cost, it gets chosen, otherwise it gets accepted only by a probability that depends on the temperature, allowing to choose more worse nodes at the beginning.
 ### 5. Adversarial Search
+Games are well-defined problems that are generally interpreted as requiring intelligence to play well.
+Introduces uncertainty since opponents moves can not be determined in advance.
+
+Search spaces can be very large.
+For chess:
+- Branching factor: 35
+- Depth: 50 moves each player
+- Search tree: 35100 nodes (~1040 legal positions)
+
+Games are an instance of the general search problem.
+- States where the game has ended are called terminal states.
+- A utility (payoff) function determines the value of terminal states, e.g. win=+1, draw=0, lose=-1.
+
+Types of game:
+
+|                           | **Deterministic**              | **Chance**                           |
+| ------------------------- | ------------------------------ | ------------------------------------ |
+| **Perfect Information**   | Chess, Checkers, Go, Othello   | Backgammon, Monopoly                 |
+| **Imperfect Information** | Battleships, Blind Tic-Tac-Toe | Bridge, Poker, Scrabble, Nuclear War |
+#### Minimax Algorithm
+- The Minimax algorithm gives perfect play for deterministic, perfect-information games.
+- In two-player games, assume one is called MAX (tries to maximize utility) and one is called MIN (tries to minimize utility).
+- In the search tree, first layer is move by MAX, next layer by MIN, and alternate to terminal states.
+- Each layer in the search is called a ply.
+
+Implementation:
+- Generate complete game tree down to terminal states.
+- Compute utility of each node bottom up from leaves toward root.
+- At each MAX node, pick the move with maximum utility.
+- At each MIN node, pick the move with minimum utility (assumes opponent always acts correctly to minimize utility).
+- When reach the root, optimal move is determined.
+
+It's basically a DFS.
+
+```
+function Minimax(state):
+	if TerminalTest(state) then return Utility(state)
+	A := Actions(state)
+	if state is a MAX node then return Minimax(Result(state, a))
+	if state is a MIN node then return Minimax(Result(state, a))
+```
+
+#### Alpha-Beta Pruning
+The problem with minimax search is that the number of game states it has to examine is exponential in the depth of the tree.
 #todo
 ### 6. Constraint Satisfaction Problem
 Until now we assumed all the states were black boxes.
@@ -337,7 +381,7 @@ This kind of logic allows us to represent the world in an *easier way*. Proposit
 - Function symbols: functions (e.g. `Brother`, `AgeOf`, `SquareRoot`)
 - Variables: $a, x, s, \dots$
 - Connectors: $\lor, \land, \lnot, \implies, \iff$
-- Quantifier: $\forall, \exists$
+- Quantifier: ${} \forall \text{ (Universal Quantification)}, \exists \text{ (Existential Quantification)} {}$
 - Equality: $=$
 
 Difference between predicate and function symbols:
@@ -377,9 +421,44 @@ Let's analyze the algorithm:
 #### Backward Chaining Algorithm
 It's called "Backward" since it gets executed whenever a new query is performed on the KB.
 It starts from the goal and reaches the axioms *backwards*.
-#todo
+We perform basically a DFS.
+- We look for rules such $lhs \implies \text{goal}$
+- We generate the unifiers and proceed recursively
 #### Resolution
-#todo
+
+#### Conversion to CNF
+> **Theorem**
+> Every sentence of first-order logic can be converted into an inferentially equivalent CNF sentence
+
+Same applies for quantifiers.
+These are the steps:
+1. Eliminate the implications
+	- Remember that $(x \implies y) \iff (\lnot x \,\lor\, y)$
+2. Move $\lnot$ inwards
+	- For example $\lnot \forall x \,\,p$ becomes $\exists x \,\,\lnot p$
+	- We can use De Morgan rules as well
+3. Standardize variables
+	- If we have multiple quantifier, we make sure that each variable has a unique name (useful for following steps)
+4. Skolemize (see later)
+	- With this step we are able to maintain only universal quantifiers ($\forall$), deleting the existential ones ($\exists$).
+	- We first move the quantifiers all to the left, respecting their original order.
+	- Then, we have to remove the $\exists$ symbols.
+		- Let's take this example: $\forall x \exists y P(x, y)$.
+		- This is valid for a generic value that depends on $y$
+		- So we can write this as $\forall x P(x, f(x))$
+		- In general: what to substitute depends on the amount of quantifiers the $\exists$ symbol has on its left. If it has none, we can replace it with an arbitrary constant $a$ (called Skolem Constant). Otherwise we replace it with a function that has as many parameters as many quantifiers it has on its left.
+5. Drop universal quantifiers
+6. Distribute $\land$ over $\lor$
+	- We use the distribution property
+
+#### Proof
+Now, we have to prove a sentence $\alpha$.
+Resolution proves that $\text{KB} \vDash \alpha$ by proving $\text{KB} \lor \lnot \alpha$ unsatisfiable, that is, by deriving the empty clause.
+We assume the knowledge is already in CNF. If not, we using the previous algorithm.
+1. We negate $\alpha$ to $\lnot \alpha$
+2. We transform $\alpha$ to CNF
+3. We $\small{AND}$ $\alpha$ to the knowledge base
+4. We apply inference and look for a contradiction.
 ## Uncertain knowledge and reasoning
 ### 13. Quantifying Uncertainty
 ### 16. Making Simple Decisions
