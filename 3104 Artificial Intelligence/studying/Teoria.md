@@ -260,7 +260,7 @@ Previous algorithm still has to search all the way to terminal states for at lea
 ##### H-Minimax Algorithm
 It's like Minimax, but there are two replacements:
 - `TerminalTest` function with `CutOffTest` function
-	- the newly added `CuttOffTest` function has access to the node's height.
+	- the newly added `CutOffTest` function has access to the current node's height.
 - `Utility` function with `Eval` function
 #### Evaluation Function
 #todo
