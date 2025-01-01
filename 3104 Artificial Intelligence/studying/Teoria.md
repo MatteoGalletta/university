@@ -175,6 +175,9 @@ This is a variant of Memory-bounded A* Search, which is not explained.
 - It uses a temperature variable that decreases over time (over iterations).
 - The algorithm chooses randomly the successor node: if it has a better cost, it gets chosen, otherwise it gets accepted only by a probability that depends on the temperature, allowing to choose more worse nodes at the beginning.
 ### 5. Adversarial Search
+
+[source](http://chalmersgu-ai-course.github.io/AI-lecture-slides/lecture6.pdf)
+
 Games are well-defined problems that are generally interpreted as requiring intelligence to play well.
 Introduces uncertainty since opponents moves can not be determined in advance.
 
@@ -219,7 +222,49 @@ function Minimax(state):
 
 #### Alpha-Beta Pruning
 The problem with minimax search is that the number of game states it has to examine is exponential in the depth of the tree.
+
+Look at the intuition:
+```
+Minimax(root)   = max(min(3, 12, 8), min(2, x, y), min(14, 5, 2))
+				= max(3, min(2, x, y), 2)
+				= max(3, z, 2) where z = min(2, x, y) ≤ 2
+				= 3
+				
+				i.e., we don’t need to know the values of x and y!
+```
+
+The algorithm:
+```
+function AlphaBetaSearch(state):
+	v := MaxValue(state, −∞, +∞))
+	return the action in Actions(state) that has value v
+
+function MaxValue(state, α, β):
+	if TerminalTest(state) then return Utility(state)
+	v := −∞
+	for each action in Actions(state):
+		v := max(v, MinValue(Result(state, action), α, β))
+		if v ≥ β then return v
+		α := max(α, v)
+	return v
+
+function MinValue(state, α, β):
+	same as MaxValue but reverse the roles of α/β and min/max and −∞/+∞
+```
+
+With perfect ordering, the time complexity reduces from $O(b^{m})$ to $O(b^{\frac{m}{2}})$, allowing to double the search depth.
+
+These two algorithms are complete and optimal, but aren't suitable for real games where states are too many.
+#### Imperfect Algorithms
+Previous algorithm still has to search all the way to terminal states for at least a portion of the search space. This depth is usually not practical. In this chapter we apply a heuristic evaluation function to states in the search, effectively turning nonterminal nodes into terminal leaves.
+##### H-Minimax Algorithm
+It's like Minimax, but there are two replacements:
+- `TerminalTest` function with `CutOffTest` function
+	- the newly added `CuttOffTest` function has access to the node's height.
+- `Utility` function with `Eval` function
+#### Evaluation Function
 #todo
+
 ### 6. Constraint Satisfaction Problem
 Until now we assumed all the states were black boxes.
 Now states are [[#Agent components|factored]], so if we're able to formulate a problem as CSP we can get more efficient solutions.
@@ -453,11 +498,11 @@ These are the steps:
 
 ##### Proof
 Now, we have to prove a sentence $\alpha$.
-Resolution proves that $\text{KB} \vDash \alpha$ by proving ${} \text{KB} \land \lnot \alpha {}$ unsatisfiable, that is, by deriving the empty clause.
-We assume the knowledge is already in CNF. If not, we using the previous algorithm.
-1. We negate $\alpha$ to $\lnot \alpha$
-2. We transform $\alpha$ to CNF
-3. We $\small{AND}$ $\alpha$ to the knowledge base
+Resolution proves that $\text{KB} \vDash \alpha$ by proving $\text{KB} \land \lnot \alpha$ unsatisfiable, that is, by deriving the empty clause.
+We assume the knowledge is already in CNF. If not, we use the previous algorithm.
+1. We negate $\alpha$.
+2. We transform it to CNF
+3. We add it to the knowledge base
 4. We apply inference and look for a contradiction.
 ## Uncertain knowledge and reasoning
 ### 13. Quantifying Uncertainty
