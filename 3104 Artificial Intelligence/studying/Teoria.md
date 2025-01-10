@@ -8,7 +8,7 @@ semester: 1
 #university #studying #subject-3104
 ### Teoria
 > [!summary] Artificial Intelligence
-
+asso l’esame
 libro: Artificial Intelligence - S. Russell, P. Norvig
 ## Artificial Intelligence
 ### 2. Intelligent Agents
@@ -87,14 +87,14 @@ Task Environment = PEAS = descrizione problema che risolve un agente:
 - frontier: set of nodes available for graph exploration
 - Tree-Search: contains redundant paths
 - Graph-Search: uses an "explored set" to avoid loops.
-#### Measuring Problem-solving performance:
+#### Measuring Problem-solving performance
 - Types:
 	- Completeness: is the algorithm guaranteed to find a solution when there is one?
 	- Optimality: does the strategy find the optimal (lowest cost) solution?
 	- Time complexity
 	- Space complexity
 - Variables
-	- $b$ "branching factor": maximum number of successors of a nodes
+	- $b$ "branching factor": maximum number of successors of a node
 	- $d$ "depth": shallowest/closest goal node
 	- $m$ "maximum length": maximum length of any path in the graph-search tree
 #### Uninformed Search: we have only access to problem definition
@@ -134,13 +134,13 @@ Starts two searches in parallel, one from the start and the other from the goal,
 - Exponential complexity of $O(b^{\frac{d}{2}})$
 #### Informed Search
 We have access to a heuristic function that estimates the path cost of a solution.
-##### Intuition (general Best-First Search):
+##### Intuition (general Best-First Search)
 - until now, we used the path cost function $g$. In informed search, we introduce a heuristics function $h$.
 - $h(n)$: estimated cost of the cheapest path from the state at node $n$ to the goal state. Compared to $g$, $h$ depends only by the state of the node $n$.
 - we start from the general Tree-Search or Graph-Search algorithm and we use a new function $f$ instead.
 - $f$ is a function that *takes in count* (differently depending on the search strategy) the heuristics function.
 - The general implementation is the same as the Uniform-Cost Search changing the path cost function from $g$ to $f$.
-##### Greedy Best-First Search:
+##### Greedy Best-First Search
 - $f(n)=h(n)$
 - Complete in the graph-search version with *finite* space
 - Not Optimal
@@ -155,16 +155,16 @@ We have access to a heuristic function that estimates the path cost of a solutio
 	- A* Tree-Search is optimal if $h$ is admissible.
 	- A* Graph-Search is optimal if $h$ is consistent.
 	- #todo see proofs
-- It uses a lot of space, making it unsuitable for large state space problems.
+- Being a BFS, it uses a lot of space, making it unsuitable for large state space problems.
 ##### Iterative Deepening A\* Search:
 It's essentially iterative deepening depth-first search with the newly defined $f$ function as depth.
-##### Recursive Best-First Search:
+##### Recursive Best-First Search
 Similar to IDA*, but it uses less memory. IDA* stores every node to select the node with lowest $f$. In RBFS instead, we just store the best alternative from any ancestor to the current node.
 It uses linear space, is complete and optimal.
 It can *change his mind* multiple times, so time complexity is hard to define.
 ##### Simplified Memory-bounded A* Search:
 Aims to improve RBFS using more space if available.
-It's an hybrid between A* and RBFS. Uses A* until no more space is available to allocate a new node. Then, it drops the worst node and just saves the $f$ value, "switching to RBFS". *Details not explained*
+It's an hybrid between IDA* and RBFS. Uses IDA* until no more space is available to allocate a new node. Then, it drops the worst node and just saves the $f$ value, "switching to RBFS". *Details not explained*
 This is a variant of Memory-bounded A* Search, which is not explained.
 ### 4. Beyond Classical Search
 #### Hill-Climbing Search
@@ -173,7 +173,7 @@ This is a variant of Memory-bounded A* Search, which is not explained.
 #### Simulated Annealing
 - Aims to reduce the Local Maxima problem of Hill-Climbing Search.
 - It uses a temperature variable that decreases over time (over iterations).
-- The algorithm chooses randomly the successor node: if it has a better cost, it gets chosen, otherwise it gets accepted only by a probability that depends on the temperature, allowing to choose more worse nodes at the beginning.
+- The algorithm chooses randomly the successor node: if it has a better cost compared to the current, it gets chosen, otherwise it gets accepted only by a probability that depends on the temperature, allowing to choose worse nodes at the beginning.
 ### 5. Adversarial Search
 
 [source](http://chalmersgu-ai-course.github.io/AI-lecture-slides/lecture6.pdf)
@@ -210,7 +210,7 @@ Implementation:
 - At each MIN node, pick the move with minimum utility (assumes opponent always acts correctly to minimize utility).
 - When reach the root, optimal move is determined.
 
-It's basically a DFS.
+It's basically a BFS in space complexity.
 
 ```
 function Minimax(state):
@@ -254,7 +254,7 @@ function MinValue(state, α, β):
 
 With perfect ordering, the time complexity reduces from $O(b^{m})$ to $O(b^{\frac{m}{2}})$, allowing to double the search depth.
 
-These two algorithms are complete and optimal, but aren't suitable for real games where states are too many.
+These two algorithms are complete and optimal (if opponent makes optimal decisions), but aren't suitable for real games where states are too many.
 #### Imperfect Algorithms
 Previous algorithm still has to search all the way to terminal states for at least a portion of the search space. This depth is usually not practical. In this chapter we apply a heuristic evaluation function to states in the search, effectively turning nonterminal nodes into terminal leaves.
 ##### H-Minimax Algorithm
@@ -275,7 +275,7 @@ A constraint satisfaction problem consists of:
 - $C$: a set of constraints that specify allowable combinations of values.
 	- $C_{i}$ is a pair $\langle\text{scope}, \,\text{relation}\rangle$
 		- $\text{scope}$: tuple of variables ($X_{i}$) that partecipate in the constraint
-		- $\text{relation}$: set of values (each value is a tuple of $D_{i}$) that variables in $scope$ can take on.
+		- $\text{relation}$: set of values (each value is a tuple of $D_{i}$ elements) that variables in $scope$ can take on.
 
 In a given state, we can set some values to one of more variables. Those are called **assignments**.
 - An assignment is **consistent** if it doesn't violate any constraint.
@@ -284,18 +284,18 @@ In a given state, we can set some values to one of more variables. Those are cal
 
 We can represent a CSP with a **Constraint Chart**:
 - Nodes are the variables of the problem $X$.
-- Edges between two nodes exists if there's at least a constraint $C$ that includes both of the nodes as $\text{scope}$.
+- An edge between two nodes exists if there's at least a constraint $C$ that includes both of the nodes as $\text{scope}$.
 
 #### N-Queens example
 $$\begin{align}
 X&=\{ Q_{1}, Q_{2}, \dots, Q_{n}\} \\
-D&=\{ 1, 2, \dots, n \} \\
-C&=\{ Q_{i} \neq Q_{k}, \quad|Q_{i} - Q_{k} | \neq  |i-k|\} \quad\small{\text{ technically not respecting formal definition}}
+D&=\{ 1, 2, \dots, n \} \quad\small{\text{ technically not respecting formal definition}} \\
+C&=\{ Q_{i} \neq Q_{k}, \quad|Q_{i} - Q_{k} | \neq  |i-k|\} \quad\small\text{same}
 \end{align}
 $$
 
 #### Implementation with Search
-We can implement any CSP using the [[#3. Solving Problems by Searching|Search]]. The entities are defined as follows:
+We can solve any CSP using the [[#3. Solving Problems by Searching|Search]]. The entities are defined as follows:
 - Initial state: all the variables are unassigned.
 - Actions: assign a value to a variable
 - Goal function: the variables assignment is **complete**.
@@ -314,8 +314,9 @@ We can use DFS as search algorithm.
 - $m=n$ (number of variables)
 - ${} d=n$ (number of variables)
 - $b=\sum\limits_{i} |D_{i}|$
+---
 
-The constraint could be redundant. We can apply a series of reductions to simplify the constraints.
+Constraints could be redundant. We can apply a series of reductions to *simplify* them.
 #### Consistency
 These can be used to reduce the amount of legal values and could potentially find the solution directly.
 - Node Consistency:
@@ -324,7 +325,6 @@ These can be used to reduce the amount of legal values and could potentially fin
 - Arc Consistency:
 	- we consider the binary constraints
 	- we say $X_{i}$ is arc-consistent to $X_{j}$ if for every value $D_{i}$ there is some value in $D_{j}$ that satisfies the binary constraint on the arc $(X_{i}, X_{j})$
-	- *there aren't useless values in $D_{i}$*
 	- A real implementation algorithm is called $\text{AC-3}$
 - Path Consistency
 	- we consider the ternary constraints
@@ -336,14 +336,14 @@ These can be used to reduce the amount of legal values and could potentially fin
 		- ${} K=2 {}$ -> Arc
 		- $K=3$ -> Path
 
-If we impose $K$-Consistency with $K=|X|$, we just get the solution, but this is exponentially expensive.
+If we impose $K$-Consistency up to $K=|X|$, we just get the solution, but this is exponentially expensive.
 #### Backtracking Search
-We use DFS with fixed assignment order: variable assignment is a commutative operation, doing this ensures getting a faster algorithm.
+We use DFS with fixed assignment order: variable assignment is a commutative operation, sorting ensures getting a faster algorithm.
 The algorithm is recursive and it does the following: iterates all values of all variables in $X$ and searches using the following criteria:
 - It returns failure if the state is inconsistent (to let the caller iterate the other values)
 - It continues until the values are finished (there's no solution) or the assignment is complete (the problem has been solved).
 - For each variable it imposes a certain level of consistency, depending on the problem ^a6a0fe
-	- note we do this **before** performing the search.
+	- note that we do this **before** performing the search.
 
 If we need to just find a solution, we can apply some ordering tweaks to improve performance.
 Of course, if we need all the solutions, ordering doesn't matter: we have to explore the whole graph.
@@ -351,8 +351,8 @@ Of course, if we need all the solutions, ordering doesn't matter: we have to exp
 How do we order the iterated variables?
 -  Minimum Remaining Values (MRV) Heuristics:
 	- The variables chosen first are the ones with fewer legal values
-	- a.k.a. "fail-first" heurstic -> if we found a variable fails, we can avoid checking other permutations on the other variables.
-	- This fails if the variables have the same amount of legal values.
+	- a.k.a. "fail-first" heuristic -> if we find a variable fails, we can avoid checking other permutations on the other variables.
+	- This makes no sense if the variables have the same amount of legal values (e.g. N-Queens example).
 - Degree Heuristics:
 	- The variables chosen first are the ones involved in the largest number of constraints.
 We could combine both of the heuristics: default to MRV and switch to Degree Heuristics in case of legal values amount equality.
@@ -365,6 +365,7 @@ We then need an heuristic to iterate the values in the domain of the selected va
 ##### Forwarding Checking
 **Inference**: imposing a level of consistency to a variable. 
 Whenever a variable is assigned, we can perform a simple form of *inference* called Forward Checking: applying arc-consistency for it. Only useful if we don't already do it in the [[#^a6a0fe|preprocessing]] step 
+#todo non lo faccio già? qual è il preprocessing?
 
 #### Local Search
 Instead of iterating all the values in all the variables, we select a random variable that violates some constraint.
@@ -373,17 +374,17 @@ This algorithm can use an heuristics called min-conflicts which selects the vari
 This works very well for big problems, because it doesn't depend by the problem size.
 ## Knowledge, reasoning, and planning
 ### 7. Logical Agents
-Now, agents will use Logic. Instead of working with states and having `code` to define the actions, now we use logic.
+Instead of working with states and having `code` to define the actions, now we use logic.
 We use a Knowledge Base (KB), which is a set of sentences.
-The knowledge base contains sentences that can either be axioms (taken for granted) or derived (from other sentences).
+The knowledge base contains sentences that can either be axioms (that taken for granted) or derived (from other sentences).
 It's possibile to interact with the knowledge base with two operations:
 - `TELL`: a way to add a sentence
 - `ASK`: a way to query what is known.
 The *derivation* is a way of *inference*, and is hidden behind the `TELL` and `ASK` operations.
 
-An agent starts maintains a knowledge base, which at start may contain some background knowledge.
+An agent maintains a knowledge base, which at start may contain some background knowledge.
 Each time an agent is called, it performs the following operations:
-1. `MAKE-PERCEPT-SENTENCE`: it uses `TELL` and it constructs a sentence asserting that the agent perceived the given percept at the given time
+1. `MAKE-PERCEPT-SENTENCE`: it uses `TELL` and it constructs a sentence asserting that the agent perceived the given percept in a given time
 2. `MAKE-ACTION-QUERY`: it `ASK`s what action should be done at the current time
 3. `MAKE-ACTION-SENTENCE`: constructs a sentence asserting that the chosen action was executed
 
@@ -395,7 +396,7 @@ function KB-AGENT( percept ) returns an action
 	
 	TELL(KB, MAKE-PERCEPT-SENTENCE(percept, t))
 	action ← ASK(KB, MAKE-ACTION-QUERY(t))
-	TELL(KB, MAKE-ACTION-SENTENCE(action,t ))
+	TELL(KB, MAKE-ACTION-SENTENCE(action, t))
 	t ← t + 1
 	
 	return action
@@ -430,7 +431,7 @@ This kind of logic allows us to represent the world in an *easier way*. Proposit
 - Equality: $=$
 
 Difference between predicate and function symbols:
-- functions *return* a value, predicate are relations among values in a tuple of objects.
+- functions *return* a value, predicates are relations among values in a tuple of objects.
 - $Red(x)$ is a predicate since it just asserts $x$ is red.
 - $FatherOf(x)$ is a function since it returns the father of $x$.
 	- $IsFatherOf(x, y)$ could be a predicate if it meant "$x$ is the father of $y$"
@@ -473,18 +474,18 @@ We perform basically a DFS.
 
 ##### Conversion to CNF
 > **Theorem**
-> Every sentence of first-order logic can be converted into an inferentially equivalent CNF sentence
+> Every sentence of first-order logic can be converted into an **inferentially** equivalent CNF sentence
+> *notice the "inferentially"*
 
-Same applies for quantifiers.
 These are the steps:
 1. Eliminate the implications
-	- Remember that $(x \implies y) \iff (\lnot x \,\lor\, y)$
+	- Remember that $x \implies y$ is the same as $\lnot x \,\lor\, y$
 2. Move $\lnot$ inwards
 	- For example $\lnot \forall x \,\,p$ becomes $\exists x \,\,\lnot p$
 	- We can use De Morgan rules as well
 3. Standardize variables
-	- If we have multiple quantifier, we make sure that each variable has a unique name (useful for following steps)
-4. Skolemize (see later)
+	- If we have multiple quantifiers, we make sure that each variable has a unique name (useful for following steps)
+4. Skolemize
 	- With this step we are able to maintain only universal quantifiers ($\forall$), deleting the existential ones ($\exists$).
 	- We first move the quantifiers all to the left, respecting their original order.
 	- Then, we have to remove the $\exists$ symbols.
