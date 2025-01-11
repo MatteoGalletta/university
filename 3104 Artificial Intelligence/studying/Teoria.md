@@ -262,9 +262,26 @@ It's like Minimax, but there are two replacements:
 - `TerminalTest` function with `CutOffTest` function
 	- the newly added `CutOffTest` function has access to the current node's height.
 - `Utility` function with `Eval` function
-#### Evaluation Function
-#todo
+#### Evaluation and Utility Functions
+##### Weighted Linear Evaluation Functions
+$$
+Eval(s) = w_{1}f_{1}(s) + w_{2}f_{2}(s) + \cdots + w_{n}f_{n}(s) = \sum_{i=1}^{n} w_{i}f_{i}(s)
+$$
 
+This assumes all the features are independent of each other, which is usually not true.
+We want more sophisticated cutoff tests.
+##### Quiescient positions
+- We only cut off search in quiescient positions.
+- i.e. in position that are "stable", unlikely to exhibit wild swings in value
+- non-quiescient positions should be expanded further
+##### Horizon effect
+another problem - the horizon effect:
+- if a bad position is unavoidable (e.g., loss of a piece in chess), but the system can delay it from happening, it might push the bad position “over the horizon”
+- in the end, the resulting delayed position might be even worse
+#### Monte Carlo Tree Search
+#todo
+#### Algorithms in non-deterministic games
+#todo
 ### 6. Constraint Satisfaction Problem
 Until now we assumed all the states were black boxes.
 Now states are [[#Agent components|factored]], so if we're able to formulate a problem as CSP we can get more efficient solutions.
