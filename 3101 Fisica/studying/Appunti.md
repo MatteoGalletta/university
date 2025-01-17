@@ -238,7 +238,7 @@ $$
 ### 2.4.1 lavoro infinitesimo
 Consideriamo dunque un punto materiale $P$ di massa $m$ che si muove in un sistema di riferimento inerziale (rispetta la prima legge della dinamica), sottoposto a una forza $\overrightarrow{F}$
 
-Sia la spostamento:
+Sia lo spostamento:
 $$
 d \overrightarrow{s} = \overrightarrow{r}(t + dt)- \overrightarrow{r}(t)
 $$
@@ -394,7 +394,7 @@ $$
 
 siccome $E_{in} = E_{fin}\implies E_{in}=0$
 
-usando:
+usando ( #todo dim):
 $$
 \begin{align}
 v_{1}^2 = v_{0}^2+ \frac{2GM}{d} \implies
@@ -434,7 +434,6 @@ y''+ay&=0 \\ \\
 \frac{d^2x}{dt^2}+\frac{K}{m}x&=0 & [1]
 \end{align}
 $$
-
 
 risolviamo tramite guess:
 $$
@@ -678,9 +677,11 @@ $$
 ## 5.4 Piano inclinato
 ![[Pasted image 20241110163504.png|400]]
 Vogliamo cercare la condizione di $\theta$ affinché un corpo in quiete rimanga in quiete.
+Quando $F_{A} < F_{\text{MAX}} \implies F_{a} = F_{A}$. quindi:
 
 $$
 \begin{align}
+f_{A} &\leq F_{MAX}\\
 f_{a} &\leq \mu_{s}\underbrace{ N }_{ mg\cos \theta } \\
 f_{a} &\leq \mu_{s}mg\cos \theta \\ \\
 
@@ -692,6 +693,8 @@ f_{a} &\leq \mu_{s}mg\cos \theta \\ \\
 $$
 
 se non soddisfa vuol dire che la forza di attrito statico non è sufficiente per bilanciare il corpo.
+
+n.b. si usa il $\cos$ al posto del ${} \sin {}$ perché l'angolo ${} \theta$ non è quello in alto a sinistra, ma il complementare. 
 ### 5.4.1 Moto del corpo nel piano inclinato
 $$
 \begin{align}

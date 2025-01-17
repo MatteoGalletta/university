@@ -8,7 +8,7 @@ semester: 1
 #university #studying #subject-3104
 ### Teoria
 > [!summary] Artificial Intelligence
-asso l’esame
+
 libro: Artificial Intelligence - S. Russell, P. Norvig
 ## Artificial Intelligence
 ### 2. Intelligent Agents
@@ -524,6 +524,67 @@ We assume the knowledge is already in CNF. If not, we use the previous algorithm
 4. We apply inference and look for a contradiction.
 ## Uncertain knowledge and reasoning
 ### 13. Quantifying Uncertainty
+*already covered in **Strutture Discrete** subject*.
 ### 16. Making Simple Decisions
+
+A knowledge base is **not-monotonous** if logic deductions could change due to new facts.
+
+**Utility theory**: used to represent preferences
+**Decisions theory**: utility theory + probability theory
+**Games theory**: decisions theory agains players whose decisions minimize our utility theory
+
+
+
+#todo
+
 ## Learning
 ### 18. Learning From Examples
+$f$ the function to predict.
+$h$ the function we build to predict $f$
+
+training set: a set of examples in the form $(x, f(x))$
+$h$ is consistent if $f(x)=h(x)$ for every example point we have in the training set.
+
+Curve fitting: take the *simpliest* consistent function (Ockham's razor)
+
+Examples are:
+- **described** by attributes (boolean)
+- **classified** by an outcome
+#### Decision Tree Learning
+Each node is an attribute and each branch is a possible value.
+In case of booleans, the tree is a binary tree.
+**Goal**: find the smallest consistent tree.
+
+The idea is to choose recursively the most significant attribute (the one that *splits better* the examples by outcome - in the case of booleans).
+Let's define formally the definition of *split better*
+
+Entropy of a variable $V$ of $v_{k}$ values:
+$$H(V) = \sum\limits_{k} -P(v_{k}) \log_{2}P(v_{k})$$
+If a variable is boolean the entropy becomes as follows:
+$$B(q)=\sum\limits_{k} - (q - \log_{2} q + (1-q) \log_{2} (1-q))$$
+
+To calculate the entropy of a training set T:
+$$H(T) = B\left(\frac{p}{p+n}\right)$$
+axx: If want to know how much a single attributes takes part in that $H(T)$. We can do it by excluding it and calculating the entropy on the remaining.
+$$Remainder(A) = \sum\limits_{k=1}^{v} \frac{p_{k}+n_{k}}{p+n} B\left(\frac{p_{i}}{p_{i} + n_{i}}\right)$$
+Information Gain:
+$$Gain(A) = B\left(\frac{p}{p+n}\right) - Remainder(A)$$
+
+**We can choose the attribute with highest $Gain$**.
+
+#### Performance Measure
+How do we know $h \approx f$?
+
+A bigger the training implies a better prediction.
+The learning curve is the percentage of correctness over the training set size.
+
+A function $h$ is said to be **Probably Approximately Correct** if it's *consistent with a sufficiently large set of training examples, thus being unlikely to be seriously wrong*.
+This doesn't not apply for each algorithm. If it does, the algorithm is called PAC Learning algorithm.
+
+A PAC Learning Algorithm takes as input a set of examples and two variables $\epsilon$ and $\delta$ and it produces a function that with a probability of $1-\delta$ satisfies $P[h(x) \neq f(x)] < \epsilon$.
+
+in other words
+- A function $h$ is probably approximately correct with accuracy $\epsilon \iff P[h(x) \text{ is correct}] > 1 - \epsilon$.
+- A function $h$ is probably approximately correct with confidence $1 - \delta \iff P[h \text{ is not AC}] < \epsilon$.
+
+#todo $m$
