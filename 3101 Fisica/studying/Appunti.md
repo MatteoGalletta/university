@@ -575,16 +575,15 @@ $$
 \begin{align}
 \overrightarrow{F} &= m \cdot \overrightarrow{a}\\
 \overrightarrow{P} + \overrightarrow{f_{v}} &= m \cdot \overrightarrow{a}\\
-\\ -mg - \beta v_{y}&= m \cdot a_{y}
-\\ -mg - \beta v_{y}&= m \cdot \frac{d v_{y}}{dt}
+\\ mg - \beta v_{y}&= m \cdot a_{y}
+\\ mg - \beta v_{y}&= m \cdot \frac{d v_{y}}{dt}
 
 \end{align}
 $$
 Sperimentalmente, sappiamo che per $t \to \infty \implies \frac{d v_{y}}{dt}=0$, quindi:
 $$
 \begin{align}
-v_{y} &= - \frac{mg}{\beta} \\
-|v_{y}| &=  \frac{mg}{\beta}
+v_{y} &= \frac{mg}{\beta} \quad\text{ per } t \to \infty
 \end{align}
 $$
 ### 5.1.1 Equazione del moto
@@ -728,7 +727,7 @@ $$
 \begin{align}
 -mg \cdot \sin \theta &= ma \\
 &= m\frac{d^{2}S}{dt^{2}} \\
-&= m\cdot l \frac{d^{2}\theta}{dt^{2}}  &[s=l \cdot \theta] \\
+&= m\cdot l \frac{d^{2}\theta}{dt^{2}}  &[S=l \cdot \theta] \\
 -g \cdot \sin \theta &= l \frac{d^{2}\theta}{dt^{2}} \\
 \frac{d^{2} \theta}{dt^{2}} + \frac{g}{l} \cdot sin \theta &= 0
 \end{align}
@@ -765,7 +764,7 @@ m_{1}V_{1}&=m_{1}V_{1}+m_{2}V_{2}
 \end{align}
 $$
 
-Aggiugendo la seconda ipotesi si ottiene:
+Aggiungendo la seconda ipotesi si ottiene:
 $$
 \begin{cases}
 V_{1} = \frac{m_{1} - m_{2}}{m_{1} + m_{2}}v_{1} \\
@@ -824,15 +823,11 @@ $$
 
 # 8 Termodinamica
 ## 8.1 Principio zero
-due corpi (sono il sistema) inizialmente in stati termici differenti, posti in contatto tra loro e isolati rispetto a tutto ciò che hanno intorno (ambiente esterno), dopo un certo tempo si trovano nello stesso stato termico.due corpi (sistema) inizialmente in stati termici differenti, posti in contatto tra loro e isolati
-rispetto a tutto ciò che hanno intorno (ambiente esterno), dopo un certo tempo si trovano nello stesso
-stato termico.
-
-
+due corpi (il sistema) inizialmente in stati termici differenti, posti in contatto tra loro e isolati rispetto a tutto ciò che hanno intorno (ambiente esterno), dopo un certo tempo si trovano nello stesso stato termico.
 ## 8.2 Tipi di sistemi
 ![[Pasted image 20241130150323.png]]
 
-Un sistema chiuso si dice in equilibrio termodinamico quando:
+Un sistema chiuso si dice in **equilibrio termodinamico** quando:
 - **equilibrio meccanico**: l'insieme delle forze applicate è uguale a 0
 - **equilibrio termico**: in tutti i punti del sistema la temperatura è la stessa (omogenea)
 - **equilibrio chimico**: garantisce che non ci siano in corso reazioni che alterino la composizione relativa del sistema
@@ -872,6 +867,7 @@ I parametri di stato principali sono Temperatura, Pressione e Volume. C'è anche
 I gas rarefatti si comportano in maniera simile (approssimando).
 
 ### 8.6.1 Trasformazioni
+Si parte in uno stato con pressione $P_{0}$, volume $V_{0}$ e temperatura di $0 °C$.
 $P_{0}$: pressione a 0 gradi celsius
 $V_{0}$: volume a 0 gradi celsius
 $\alpha=\frac{1}{273.15} °C$: costante indipendente dalla natura del gas
@@ -913,11 +909,12 @@ le trasformazioni saranno quindi:
 Si osserva sperimentalmente che a temperatura di $T=0 K$ la pressione del gas va a zero
 
 ### 8.6.2 Equazione di stato
-Data la trasformazione isocora da $T_{0}$ a $T$
+Vengono effettuate in sequenza due trasformazioni.
+1. Trasformazione isocora da $T_{0}$ a $T$
 $$
 P_{1}=P_{0} \frac{T}{T_{0}}
 $$
-mantenendo la temperatura $T$ (trasformazione temperatura costante) ed effettuando la trasformazione isoterma da $V_{0}$ a $V$ avremo:
+2. Mantenendo la temperatura $T$ (trasformazione temperatura costante) ed effettuando la trasformazione isoterma da $V_{0}$ a $V$ avremo:
 $$
 P_{1}V_{0}=PV
 $$
@@ -1124,7 +1121,7 @@ Quindi il sistema compie del lavoro verso l'esterno a spese della proprie energi
 - $L=0$
 - $Q = U(B)-U(A)$
 
-nel caso di trasformazione isocora, se $Q>0$, ovvero è a contatto con un corpo più caldo (cede calore al nostro sistema)
+nel caso di trasformazione isocora, se $Q>0$, ovvero è a contatto con un corpo più caldo (cede calore al nostro corpo)
 $$
 \begin{align}
 \underbrace{ \Delta U }_{ >0 } &= \underbrace{ Q }_{ >0 }\\ \\
@@ -1206,6 +1203,8 @@ dato un $T$ generico avremo:
 $$
 U(T)=nC_{v}T+\text{costante}
 $$
+
+per axx. la legge sopra vale sempre (non solo per trasformazione a volume costante).
 
 - trasformazione a **pressione costante**:
 

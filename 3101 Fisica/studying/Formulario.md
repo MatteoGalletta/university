@@ -11,8 +11,14 @@ semester: 1
 
 ## Dinamica
 ### Costanti
-- Accelerazione gravitazionale: ${} 9,81 \frac{m}{s^{2}} {}$
+- Accelerazione gravitazionale: $9,81 \frac{m}{s^{2}}9,81 \frac{m}{s^{2}}$
 - Costante di gravitazione universale: $G = 6.66 \cdot 10^{-11} \cdot \frac{N \cdot m^2}{kg^2}$
+- Velocità della luce: $c=$
+- #todo
+### Unità di misura
+- km/h -> m/s
+- c -> k
+- #todo
 ### Formule
 - Forza: $\overrightarrow{F} = m \cdot \overrightarrow{a}$
 - Quantità di moto: $\overrightarrow{p}= m \cdot \overrightarrow{v}$
@@ -37,6 +43,9 @@ semester: 1
 	- $x(t)=x_{0} \cdot \cos\left( \sqrt{ \frac{K}{m} }\cdot t \right)$
 	- Periodo: $T = \frac{2\pi}{\omega}$
 - Forza viscosa: $\overrightarrow{f_{v}} = -\beta \overrightarrow{v}$
+	- Velocità:
+		- con dimostrazione: $v_{y} = \frac{mg}{\beta} \quad\text{ per } t \to \infty$
+		- in generale: $v_{y}(t)=\frac{mg}{\beta}\cdot \left( e^{- \frac{\beta t}{m}}-1 \right)$
 	- Accelerazione: $\overrightarrow{a}=g \cdot e^{-\frac{\beta t}{m}}$
 - Attrito:
 	- forza di attrito massima che fa spostare il corpo: $F_{max} = \mu_{s} N$
@@ -49,5 +58,48 @@ semester: 1
 K_{in} = K_{fin}
 \end{cases}
 $$
-- Urto anelastico: elastico se non vale la seconda condizione.
+- Urto anelastico: se vale $$\overrightarrow{P}_{in} = \overrightarrow{P}_{fin}$$
 ## Termodinamica
+- Trasformazioni termodinamiche:
+	- isocora (volume costante):
+		- $P=P_{0}(1+\alpha \cdot T(°C))$
+		- $P=P_{0}\frac{T}{T_{0}}$
+	- isobara (pressione costante):
+		- $V=V_{0}(1+\alpha \cdot T(°C))$
+		- $V=V_{0}\frac{T}{T_{0}}$
+	- isoterma (temperature costante):
+		- $PV = P_{0}V_{0}$
+- Equazione di stato: $\frac{P_{0}V_{0}}{T_{0}}=\frac{PV}{T}$
+	- $\frac{PV}{T}=n \cdot R$ è costante
+	- $R = 8.314 \cdot \frac{J}{mol \cdot K}$: costante universale gas perfetti.
+- Numero totale di atomi: $N_{tot}= n \cdot N_{A}$
+	- Numero di Avogadro: $N_{A}= 6.022 \cdot 10^{23}$
+- Energia cinetica media: $\langle K\rangle = \frac{K_{tot}}{n \cdot N_{A}}$
+- Relazione tra energia cinetica e temperatura: $T = \frac{2}{3k_{b}}\langle K\rangle$
+	- Costante di Boltzman: $k_{B}=\frac{R}{N_{A}} \approx 1.38 \cdot 10^{-23} \frac{J}{K}$
+- Calore:
+	- Quantità di calore scambiato:
+		- con calore specifico: $\delta Q = m \cdot c(T) \cdot dT$
+		- con calore molare: $\delta Q = n \cdot C(T) \cdot dT$
+			- $C \approx 3R$
+	- Trasferimento da temperatura $T_{1}$ a $T_{2}$: $Q = mc(T_{2}-T_{1})=nC(T_{2}-T_{1})$
+- Temperatura di Equilibrio: $T_{eq}=\frac{m_{1}c_{1}T_{1}+m_{2}c_{2}T_{2}}{m_{1}c_{1}+m_{2}c_{2}}$
+- Lavoro di espansione: ${} \delta L = PdV$
+- Rapporto tra lavoro e calore: $\frac{L}{Q} = J = 4.186 \, \frac{Joule}{cal}$
+- Energia interna: $U=U(P,V,T)$
+- Primo Principio della Termodinamica: $Q - L = U(B)-U(A)$
+- Altre trasformazioni:
+	- adiabatica:
+		- $Q = 0$
+		- $-L = U(B)-U(A)$
+	- isocora:
+		- $L=0$
+		- $Q = U(B)-U(A)$
+- Energia interna: 
+	- nel corpo solido: $U(T)=mcT+\text{costante}$
+	- nel gas a volume costante: $U(T)=nC_{v}T+\text{costante}$
+		- forse vale sempre? e non solo con volume costante?
+- Equazione calore molare: $C_{p} = C_{v}+R$
+	- Calore molare a pressione costante: $C_{p}$
+	- Calore molare a volume costante: $C_{v}$
+
