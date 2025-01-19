@@ -1252,23 +1252,20 @@ $$
 
 
 #### 8.9.2.3 cosa comportano le trasformazioni
-![[Pasted image 20241201132544.png|500]]
+![[Pasted image 20241201132544.png|800]]
 
-![[Pasted image 20241201132603.png|500]]
+![[Pasted image 20241201132603.png|800]]
 
 **Temperatura Costante**
 si ricorda che $U=U(T)$. siccome $T$ è costante $dU=0$.
 siccome
 ![[Pasted image 20241201132758.png|500]]
 allora
-![[Pasted image 20241201133113.png|500]]
+![[Pasted image 20241201133113.png|800]]
 
 #todo da capire better
 
-![[Pasted image 20241201132640.png|500]]
-
-
-#todo fixare numeri headings
+![[Pasted image 20241201132640.png|800]]
 ## 8.10 Secondo principio termodinamica
 Il Primo Principio della Termodinamica non pone limiti alla conversione di calore in
 lavoro e viceversa.
@@ -1280,7 +1277,7 @@ $$
 
 Ex: frigorifero che ha bisogno del lavoro aggiuntivo per funzionare.
 
-![[Pasted image 20241201155523.png|500]]
+![[Pasted image 20241201155523.png|800]]
 
 **Enunciato di Clausius**: La realizzazione di una trasformazione termodinamica il cui unico risultato sia quello di trasferire calore da un sistema a temperatura inferiore a uno con temperatura superiore è impossibile.
 
@@ -1291,8 +1288,8 @@ sono equivalenti questi enunciati.
 ### 8.10.1 Ciclo di Carnot
 Macchina termica reversibile, a gas perfetto.
 Lavora con due sorgenti a temperature rispettivamente: $T_{c}$,  $T_{f}$.
-![[Pasted image 20241201160351.png|500]]
-![[Pasted image 20241201160441.png|500]]
+![[Pasted image 20241201160351.png|800]]
+![[Pasted image 20241201160441.png|800]]
 In quanto è un sistema chiuso avremo che $\Delta U= 0$, quindi:
 $$
 \begin{align}
@@ -1329,7 +1326,7 @@ $$
 \cancel{ 1 } - \frac{|Q_{F}|}{|Q_{C}|}&\leq \cancel{ 1 } - \frac{T_{F}}{T_{C}} \\  \\
 
 \frac{|Q_{C}|}{T_{C}}&\leq \frac{|Q_{F}|}{T_{F}} \\ \\
-\frac{\underbrace{ |Q_{C}| }_{ >0 }}{T_{C}}- \frac{\underbrace{ |Q_{F}| }_{ <0 }}{T_{F}} &\leq 0\\ \\
+\frac{\underbrace{ |Q_{C}| }_{ >0 }}{T_{C}}- \frac{|\underbrace{ Q_{F} }_{ <0 }|}{T_{F}} &\leq 0\\ \\
 \frac{Q_{C}}{T_{C}}+ \frac{Q_{F}}{T_{F}} &\leq 0\\ \\
 
 
@@ -1359,8 +1356,7 @@ definiremo come Entropia:
 $$
 S(B)-S(A)
 $$
-sarà una funzione che dipende solo stato del sistema termodinamico.
-
+sarà una funzione che dipende solo dagli stati iniziale e finale del sistema termodinamico.
 #### 8.10.2.1 trasformazioni: irreversibile, reversibile
 ![[Pasted image 20241212192340.png]]
 
@@ -1406,9 +1402,6 @@ $$
 \Delta S_{\text{sistema + ambiente}}\geq 0 \quad [1]
 $$
 
-- Le trasformazioni irreversibili comportano un aumento dell’entropia totale di sistema e ambiente
-- Le reversibili non cambiano l’entropia totale.
-
 può accadere che $\Delta S_{\text{sistema}} > 0$ oppure $\Delta S_{\text{sistema}} < 0$, l'importante che la relazione $[1]$ rimanga
 
 #### 8.10.2.5 calcolo
@@ -1453,7 +1446,7 @@ $$
 sapendo che $T_{eq}=\frac{T_{1}+T_{2}}{2}$:
 $$
 \begin{align}
-\Delta S_{tot}&=\Delta S_{1}+\Delta_{S_{2}} \\
+\Delta S_{tot}&=\Delta S_{1}+\Delta S_{2} \\
 &=mc \log \frac{T_{eq}}{T_{1}}+mc \log \frac{T_{eq}}{T_{2}} \\
 &=mc \log \frac{\frac{T_{1}+T_{2}}{2}}{T_{1}}+mc \log \frac{\frac{T_{1}+T_{2}}{2}}{T_{2}} \\
 &=mc \log \underbrace{ \frac{(T_{1}+T_{2})^2}{4T_{1}T_{2}} }_{ \geq 1 } \geq 0 & [\text{prop. log}]

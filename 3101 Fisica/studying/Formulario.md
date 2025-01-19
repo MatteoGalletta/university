@@ -84,7 +84,7 @@ $$
 			- $C \approx 3R$
 	- Trasferimento da temperatura $T_{1}$ a $T_{2}$: $Q = mc(T_{2}-T_{1})=nC(T_{2}-T_{1})$
 - Temperatura di Equilibrio: $T_{eq}=\frac{m_{1}c_{1}T_{1}+m_{2}c_{2}T_{2}}{m_{1}c_{1}+m_{2}c_{2}}$
-- Lavoro di espansione: ${} \delta L = PdV$
+- Lavoro di espansione: $\delta L = PdV$
 - Rapporto tra lavoro e calore: $\frac{L}{Q} = J = 4.186 \, \frac{Joule}{cal}$
 - Energia interna: $U=U(P,V,T)$
 - Primo Principio della Termodinamica: $Q - L = U(B)-U(A)$
@@ -97,9 +97,21 @@ $$
 		- $Q = U(B)-U(A)$
 - Energia interna: 
 	- nel corpo solido: $U(T)=mcT+\text{costante}$
-	- nel gas a volume costante: $U(T)=nC_{v}T+\text{costante}$
-		- forse vale sempre? e non solo con volume costante?
+	- nel gas: ${} U(T)=nC_{v}T+\text{costante}$
+		- $U = U(T)$
 - Equazione calore molare: $C_{p} = C_{v}+R$
 	- Calore molare a pressione costante: $C_{p}$
 	- Calore molare a volume costante: $C_{v}$
-
+- Ciclo di Carnot:  $Q=L = |Q_{c}|-|Q_{f}|$
+	- Rendimento $\eta=1-\frac{|Q_{f}|}{|Q_{c}|}$
+- Disuguaglianza di Clausius: $\oint \frac{\delta Q}{T} \leq 0$
+- Entropia
+	- $\Delta S_{\text{Sist. isolato}}\geq 0$
+	- nel corpo solido: $S(T)=mc\log T + \text{costante}$
+	- in un gas perfetto: $S(T)=nC_{V}\log T+nR\log V + \text{costante}$
+- Equazione di Boltzman: $S=k_{B}\log W$
+	- $W$: probabilità termodinamica
+- Equazione di Gibbs: $S=-k_{B}\sum^{W}_{i=1}p_{i}\log p_{i}$
+	- $p_{i}$: probabilità del singolo macrostato
+- Entropia del buco nero: $S_{\text{buco nero}} = \frac{A}{4}$
+	- $A$: area del buco nero
