@@ -524,16 +524,53 @@ We assume the knowledge is already in CNF. If not, we use the previous algorithm
 4. We apply inference and look for a contradiction.
 ## Uncertain knowledge and reasoning
 ### 13. Quantifying Uncertainty
-*already covered in **Strutture Discrete** subject*.
+*probability already covered in **Strutture Discrete** subject*.
+
+#### Syntax
+We can have random variables. We could write something like:
+```
+P (Weather = sunny) = 0.6
+P (Weather = rain) = 0.1
+P (Weather = cloudy) = 0.29
+P (Weather = snow) = 0.01
+```
+
+or as an abbreviation: ```P(Weather) = <0.6, 0.1, 0.29, 0.01>``` (assuming a predefined ordering: `<sunny, rain, cloudy, snow>`)
+Values must me normalised (the sum must be equal to one).
+
+It's also possible to define the probability of multiple variables together.
+It's a table called **Joint Probability Distribution**.
+In the following example `W` is weather and `C` is cavity.
+```
+P (W = sunny ∧ C = true) = P (W = sunny|C = true) P (C = true)
+P (W = rain ∧ C = true) = P (W = rain|C = true) P (C = true)
+P (W = cloudy ∧ C = true) = P (W = cloudy|C = true) P (C = true)
+P (W = snow ∧ C = true) = P (W = snow |C = true) P (C = true)
+P (W = sunny ∧ C = false) = P (W = sunny|C = false) P (C = false)
+P (W = rain ∧ C = false) = P (W = rain|C = false) P (C = false)
+P (W = cloudy ∧ C = false) = P (W = cloudy|C = false) P (C = false)
+P (W = snow ∧ C = false) = P (W = snow |C = false) P (C = false)
+```
+
+#### Independence
+Some variables are independent on others. for example
+`P (cloudy | toothache, catch, cavity)` can be written as `P (cloudy)`
+
+The property used is called independence.
+Independence between propositions can be written as follows:
+`P(a | b) = P (a)`, `P(b | a) = P(b)` or `P(a ∧ b) = P(a)P(b)`.
+
+This is useful because it can reduce the number of independent cases.
+#### Conditional Independence
+#todo
+
 ### 16. Making Simple Decisions
 
 A knowledge base is **not-monotonous** if logic deductions could change due to new facts.
 
 **Utility theory**: used to represent preferences
 **Decisions theory**: utility theory + probability theory
-**Games theory**: decisions theory agains players whose decisions minimize our utility theory
-
-
+**Games theory**: decisions theory against players whose decisions minimize our utility theory
 
 #todo
 
@@ -545,7 +582,7 @@ $h$ the function we build to predict $f$
 training set: a set of examples in the form $(x, f(x))$
 $h$ is consistent if $f(x)=h(x)$ for every example point we have in the training set.
 
-Curve fitting: take the *simpliest* consistent function (Ockham's razor)
+Curve fitting: take the *simplest* consistent function (Ockham's razor)
 
 Examples are:
 - **described** by attributes (boolean)
@@ -575,7 +612,7 @@ $$Gain(A) = B\left(\frac{p}{p+n}\right) - Remainder(A)$$
 #### Performance Measure
 How do we know $h \approx f$?
 
-A bigger the training implies a better prediction.
+A bigger training set implies a better prediction.
 The learning curve is the percentage of correctness over the training set size.
 
 A function $h$ is said to be **Probably Approximately Correct** if it's *consistent with a sufficiently large set of training examples, thus being unlikely to be seriously wrong*.

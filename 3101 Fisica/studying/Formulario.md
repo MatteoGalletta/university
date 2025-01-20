@@ -24,8 +24,9 @@ semester: 1
 - Quantità di moto: $\overrightarrow{p}= m \cdot \overrightarrow{v}$
 - Forza Impulso: $\overrightarrow{I} = \overrightarrow{p}(t_{2})-\overrightarrow{p}(t_{1})$
 - Lavoro: $L_{AB}=\int^{B}_{A}dL = K_{B} - K_{A}$ (vale per ogni forza)
+	- Se la forza è conservativa: $L_{AB} = U_{A} - U_{B} = - \Delta U$
 - Energia cinetica: $\frac{1}{2} m v^{2}$ (vale sempre)
-- Energia potenziale:
+	- Energia potenziale:
 	- $U = m \cdot g \cdot h$
 	- $U = -\frac{GMm}{d}$
 	- $U = \frac{1}{2}Kx^2$
