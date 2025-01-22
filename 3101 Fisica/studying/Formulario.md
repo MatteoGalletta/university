@@ -1,4 +1,3 @@
----
 type: university
 date: 2025-01-17
 subjectId: 3101
@@ -11,14 +10,11 @@ semester: 1
 
 ## Dinamica
 ### Costanti
-- Accelerazione gravitazionale: $9,81 \frac{m}{s^{2}}9,81 \frac{m}{s^{2}}$
+- Accelerazione gravitazionale: $9,81 \frac{m}{s^{2}}$
 - Costante di gravitazione universale: $G = 6.66 \cdot 10^{-11} \cdot \frac{N \cdot m^2}{kg^2}$
-- Velocità della luce: $c=$
-- #todo
 ### Unità di misura
-- km/h -> m/s
-- c -> k
-- #todo
+- $km/h$ -> $m/s$: moltiplica per $3.6$
+- ${} C {}$ -> $K$: aggiungi $273.15$
 ### Formule
 - Forza: $\overrightarrow{F} = m \cdot \overrightarrow{a}$
 - Quantità di moto: $\overrightarrow{p}= m \cdot \overrightarrow{v}$
@@ -33,7 +29,7 @@ semester: 1
 - Energia totale:
 	- $E = K + U$
 	- Forza elastica: $E = K \cdot \frac{x_{0}^2}{2}$
-- Forza conservativa: ${} E_{in} = E_{fin} {}$
+- Forza conservativa: ${} E_{in} = E_{fin}$
 - Potenza: $W = \frac{dL}{dt} = \overrightarrow{F} \cdot \overrightarrow{v}$
 - Forza di attrazione con cui $m$ è attratto a $M$: $\overrightarrow{F_{12}} = - \frac{GMm}{d^2} \cdot \hat{d}$
 - Cambiamento velocità in $m$ (da $\infty$) verso $M$: $v_{1}^2 = v_{0}^2+ \frac{2GM}{d}$
