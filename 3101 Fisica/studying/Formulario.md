@@ -1,3 +1,4 @@
+---
 type: university
 date: 2025-01-17
 subjectId: 3101
@@ -71,7 +72,7 @@ $$
 	- $R = 8.314 \cdot \frac{J}{mol \cdot K}$: costante universale gas perfetti.
 - Numero totale di atomi: $N_{tot}= n \cdot N_{A}$
 	- Numero di Avogadro: $N_{A}= 6.022 \cdot 10^{23}$
-- Energia cinetica media: $\langle K\rangle = \frac{K_{tot}}{n \cdot N_{A}}$
+- Energia cinetica media: ${} \langle K\rangle = \frac{K_{tot}}{N_{tot}} {}$
 - Relazione tra energia cinetica e temperatura: $T = \frac{2}{3k_{b}}\langle K\rangle$
 	- Costante di Boltzman: $k_{B}=\frac{R}{N_{A}} \approx 1.38 \cdot 10^{-23} \frac{J}{K}$
 - Calore:
