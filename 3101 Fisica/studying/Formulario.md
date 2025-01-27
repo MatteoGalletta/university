@@ -15,7 +15,8 @@ semester: 1
 - Costante di gravitazione universale: $G = 6.66 \cdot 10^{-11} \cdot \frac{N \cdot m^2}{kg^2}$
 ### Unità di misura
 - $km/h$ -> $m/s$: moltiplica per $3.6$
-- ${} C {}$ -> $K$: aggiungi $273.15$
+- $C$ -> $K$: aggiungi $273.15$
+- ${} \text{atm} {}$ -> $\text{Pa}$: moltiplica per $1.013 \cdot 10^{5}$
 ### Formule
 - Forza: $\overrightarrow{F} = m \cdot \overrightarrow{a}$
 - Quantità di moto: $\overrightarrow{p}= m \cdot \overrightarrow{v}$
@@ -35,7 +36,7 @@ semester: 1
 - Forza di attrazione con cui $m$ è attratto a $M$: $\overrightarrow{F_{12}} = - \frac{GMm}{d^2} \cdot \hat{d}$
 - Cambiamento velocità in $m$ (da $\infty$) verso $M$: $v_{1}^2 = v_{0}^2+ \frac{2GM}{d}$
 - Velocità di Fuga: $v_{F}=\sqrt{ \frac{2GM}{R_{T}} }$
-- Forza elastica: $\overrightarrow{F}=-K \cdot \overrightarrow{x}$
+- Forza elastica: $\overrightarrow{F}=-K \cdot \overrightarrow{x}$ 
 - Equazione della molla:
 	- Guess: $x(t)=A \cdot \cos(\omega t + \phi)$
 	- $x(t)=x_{0} \cdot \cos\left( \omega t \right) \quad \text{con } w=\sqrt{\frac{K}{m}}$
@@ -101,7 +102,7 @@ $$
 	- Calore molare a pressione costante: $C_{p}$
 	- Calore molare a volume costante: $C_{v}$
 - Ciclo di Carnot:  $Q=L = |Q_{c}|-|Q_{f}|$
-	- Rendimento $\eta=1-\frac{|Q_{f}|}{|Q_{c}|}$
+	- Rendimento ${} \eta=1-\frac{|Q_{f}|}{|Q_{c}|} = 1 - \frac{T_{f}}{T_{c}} {}$
 - Disuguaglianza di Clausius: $\oint \frac{\delta Q}{T} \leq 0$
 - Entropia
 	- $\Delta S_{\text{Sist. isolato}}\geq 0$
