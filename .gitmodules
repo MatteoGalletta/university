@@ -1,3 +1,6 @@
 [submodule "3104 Artificial Intelligence/project"]
 	path = 3104 Artificial Intelligence/project
 	url = https://github.com/MatteoGalletta/university-ai-wvcp.git
+[submodule "3103 Technologies for Advanced Programming/project"]
+	path = 3103 Technologies for Advanced Programming/project
+	url = https://github.com/MatteoGalletta/university-tap-fastid-report
