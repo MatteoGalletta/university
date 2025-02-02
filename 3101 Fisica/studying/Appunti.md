@@ -57,8 +57,8 @@ $$
 ### 1.1.1 moto rettilineo uniforme
 Ipotesi:
 1. velocità costante: $\overrightarrow{v}=\text{costante}$
-2. x in funzione del tempo: $x=x(t)$
-3. parta da $x_0$: $x(t = 0) = x_{0}$
+2. $x$ in funzione del tempo: $x=x(t)$
+3. punto parte da $x_0$: $x(t = 0) = x_{0}$
 
 Tesi:
 $$
@@ -85,9 +85,9 @@ $$
 ### 1.1.2 moto uniformemente accelerato
 Ipotesi:
 1. accelerazione costante: $\overrightarrow{a}=\text{costante}$
-2. x in funzione del tempo: $x=x(t)$
-3. parta da $x_0$ : $x(t = 0) = x_{0}$
-4. parte con una velocità $v_0$ : $v(t = 0) = v_{0}$
+2. $x$ in funzione del tempo: $x=x(t)$
+3. punto parte da $x_0$ : $x(t = 0) = x_{0}$
+4. punto parte con una velocità $v_0$ : $v(t = 0) = v_{0}$
 
 Tesi:
 $$
@@ -97,7 +97,7 @@ $$
 Dimostrazione:
 per definizione:
 $$
-a_{x}=\frac{d v_{x}}{dt}=\text{costante}=\frac{d^2x}{dt^2}
+a_{x}=\frac{d v_{x}}{dt}=\text{costante}
 $$
 $$
 v_{x}(t)=\int a_{x} \, dt=a_{x} \cdot t + c 
@@ -129,10 +129,10 @@ y(t) = \frac{1}{2}a_{y}t^2 + v_{0y}\cdot t + y_{0}
 \end{cases}
 $$
 inoltre:
-1. viene lanciato con angolo $\theta$
-2. $x_{0} = 0$
-3. $y_{0} = 0$
-4. $a_{y}=-g=-9,81 \frac{m}{s^2}$
+5. viene lanciato con angolo $\theta$
+6. $x_{0} = 0$
+7. $y_{0} = 0$
+8. $a_{y}=-g=-9,81 \frac{m}{s^2}$
 
 dobbiamo trovare la gittata $x_g$ massima
 - Per gittata si intende la distanza ricoperta dalla particella prima di toccare terra
@@ -263,11 +263,11 @@ $$
 \begin{align}
 dL &= \overrightarrow{F} \cdot d \overrightarrow{s} \\
 & = m \overrightarrow{a} \cdot d \overrightarrow{s} \\
-& = m \frac{d \overrightarrow{v}}{dt} d \overrightarrow{s} & \left[ \frac{d \overrightarrow{s}}{dt}=\overrightarrow{v} \right]\\ \\
+& = m \frac{d \overrightarrow{v}}{dt} d \overrightarrow{s} \\ \\
 
-& = m \cdot d \overrightarrow{v} \cdot \overrightarrow{v} & \left[ \overrightarrow{v} \cdot d\overrightarrow{v} = d\left( \frac{v^2}{2} \right)\right] \\ \\
+& = m \cdot d \overrightarrow{v} \cdot \overrightarrow{v} & \left[ \frac{d \overrightarrow{s}}{dt}=\overrightarrow{v} \right]\\ \\
 
-& = d \underbrace{ \left( \frac{1}{2} mv^2 \right) }_{ K } = dK
+& = d \underbrace{ \left( \frac{1}{2} mv^2 \right) }_{ K } = dK & \left[ \overrightarrow{v} \cdot d\overrightarrow{v} = d\left( \frac{v^2}{2} \right)\right]
 \end{align}
 $$
 definiamo K come "energia cinetica"
@@ -342,10 +342,10 @@ $$
 \overrightarrow{F_{12}} = - \frac{GMm}{d^2} \cdot \hat{d}
 $$
 
-## 3.1 Lavoro durante lo spostamento
+## 3.1 Lavoro ed energia meccanica durante lo spostamento
 Supponendo che m si sposta da un punto A ad un punto B (allontandosi da M con stessa direzione di $\overrightarrow{d}$ )
 ![[Pasted image 20241109130207.png|300]]
-Si [[3anno/FISICA/lezioni/6.pdf|dimostra]]: (to fix)
+![[Pasted image 20250202120417.png|700]]
 $$
 L_{AB} = \underbrace{ - \frac{GMm}{d_{A}}+\frac{GMm}{d_{B}}<0 }_{ d_{B} > d_{A} }
 $$
@@ -354,14 +354,13 @@ supponendo $d_{B}\to \infty$, e che il lavoro, a meno di una costante nell'energ
 $$
 U_{A} = - \frac{GMm}{d_{A}}+\underbrace{ U_{\infty} }_{ =0\text{ per axx} }
 $$
-
-## 3.2 Energia meccanica di $m$
+![[Pasted image 20250202120752.png|700]]
 $$
 E =\frac{1}{2}mv^2- \frac{GMm}{d}
 $$
-## 3.3 Cambiamento velocità in avvicinamento $m \to M$
-$m$ si trova ad un distanza infinita, per poi avvicinarsi fino ad arrivare una distanza $d$.
-
+## 3.2 Cambiamento velocità in avvicinamento $m \to M$
+$m$ si trova ad un distanza infinita, per poi avvicinarsi fino ad arrivare a una distanza $d$.
+![[Pasted image 20250202122346.png|700]]
 vale questa relazione
 $$
 v_{1}^2 = v_{0}^2+ \frac{2GM}{d}
@@ -378,7 +377,7 @@ $$
 
 quindi la velocità aumenta man mano che $m$ si avvicina ad $M$.
 
-## 3.4 Velocità di fuga
+## 3.3 Velocità di fuga
 Esiste una velocità oltre la quale un corpo $m$, lanciato con tale velocità si allontanerà di una distanza infinita, non tornando più indietro.
 
 $v_{\infty}$: velocità raggiunta dalla particella non appena esce dal campo gravitazionale
@@ -393,8 +392,7 @@ E_{in} = \frac{1}{2}m v_{F}^2- \frac{GMm}{R_{T}}
 $$
 
 siccome $E_{in} = E_{fin}\implies E_{in}=0$
-
-usando ( #todo dim):
+La formula vista prima considerava che la velocità $v_{1}$ veniva raggiunta quando la distanza era minore, rispetto alla velocità $v_{0}$. Quindi, qui si invertono: $v_{1} = v_{F}$.
 $$
 \begin{align}
 v_{1}^2 = v_{0}^2+ \frac{2GM}{d} \implies
@@ -406,7 +404,7 @@ v_{F}&=\sqrt{ \frac{2GM}{R_{T}} }
 $$
 
 # 4 Forza elastica o richiamo
-![[Pasted image 20241109171256.png|500]]
+![[Pasted image 20241109171256.png|700]]
 $$
 \overrightarrow{F}=-K \cdot \overrightarrow{x}
 $$
@@ -470,7 +468,7 @@ $$
 x(t)\left( -\omega^2+\frac{K}{m} \right) &= 0 \\
 \end{align}
 $$
-quando $x(t)=0$ non interessa.
+quando $x(t)=0$ non ci interessa.
 a noi interessa risolvere:
 $$
 \begin{align}
@@ -499,12 +497,12 @@ $$
 
 quindi l'equazione del moto elastico di una particella che parte dal punto $x_{0}$, da ferma è la seguente:
 $$
-x(t)=x_{0} \cdot \cos\left( \sqrt{ \frac{K}{m} }\cdot t \right)
+x(t)=x_{0} \cdot \cos\left( \omega \cdot t \right) \text{ con } \omega = \sqrt{ \frac{K}{m} }
 $$
 
 ### 4.1.1 Periodo
-il moto della forza elastica è un moto periodico di tempo:
-$$
+Il moto della forza elastica è un moto periodico di tempo.
+$$t=T: \quad\omega T = 2 \pi \implies
 \begin{align}
 T &= \frac{2\pi}{\omega}
 \end{align}
@@ -534,7 +532,7 @@ $$
 \begin{align}
 E &= K + U \\
  \\
-&= \left( \frac{1}{2}m\cdot \underbrace{ v^2 }_{ \frac{dx}{dt} } \right) + \left( \frac{1}{2}K\cdot\underbrace{ x^2 }_{ x(t) } \right) \\
+&= \left( \frac{1}{2}m\cdot \underbrace{ v^2 }_{ \frac{dx}{dt} = x'(t) } \right) + \left( \frac{1}{2}K\cdot\underbrace{ x^2 }_{ x(t) } \right) \\
  \\
 &= \left( \frac{1}{2}\underbrace{ m\cdot \omega^2 }_{ K }x_{0}^2\sin^2\omega t\right) + \left( \frac{1}{2}K\cdot x_{0}^2\cos^2\omega t\right) \\
  \\
@@ -910,11 +908,11 @@ Si osserva sperimentalmente che a temperatura di $T=0 K$ la pressione del gas va
 
 ### 8.6.2 Equazione di stato
 Vengono effettuate in sequenza due trasformazioni.
-1. Trasformazione isocora da $T_{0}$ a $T$
+3. Trasformazione isocora da $T_{0}$ a $T$
 $$
 P_{1}=P_{0} \frac{T}{T_{0}}
 $$
-2. Mantenendo la temperatura $T$ (trasformazione temperatura costante) ed effettuando la trasformazione isoterma da $V_{0}$ a $V$ avremo:
+4. Mantenendo la temperatura $T$ (trasformazione temperatura costante) ed effettuando la trasformazione isoterma da $V_{0}$ a $V$ avremo:
 $$
 P_{1}V_{0}=PV
 $$
