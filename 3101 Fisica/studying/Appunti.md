@@ -508,7 +508,7 @@ T &= \frac{2\pi}{\omega}
 \end{align}
 $$
 ![[Pasted image 20241109184938.png|500]]
-## 4.2 Lavoro forza elastica
+## 4.2 Energie forza elastica
 La forza elastica è conservativa.
 $$
 \begin{align}
@@ -549,7 +549,7 @@ $$
 # 5 Forza di attrito
 ## 5.1 Forza viscosa
 Primo esempio di forza d'attrito.
-Data una pallina dentro un cilindro che si muove verso il basso a causa della forza peso $\overrightarrow{P}$
+Consideriamo una pallina dentro un cilindro che si muove verso il basso a causa della forza peso $\overrightarrow{P}$
 ![[Pasted image 20241109193703.png|200]]
 Se il movimento fosse dipeso solo da $\overrightarrow{P}$ sarebbe un moto uniformemente accelerato:
 $$
@@ -573,15 +573,15 @@ $$
 \begin{align}
 \overrightarrow{F} &= m \cdot \overrightarrow{a}\\
 \overrightarrow{P} + \overrightarrow{f_{v}} &= m \cdot \overrightarrow{a}\\
-\\ mg - \beta v_{y}&= m \cdot a_{y}
-\\ mg - \beta v_{y}&= m \cdot \frac{d v_{y}}{dt}
+\\ -mg - \beta v_{y}&= m \cdot a_{y}
+\\ -mg - \beta v_{y}&= m \cdot \frac{d v_{y}}{dt}
 
 \end{align}
 $$
 Sperimentalmente, sappiamo che per $t \to \infty \implies \frac{d v_{y}}{dt}=0$, quindi:
 $$
 \begin{align}
-v_{y} &= \frac{mg}{\beta} \quad\text{ per } t \to \infty
+v_{y} &= -\frac{mg}{\beta} \quad\text{ per } t \to \infty
 \end{align}
 $$
 ### 5.1.1 Equazione del moto
@@ -601,7 +601,7 @@ v_{y}(t)&=\frac{mg}{\beta}\cdot \left( e^{- \frac{\beta t}{m}}-1 \right) & [\tex
 \end{align}
 $$
 
-
+Abbiamo quindi trovato la **forza** compiuta dalla particella, considerando la forza viscosa.
 l'accelerazione sarà:
 $$
 \overrightarrow{a}=g \cdot e^{-\frac{\beta t}{m}}
