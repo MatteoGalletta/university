@@ -595,16 +595,14 @@ v_{y}(t)&=\frac{mg}{\beta}\cdot \left( e^{- \frac{\beta t}{m}}-1 \right) & [\tex
 
 \frac{m \cdot d v_{y}}{dt}&= -m \cdot g \cdot e^{- \frac{\beta t}{m}} \\ \\
  
-\dots \text{??? \#todo} \\
- \\
- -mg-\beta v_{y}&=mge^{-\frac{\beta t}{m}}
+ -mg-\beta v_{y}&=-mge^{-\frac{\beta t}{m}} & [-mg - \beta v_{y}&= m \cdot \frac{d v_{y}}{dt}]
 \end{align}
 $$
 
-Abbiamo quindi trovato la **forza** compiuta dalla particella, considerando la forza viscosa.
-l'accelerazione sarà:
+Abbiamo quindi trovato la **forza** compiuta dalla gravità sulla particella, considerando la forza viscosa. È un altro modo di esprimere la formula precedente (sta volta più precisa)
+l'accelerazione sarà la seguente (prendo la forza e divido per $m$):
 $$
-\overrightarrow{a}=g \cdot e^{-\frac{\beta t}{m}}
+a=g \cdot e^{-\frac{\beta t}{m}}
 $$
 
 ### 5.1.2 Lavoro
@@ -618,7 +616,7 @@ dL &= \overrightarrow{f}_{v} \cdot d \overrightarrow{s} \\ \\
 &=-\underbrace{ \beta v^{2 } }_{ > \, 0 } dt < 0 \\
  \\
 \implies& L_{v} < 0 \\
-\implies& E_{fin} < E_{in}
+\implies& K_{fin} < K_{in}
 \end{align}
 $$
 
@@ -643,7 +641,7 @@ I coefficienti di attrito $\mu_{c}, \mu_{s}$ sono compresi tra $[0.1, 1]$
 	- $F_{max} = \mu_{s} N$
 - $\overrightarrow{F_{A}}$: Forza applicata
 - $\overrightarrow{F_{a}}$ o $\overrightarrow{F}_{t}$ o $\overrightarrow{F}_{\text{CRITICA}}$: Forza di attrito / forza critica.
-	- Finché ${} \overrightarrow{F}_{A} < \overrightarrow{F}_{max} \implies \overrightarrow{F}_{A} = -\overrightarrow{F}{a}$
+	- Finché $\overrightarrow{F}_{A} < \overrightarrow{F}_{max} \implies \overrightarrow{F}_{A} = -\overrightarrow{F}{a}$
 
 Il corpo è in quiete, quindi vuol dire che:
 - Le forze verticali si annullano: $\overrightarrow{N} - \overrightarrow{P} = 0 \implies N = m g$
@@ -667,7 +665,7 @@ dL &= \overrightarrow{F}_{a \\} \cdot d \overrightarrow{s} \\ \\
 &=-\underbrace{ \mu_{c} \cdot N \cdot  v \, }_{ > \, 0 } dt < 0 \\
  \\
 \implies& L_{a} < 0 \\
-\implies& E_{fin} < E_{in}
+\implies& K_{fin} < K_{in}
 \end{align}
 $$
 
@@ -691,7 +689,7 @@ $$
 
 se non soddisfa vuol dire che la forza di attrito statico non è sufficiente per bilanciare il corpo.
 
-n.b. si usa il $\cos$ al posto del ${} \sin {}$ perché l'angolo ${} \theta$ non è quello in alto a sinistra, ma il complementare. 
+n.b. si usa il $\cos$ al posto del ${} \sin$ perché l'angolo ${} \theta$ non è quello in alto a sinistra, ma il complementare. 
 ### 5.4.1 Moto del corpo nel piano inclinato
 $$
 \begin{align}
@@ -708,7 +706,7 @@ S = \frac{1}{2} \cdot a \cdot t^2
 $$
 # 6 Pendolo
 ## 6.1 Equazione del moto
-Un oggetto puntiforme $P$ di massa $m$ è sospeso a un filo inestensibile, di massa trascurabile e flessibile di lunghezza $l$.
+Un oggetto puntiforme $P$ di massa $m$ è sospeso a un filo inestensibile e inflessibile, di massa trascurabile di lunghezza $l$.
 ![[Pasted image 20241110123339.png|400]]
 - $l$: lunghezza del filo inestensibile
 
@@ -717,7 +715,7 @@ Consideriamo il nostro piano:
 - asse X: coincide con $l$
 - asse Y: coincide con la circonferenza
 
-Per studiare il moto si pongono le seguenti equazioni sulle due assi
+Per studiare il moto si pongono le seguenti equazioni sulle due assi (rispetto al moto):
 - asse perpendicolare: $\tau - mg \cos \theta = 0 \implies \tau = mg \cos \theta$
 	- Ponendo $\theta = 0$ possiamo semplificare: $\tau = mg$
 - asse parallela: dall'esperienza sappiamo che la traiettoria percorsa dal filo, formerà un arco della circonferenza, di raggio $r = l$.
@@ -727,15 +725,13 @@ $$
 &= m\frac{d^{2}S}{dt^{2}} \\
 &= m\cdot l \frac{d^{2}\theta}{dt^{2}}  &[S=l \cdot \theta] \\
 -g \cdot \sin \theta &= l \frac{d^{2}\theta}{dt^{2}} \\
-\frac{d^{2} \theta}{dt^{2}} + \frac{g}{l} \cdot sin \theta &= 0
+\frac{d^{2} \theta}{dt^{2}} + \frac{g}{l} \cdot \sin \theta &= 0
 \end{align}
 $$
 
 
 Risolvendo questa equazione trovata troviamo $\theta(t)$.
-La risolveremo tramite una guess come nella [[#4.1 Equazione del moto|forza elastica]].
-
-Si assume che $\theta_{0} \to 0$. Siccome $\sin \theta \approx \theta \quad [\lim_{ x \to 0} \frac{\sin x}{x}=1]$, si prova che:
+La risolveremo tramite una guess come nella [[#4.1 Equazione del moto|forza elastica]]. È uguale, tranne per $\sin \theta$: si assume che $\theta_{0} \to 0$. Siccome $\sin \theta \approx \theta \quad [\lim_{ x \to 0} \frac{\sin x}{x}=1]$, si prova che:
 
 $$
 \theta(t) = \theta_{0} \cdot \cos (wt) \quad \text{con } w=\sqrt{\frac{g}{l}}
@@ -846,9 +842,9 @@ I parametri di stato principali sono Temperatura, Pressione e Volume. C'è anche
 - **Trasformazione quasi-statica**: durante la quale il sistema passa solo attraverso stati di equilibrio termodinamico
 - **Trasformazione reversibile**:
 	- Quando consente di tornare dallo stato finale a quello iniziale.
-	- Trasformazione quasi-statica da uno stato iniziale (SI) ad uno finale (SF), per la quale è possibile andare da SF a SI ripercorrendo gli stessi stati intermedi che da SI hanno portato a SF
-- **Trasformazione irreversibile**: quando avvengono fenomeni dissipativi oppure la trasformazione non è quasi statica
-- **Trasformazione spontanea**: Trasformazione di un sistema isolato da uno stato di non equilibrio ad uno stato di equilibrio termodinamico
+	- Trasformazione quasi-statica da uno stato iniziale (SI) ad uno finale (SF), per la quale è possibile andare da SF a SI ripercorrendo gli stessi stati intermedi che da SI hanno portato a SF.
+- **Trasformazione irreversibile**: quando avvengono fenomeni dissipativi oppure la trasformazione non è quasi statica.
+- **Trasformazione spontanea**: Trasformazione di un sistema isolato da uno stato di non equilibrio ad uno stato di equilibrio termodinamico.
 
 ## 8.5 Variabili di stato
 - intensiva: se non dipende dall'estensione del sistema
@@ -895,7 +891,7 @@ $$
 \begin{align}
 P&=P_{0}(1+\alpha \cdot T(°C)) \\
 &=P_{0}\left( 1+\frac{1}{273.15 °C} T(°C) \right) \\
-&=P_{0}\cdot \frac{1}{273.15 °C}(273.15+T(°C))  \\
+&=P_{0}\cdot \frac{1}{273.15 °C}(273.15 °C +T(°C))  \\
 &=P_{0} \cdot \frac{1}{T_{0}(K)} T(K) \implies \frac{P}{P_{0}} = \frac{T(K)}{T_{0}(K)}\\
 \end{align}
 $$
@@ -908,11 +904,11 @@ Si osserva sperimentalmente che a temperatura di $T=0 K$ la pressione del gas va
 
 ### 8.6.2 Equazione di stato
 Vengono effettuate in sequenza due trasformazioni.
-3. Trasformazione isocora da $T_{0}$ a $T$
+1. Trasformazione isocora da $T_{0}$ a $T$
 $$
 P_{1}=P_{0} \frac{T}{T_{0}}
 $$
-4. Mantenendo la temperatura $T$ (trasformazione temperatura costante) ed effettuando la trasformazione isoterma da $V_{0}$ a $V$ avremo:
+2. Mantenendo la temperatura $T$ (trasformazione temperatura costante) ed effettuando la trasformazione isoterma da $V_{0}$ a $V$ avremo:
 $$
 P_{1}V_{0}=PV
 $$
@@ -1067,23 +1063,24 @@ il lavoro di un sistema termodinamico dipende dalla trasformazione seguita.
 ## 8.9 Primo principio della termodinamica
 in ogni [[#^b9c3ae|trasformazione ciclica]] il rapporto tra lavoro e calore è costante:
 $$
-\frac{L}{Q} = J = 4.186 \, \frac{Joule}{cal}
+\frac{L}{Q_{cal}} = J = 4.186 \, \frac{Joule}{cal}
 $$
-
 
 quindi potremmo esprimere il calore Q:
 - in calorie
-- in Joule: moltiplicando per la costante J $JQ (Joule)$
+- in Joule: moltiplicando per la costante $J$
+	- $Q_{cal} = Q_{joule} \cdot J$
 
 Dunque calore e lavoro possono essere espressi nelle stesse unità di misura: il calore è una delle forme in cui l’energia si trasmette.
+
 
 Se esprimiamo il calore in Joule possiamo scrivere:
 $$
 \begin{align}
-\frac{L}{\cancel{ J }Q}&=\cancel{ J }  \\
-\frac{L}{Q}&=1 \\ \\
+\frac{L}{\cancel{ J }Q_{joule}}&=\cancel{ J }  \\
+\frac{L}{Q_{joule}}&=1 \\ \\
 
-Q - L &= 0 
+Q_{joule} - L &= 0 
 \end{align}
 $$
 
@@ -1260,8 +1257,6 @@ siccome
 ![[Pasted image 20241201132758.png|500]]
 allora
 ![[Pasted image 20241201133113.png|800]]
-
-#todo da capire better
 
 ![[Pasted image 20241201132640.png|800]]
 ## 8.10 Secondo principio termodinamica
