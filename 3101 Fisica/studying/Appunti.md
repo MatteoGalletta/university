@@ -1367,17 +1367,17 @@ $$
 $$
 
 #### 8.10.2.2 in una trasformazione adiabatica
-se la trasformazione è reversibile ($\delta Q_{irr}=0$):
+se la trasformazione è reversibile, allora $\delta Q_{irr}=0$:
 $$
 \Delta S_{\text{adiabatica}}\geq 0
 $$
 
 #### 8.10.2.3 in un sistema isolato
-se la trasformazione è reversibile:
+se la trasformazione è reversibile, allora $\delta Q_{irr}=0$:
 $$
 \Delta S_{\text{Sist. isolato}}\geq 0
 $$
-
+È il secondo principio della termodinamica espresso in termini dell'entropia.
 #### 8.10.2.4 caratteristiche
 L’entropia di un sistema isolato non può diminuire.
 - Ogni trasformazione irreversibile comporta un aumento dell’entropia dell’intero sistema.
@@ -1472,7 +1472,7 @@ $$
 #### 8.10.2.6 probabilità termodinamica
 è più corretto legare l'entropia alla probabilità termodinamica.
 
-Equazione di Boltzman:
+Equazione di Boltzman (valida solo nei sistemi isolati):
 $$
 S=k_{B}\log W
 $$
@@ -1485,7 +1485,7 @@ ex: modi in cui può uscire il numero 2 lanciando un dado
 Il **secondo principio della termodinamica** sarà quindi:
 > Le trasformazioni spontanee sono quelle che comportano un aumento della probabilità termodinamica.
 
-**Equazione di Gibbs**:
+**Equazione di Gibbs** (valida anche in sistemi non isolati):
 $$
 S=-k_{B}\sum^{W}_{i=1}p_{i}\log p_{i}
 $$
@@ -1540,7 +1540,7 @@ c = \frac{\lambda}{T}
 $$
 
 ## 9.2 Onde di pressione
-Suono: Onde di pressione generate dalle oscillazione delle particelle del mezzo attorno alle loro posizioni di equilibrio
+Suono: Onde di pressione generate dalle oscillazioni delle particelle del mezzo attorno alle loro posizioni di equilibrio
 
 ### 9.2.1 equazione
 Ipotesi: l'onda si sposta verso un'unica direzione.
@@ -1677,3 +1677,4 @@ Energia per unità di superficie e di tempo trasportata da un’onda ($\frac{J}{
 La diffrazione è importante quando l’ostacolo attraversato dall’onda ha dimensioni comparabili con la lunghezza d’onda
 ![[Pasted image 20241222164558.png]]
 
+# 10. Meccanica Quantistica
