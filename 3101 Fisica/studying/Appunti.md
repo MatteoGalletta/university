@@ -1543,6 +1543,9 @@ $$
 Suono: Onde di pressione generate dalle oscillazioni delle particelle del mezzo attorno alle loro posizioni di equilibrio
 
 ### 9.2.1 equazione
+
+**VEDI SLIDE DI RUGGIERI (>>)**
+
 Ipotesi: l'onda si sposta verso un'unica direzione.
 
 Considerando un volume di area $A$ e uno spessore $dx$
@@ -1668,13 +1671,13 @@ c^2\frac{\partial^2\xi}{\partial x^2}-\frac{\partial^2\xi}{\partial t^2}=0
 $$
 che è soddisfatto solo per $c=\frac{\lambda}{T}$
 
-
 ## 9.3 Intensità
 Energia per unità di superficie e di tempo trasportata da un’onda ($\frac{J}{m^2s}$)
-
 
 ## 9.4 Diffrazione
 La diffrazione è importante quando l’ostacolo attraversato dall’onda ha dimensioni comparabili con la lunghezza d’onda
 ![[Pasted image 20241222164558.png]]
 
 # 10. Meccanica Quantistica
+
+non si capisce un cazzo
