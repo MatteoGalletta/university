@@ -332,8 +332,7 @@ Costante di gravitazione universale:
 $$
 G = 6.66 \cdot 10^{-11} \cdot \frac{N \cdot m^2}{kg^2}
 $$
-
-
+## 3.1 Forza di attrazione
 Dati due punti materiali $M$, $m$
 Con $\overrightarrow{d}$ vettore distanza $M$ a $m$
 ![[Pasted image 20241109130150.png|300]]
@@ -342,8 +341,8 @@ $$
 \overrightarrow{F_{12}} = - \frac{GMm}{d^2} \cdot \hat{d}
 $$
 
-## 3.1 Lavoro ed energia meccanica durante lo spostamento
-Supponendo che m si sposta da un punto A ad un punto B (allontandosi da M con stessa direzione di $\overrightarrow{d}$ )
+## 3.2 Lavoro ed energia meccanica durante lo spostamento
+Supponendo che $m$ si sposta da un punto A ad un punto B (allontanandosi da $M$ con stessa direzione di $\overrightarrow{d}$ )
 ![[Pasted image 20241109130207.png|300]]
 ![[Pasted image 20250202120417.png|700]]
 $$
@@ -358,7 +357,7 @@ $$
 $$
 E =\frac{1}{2}mv^2- \frac{GMm}{d}
 $$
-## 3.2 Cambiamento velocità in avvicinamento $m \to M$
+## 3.3 Cambiamento velocità in avvicinamento $m \to M$
 $m$ si trova ad un distanza infinita, per poi avvicinarsi fino ad arrivare a una distanza $d$.
 ![[Pasted image 20250202122346.png|700]]
 vale questa relazione
@@ -377,7 +376,7 @@ $$
 
 quindi la velocità aumenta man mano che $m$ si avvicina ad $M$.
 
-## 3.3 Velocità di fuga
+## 3.4 Velocità di fuga
 Esiste una velocità oltre la quale un corpo $m$, lanciato con tale velocità si allontanerà di una distanza infinita, non tornando più indietro.
 
 $v_{\infty}$: velocità raggiunta dalla particella non appena esce dal campo gravitazionale
@@ -508,7 +507,7 @@ T &= \frac{2\pi}{\omega}
 \end{align}
 $$
 ![[Pasted image 20241109184938.png|500]]
-## 4.2 Energie forza elastica
+## 4.2 Energia meccanica/potenziale forza elastica
 La forza elastica è conservativa.
 $$
 \begin{align}
@@ -543,8 +542,6 @@ E &= K + U \\
 E &= K \cdot \frac{x_{0}^2}{2}
 \end{align}
 $$
-
-
 
 # 5 Forza di attrito
 ## 5.1 Forza viscosa
@@ -593,17 +590,10 @@ v_{y}(t)&=\frac{mg}{\beta}\cdot \left( e^{- \frac{\beta t}{m}}-1 \right) & [\tex
 \frac{d v_{y}}{dt}&=\frac{\cancel{ m }g}{\cancel{ \beta }}\cdot e^{- \frac{\beta t}{m}} \cdot \left(-\frac{\cancel{ \beta }}{\cancel{ m }}\right)  \\
 \frac{d v_{y}}{dt}&= -g \cdot e^{- \frac{\beta t}{m}} \\ \\
 
-\frac{m \cdot d v_{y}}{dt}&= -m \cdot g \cdot e^{- \frac{\beta t}{m}} \\ \\
- 
- -mg-\beta v_{y}&=-mge^{-\frac{\beta t}{m}} & [-mg - \beta v_{y}&= m \cdot \frac{d v_{y}}{dt}]
 \end{align}
 $$
 
-Abbiamo quindi trovato la **forza** compiuta dalla gravità sulla particella, considerando la forza viscosa. È un altro modo di esprimere la formula precedente (sta volta più precisa)
-l'accelerazione sarà la seguente (prendo la forza e divido per $m$):
-$$
-a=g \cdot e^{-\frac{\beta t}{m}}
-$$
+Abbiamo quindi trovato l'accelerazione. Per ottenere la forza è sufficiente moltiplicare per $m$.
 
 ### 5.1.2 Lavoro
 $$
@@ -657,11 +647,11 @@ $$
 come la dimostrazione della [[#5.1.2 Lavoro|forza viscosa]]
 $$
 \begin{align}
-dL &= \overrightarrow{F}_{a \\} \cdot d \overrightarrow{s} \\ \\
+dL &= \overrightarrow{F}_{a \\} \cdot d \overrightarrow{s} \\
 
 &= - \mu_{c} \cdot N \cdot \hat{v} \cdot d \overrightarrow{s} \\
 &= - \mu_{c} \cdot N \cdot \hat{v} \cdot \underbrace{ \frac{d\overrightarrow{s}}{dt} }_{ \overrightarrow{v} } \cdot dt \\
-&=- \mu_{c} \cdot N \cdot  \underbrace{ \hat{v} \cdot \overrightarrow{v}  }_{ \frac{v^2}{v}=v }dt\\ \\
+&=- \mu_{c} \cdot N \cdot  \hat{v} \cdot \overrightarrow{v}\\
 &=-\underbrace{ \mu_{c} \cdot N \cdot  v \, }_{ > \, 0 } dt < 0 \\
  \\
 \implies& L_{a} < 0 \\
@@ -754,7 +744,7 @@ $$
 \begin{align}
 \overrightarrow{P}_{in} &= \overrightarrow{P}_{fin} \\
  \\
-m_{1}V_{1}&=m_{1}V_{1}+m_{2}V_{2}
+m_{1}v_{1}&=m_{1}V_{1}+m_{2}V_{2}
 \end{align}
 $$
 
@@ -803,10 +793,7 @@ $$
 Siccome le particelle si uniscono (si fondono), $V_1=V_2$, che chiameremo $V$.
 
 $$
-\begin{cases}
-P_{in}=m_{1}v_{1} \\
-P_{fin}=m_{1}V+m_{2}V
-\end{cases}
+m_{1}v_{1}=m_{1}V+m_{2}V
 $$
 
 Si trova che:
@@ -935,7 +922,7 @@ $$
 ### 8.6.4 Energia cinetica
 L'energia cinetica totale sarà uguale:
 $$
-K_{tot}=\sum^{N_{tot}}_{i=1}\frac{mv_{i}^2}{2}
+K_{tot}=\sum^{N_{tot}}_{i=1}\frac{1}{2}mv_{i}^2
 $$
 - $v_{i}$: velocità i-esimo atomo
 
@@ -944,16 +931,16 @@ $$
 data l'energia cinetica media:
 $$
 \begin{align}
-\langle K\rangle &= \frac{1}{N_{tot}}\sum^{N_{tot}}_{i=1}\frac{mv_{i}^2}{2} \\
-&=\frac{1}{n \cdot N_{A}}\sum^{n \cdot N_{A}}_{i=1}\frac{mv_{i}^2}{2}  \\
+\langle K\rangle &= \frac{K_{tot}}{N_{tot}} \\
+
 \langle K\rangle &= \frac{K_{tot}}{n \cdot N_{A}} & [1]
 \end{align}
 $$
 
-si può dimostrare la relazione:
+si può dimostrare la relazione tra temperatura ed energia cinetica. Dato che:
 $$
 \begin{align}
-PV &= \frac{2}{3}K_{tot} \\
+PV &= \frac{2}{3}K_{tot} & [axx]\\
 &= \frac{2}{3}n \cdot N_{A} \langle K\rangle & [\text{isolo nella 1}]\\
 \end{align}
 $$
@@ -971,7 +958,7 @@ $$
 T = \frac{2}{3}\frac{N_{A}}{R} \langle K\rangle
 $$
 
-questa relazione si può riscrivere usando la costante di boltzman:
+questa relazione si può riscrivere usando la costante di boltzmann:
 $$
 k_{B}=\frac{R}{N_{A}} \approx 1.38 \cdot 10^{-23} \frac{J}{K}
 $$
@@ -1048,9 +1035,9 @@ Siccome:
 $$
 S \cdot h = V
 $$
-la variazione di volume dopo la trasformazione sarà (derivata del prodotto, ma l'altro membro è nullo dato che $S$ è costante):
+la variazione di volume dopo la trasformazione sarà:
 $$
-Sdh = dV
+Sdh = d(Sh) = dV
 $$
 quindi:
 $$
@@ -1144,7 +1131,7 @@ Q &= \Delta U &[\Delta V=0]  \\
  \\
 dU &= mc(T)dT & [\delta Q = mc(T)dT]\\ \\
 U(T_{B})-U(T_{A}) &= m \int^{T_{B}}_{T_{A}}c(T)dT \\ \\
-U(T_{B})-U(T_{A}) &= mc \int^{T_{B}}_{T_{A}}dT & [c(T) \approx c] \\ \\
+U(T_{B})-U(T_{A}) &\approx mc \int^{T_{B}}_{T_{A}}dT & [c(T) \approx c] \\ \\
 U(T_{B})-U(T_{A}) &\approx mc(T_{B}-T_{A})  \\ \\
 \end{align}
 $$
@@ -1200,16 +1187,13 @@ U(T)=nC_{v}T+\text{costante}
 $$
 
 per axx. la legge sopra vale sempre (non solo per trasformazione a volume costante).
-
 - trasformazione a **pressione costante**:
 
 $$
 \large
 \begin{align}
 \delta Q &= \underbrace{ PdV }_{ \text{lavoro} }+dU \\ \\
-
-\delta Q &= nC_{p}dT\\ \\
-nC_{p}dT&=PdV+\underbrace{ dU }_{ =nC_{v}dT } \\ \\
+nC_{p}dT&=PdV+\underbrace{ dU }_{ =nC_{v}dT } &[\delta Q &= nC_{p}dT] \\ \\
 
 &=PdV + nC_{v}dT  &[1] \\
 \end{align}
@@ -1229,7 +1213,6 @@ per ipotesi la pressione è costante quindi $dP = 0$:
 
 $$
 \begin{align}
-\underbrace{ VdP }_{ =0 }+PdV &= nRdT \\
 PdV &= nRdT \\ \\
 \end{align}
 $$
@@ -1245,7 +1228,7 @@ C_{p}&=C_{v}+R
 \end{align}
 $$
 
-
+ 
 #### 8.9.2.3 cosa comportano le trasformazioni
 ![[Pasted image 20241201132544.png|800]]
 
@@ -1260,8 +1243,7 @@ allora
 
 ![[Pasted image 20241201132640.png|800]]
 ## 8.10 Secondo principio termodinamica
-Il Primo Principio della Termodinamica non pone limiti alla conversione di calore in
-lavoro e viceversa.
+Il Primo Principio della Termodinamica non pone limiti alla conversione di calore in lavoro e viceversa.
 
 In natura non esista le simmetria per cui:
 $$
@@ -1340,7 +1322,7 @@ $$
 nel caso di cicli reversibili:
 $$
 \begin{align}
-\oint \frac{\delta Q}{T} &=0 \\
+\oint \frac{\delta Q_{rev}}{T} &=0 \\
 
 \underbrace{ \int^{B}_{A} \frac{\delta Q_{rev}}{T} }_{S(B)-S(A)}+\int^{A}_{B} \frac{\delta Q_{rev}}{T}&=0
 \end{align}$$
@@ -1472,7 +1454,7 @@ $$
 #### 8.10.2.6 probabilità termodinamica
 è più corretto legare l'entropia alla probabilità termodinamica.
 
-Equazione di Boltzman (valida solo nei sistemi isolati):
+Equazione di Boltzmann (valida solo nei sistemi isolati):
 $$
 S=k_{B}\log W
 $$
@@ -1539,8 +1521,9 @@ $$
 c = \frac{\lambda}{T}
 $$
 
+Un'onda stazionaria si forma quando un'onda sinusoidale che viaggia in una direzione, caratterizzata da $\lambda$ e $T$, interferisce con un’onda con uguali $\lambda$ e $T$ e viaggia in direzione opposta
 ## 9.2 Onde di pressione
-Suono: Onde di pressione generate dalle oscillazioni delle particelle del mezzo attorno alle loro posizioni di equilibrio
+Suono (onde acustiche): onde di pressione generate dalle oscillazioni delle particelle del mezzo attorno alle loro posizioni di equilibrio
 
 ### 9.2.1 equazione
 
@@ -1671,11 +1654,14 @@ c^2\frac{\partial^2\xi}{\partial x^2}-\frac{\partial^2\xi}{\partial t^2}=0
 $$
 che è soddisfatto solo per $c=\frac{\lambda}{T}$
 
+
 ## 9.3 Intensità
 Energia per unità di superficie e di tempo trasportata da un’onda ($\frac{J}{m^2s}$)
-
-## 9.4 Diffrazione
-La diffrazione è importante quando l’ostacolo attraversato dall’onda ha dimensioni comparabili con la lunghezza d’onda
+## 9.4 Interferenza
+sovrapposizione di due (o più) onde.
+In genere, gli effetti combinati delle onde in sovrapposizione è diverso da quello ottenuto dalle singole onde.
+## 9.5 Diffrazione
+La diffrazione è importante quando l’ostacolo attraversato dall'onda ha dimensioni comparabili con la lunghezza d’onda
 ![[Pasted image 20241222164558.png]]
 
 # 10 Meccanica Quantistica
