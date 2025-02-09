@@ -1670,11 +1670,9 @@ La diffrazione è importante quando l’ostacolo attraversato dall'onda ha dimen
 
 Più alta è la temperatura di un sistema, più alta è la frequenza della radiazione termica del sistema.
 
-A noi interessa studiare il corpo nero.
-
 Corpo nero:
 - corpo in grado di assorbire tutte le radiazioni incidenti. Di qualunque lunghezza d'onda siano
-- emette radiazione elettromagnetica
+- emette radiazioni elettromagnetiche
 - c'è un equilibrio radiazione emessa/assorbita degli atomi
 
 Ex approssimando: il sole
@@ -1689,25 +1687,23 @@ Riproduzione sperimentale:
 in questo modo possiamo studiare e capire la relazione tra frequenza e intensità elettromagnetica (potere emissivo)
 ![[Pasted image 20250207174033 1.png|700]]
 
+Legge di Wien (sperimentale):
+![[Pasted image 20250207174218 1.png]]
+
 $\epsilon$: energia emessa tramite radiazione elettromagnetica dal corpo nero, per unità di tempo, unità di area e unità di lunghezza d’onda/frequenza
 ![[Pasted image 20250207174739 1.png]]
 
 Secondo la fisica classica vige il **principio di equipartizione dell'energia**: l'energia totale di un sistema termodinamico si distribuisce equamente tra i suoi diversi gradi di libertà a temperatura termica di equilibrio.
 ![[Pasted image 20250207175822 1.png]] ^6a5f47
 
-Arrivando ai seguenti risultati che:
-- Wien:  
-	- ![[Pasted image 20250207174218 1.png]]
-- Boltzmann:
-	- ![[Pasted image 20250207180143 1.png]]
+Applicando la fisica classica si ottenevano risultati che non avevano una conferma teorica
 
-Applicando la fisica classica si ottenevano risultati che non avevano un applicazione teorica
 
 ![[Pasted image 20250207180649 1.png]]
 - Viene descritto solo l'andamento per grandi lunghezze d'onda
 - Per basse lunghezze d'onda si ottiene intensità infinita (catastrofe ultravioletta)
 
-Plank ipotizzò che l’energia di ogni modo dipende da $n$ ed è quantizzata: $h \nu,2h\nu, \dots ,Nh\nu, \dots$
+Plank ipotizza che l’energia di ogni modo dipende da $n$ ed è quantizzata: $h \nu,2h\nu, \dots ,Nh\nu, \dots$
 Ottenendo:
 ![[Pasted image 20250207183510 1.png]]
 ![[Pasted image 20250207183647 1.png| 500]]
@@ -1720,13 +1716,16 @@ NB: con $h\to 0$ l'energia tende a quella prevista dalla fisica classica
 
 ![[Pasted image 20250207181253 1.png]]
 
+Legge di Stefan-Boltzmann:
+![[Pasted image 20250207180143 1.png]]
+
 ## 10.1 Modelli
 
 ### 10.1.1 Thomson - modello panettone
 l'atomo è costituito da una distribuzione di carica positiva diffusa all'interno della quale sono inserite le cariche negative. Nel complesso l'atomo è elettricamente neutro.
 
 Si è dimostrato falso attraversando l'atomo con delle particelle α / raggi α.
-Se la carica positiva fosse stata diffusa cioè distribuita uniformemente su tutto il volume atomico, le particelle α sarebbero dovute rimbalzare in numero molto maggiore.
+Se la carica positiva fosse stata diffusa cioè distribuita uniformemente su tutto il volume atomico, le particelle α sarebbero dovute passare tutte.
 ### 10.1.2 Rutherford
 La carica positiva dell’atomo è concentrata nel nucleo, mentre quella negativa è trasportata dagli elettroni che orbitano intorno al nucleo. Le dimensioni delle orbite elettroniche sono molto più grandi di quelle del nucleo.
 
@@ -1735,7 +1734,7 @@ La carica positiva dell’atomo è concentrata nel nucleo, mentre quella negativ
 Elettroni in orbita - radiazione elettromagnetica:
 - Gli elettroni dovrebbero perdere costantemente energia, cedendola sotto forma di radiazione elettromagnetica. Questo modello atomico non spiega la stabilità degli atomi osservati in natura.
 
-Rutherford non spiega perché le righe discrete degli spettri di emissione e assorbimento, misurate negli esperimenti.
+Rutherford non spiega il perché delle righe discrete degli spettri di emissione e assorbimento, misurate negli esperimenti.
 ![[Pasted image 20250208155220.png]]
 
 ### 10.1.3 Bohr
@@ -1748,10 +1747,8 @@ Esiste uno stato con energia più bassa: stato fondamentale.
 >[!quote] Quindi, in questo modello l’atomo di idrogeno è stabile.
 
 ![[Pasted image 20250208155429.png]]
-
-
 #### 10.1.3.1 onda de broglie
-Ad ogni particella di massa m, che si muove con velocità v, è associata un’onda, la cui lunghezza d’onda, $\lambda$, è data da:
+Ad ogni particella di massa $m$, che si muove con velocità $v$, è associata un’onda, la cui lunghezza d’onda, $\lambda$, è data da:
 $$
 \lambda=\frac{h}{mv}
 $$
@@ -1760,7 +1757,7 @@ Per i corpi macroscopici, $\lambda$ è molto più piccola delle dimensioni dei c
 Per l’elettrone, $\lambda$ è dell’ordine delle dimensioni dell’atomo, per cui non è trascurabile.
 
 Nell’ interpretazione moderna, l’onda di de Broglie è intesa come un’onda di probabilità.
-- Così come le onde sono soggette ai fenomeni di interferenza, anche le onde di de Broglie associate alle particelle possono sperimentare interferenza, così come altri fenomeni tipici della propagazione per onde.
+- Così come le onde sono soggette ai fenomeni di interferenza, anche le onde di de Broglie associate alle particelle possono sperimentare interferenza, così come altri feni omentipici della propagazione per onde.
 
 Abbandoniamo una descrizione particellare-deterministica delle particelle, sostituendola con una ondulatoria-probabilistica
 
@@ -1800,7 +1797,7 @@ Sarebbe più opportuno affermare che le particelle elementari si comportano come
 $$
 \psi(x,t)
 $$
-Infatti, quando noi scriviamo la funzione d’onda di un sistema quantistico, non facciamo ipotesi sulla natura corpuscolare e/o ondulatoria del sistema stesso. Ci limitiamo a definire una funzione, y, la quale ci dà la probabilità che il sistema si trovi in una certa posizione ad un certo tempo.
+Infatti, quando noi scriviamo la funzione d’onda di un sistema quantistico, non facciamo ipotesi sulla natura corpuscolare e/o ondulatoria del sistema stesso. Ci limitiamo a definire una funzione, $\psi$, la quale ci dà la probabilità che il sistema si trovi in una certa posizione ad un certo tempo.
 $$
 P(x,t)=|\psi(x,t)|^2
 $$
@@ -1814,15 +1811,15 @@ Con le opportune modifiche la si può paragonare all'equazione $F = m\cdot a$
 Esiste una variante che risolve i problemi time-independent:
 - risolvendo l'equazione di shrodinger stazionaria
 
-## 10.3 Principio di heisenberg
-Un sistema quantistico non possiede posizione e impulso (=mv) definiti con infinita precisione.
+## 10.3 Principio di Heisenberg
+Un sistema quantistico non possiede posizione e impulso (${} =mv$) definiti con infinita precisione.
 
 le incertezze su posizione e impulso soddisfano la relazione:
 ![[Pasted image 20250208165104.png]]
 
 L’impossibilità di conoscere simultaneamente impulso e posizione non è legata al disturbo arrecato da processi di misura, ma alla natura intrinseca dello stato quantistico.
 
-Ex: una particella con velocità definita ($\Delta p$ basso) non sapremo la posizione ($\Delta x$ alto)
+Ex: di una particella con velocità definita ($\Delta p$ basso) non sapremo la posizione ($\Delta x$ alto)
 
 Si dice particella delocalizzata quando la probabilità di trovarla nello spazio è costante:
 $$
@@ -1834,11 +1831,12 @@ Così come le onde sono soggette a sovrapposizione e interferenza, anche gli sta
 
 ![[Pasted image 20250208170122.png]]
 
-	La stato-sovrapposizione non ha un valore definito della velocità, nonostante sia composto da stati con velocità definita.
+La stato-sovrapposizione non ha un valore definito della velocità, nonostante sia composto da stati con velocità definita.
 
 ![[Pasted image 20250208170338.png]]
 
 ## 10.5 Qubit
+Un qubit può essere descritto come una combinazione lineare degli stati ${} |0\rangle$ e $|1\rangle$.
 ![[Pasted image 20250208170524.png]]
 
 ## 10.6 Effetto tunnel
