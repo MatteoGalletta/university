@@ -30,3 +30,13 @@ I take this opportunity to share it since I'm proud of how it came out. Feel fre
 ### Contribution
 
 I'm open to errors reports, if you find any I'd be happy to correct them.
+
+---
+
+<a href="https://star-history.com/#MatteoGalletta/university&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=MatteoGalletta/university&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=MatteoGalletta/university&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=MatteoGalletta/university&type=Date" />
+ </picture>
+</a>
