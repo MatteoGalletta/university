@@ -1668,6 +1668,8 @@ La diffrazione è importante quando l’ostacolo attraversato dall'onda ha dimen
 
 > [!quote] *non si capisce un cazzo*
 
+## 10.1 Corpo nero
+
 Più alta è la temperatura di un sistema, più alta è la frequenza della radiazione termica del sistema.
 
 Corpo nero:
@@ -1710,12 +1712,12 @@ Applicando la fisica classica si ottenevano risultati che non avevano una confer
 - Viene descritto solo l'andamento per grandi lunghezze d'onda
 - Per basse lunghezze d'onda si ottiene intensità infinita (catastrofe ultravioletta)
 
-Plank ipotizza che l’energia di ogni modo dipende da $n$ ed è quantizzata: ${} h \nu,2h\nu, \dots ,nh\nu, \dots {}$
+Plank ipotizza che l’energia di ogni modo dipende da $n$ ed è quantizzata: $h \nu,2h\nu, \dots ,nh\nu, \dots$
 Ottenendo:
 ![[Pasted image 20250207183510 1.png]]
 ![[Pasted image 20250207183647 1.png| 500]]
 
-Essenzialmente: a ogni modo è associato un numero di livelli di energia $n$. L'energia viene rilasciata (in maniera discreta) man mano che i livelli vengono eccitati (si riempiono). Quando i livelli finiscono, il fotone smette di assorbire energia.
+Essenzialmente: a ogni modo è associato un numero di livelli di energia $n$. L'energia viene rilasciata (in maniera discreta) man mano che gli elettroni nei livelli vengono eccitati (si riempiono). Quando i livelli finiscono, il fotone smette di assorbire energia.
 
 che è in disaccordo con la [[#^6a5f47|fisica classica]]
 
@@ -1728,14 +1730,14 @@ NB: con $h\to 0$ l'energia tende a quella prevista dalla fisica classica
 Legge di Stefan-Boltzmann:
 ![[Pasted image 20250207180143 1.png]]
 
-## 10.1 Modelli
+## 10.2 Modelli
 
-### 10.1.1 Thomson - modello panettone
+### 10.2.1 Thomson - modello panettone
 l'atomo è costituito da una distribuzione di carica positiva diffusa all'interno della quale sono inserite le cariche negative. Nel complesso l'atomo è elettricamente neutro.
 
 Si è dimostrato falso attraversando l'atomo con delle particelle α / raggi α.
 Se la carica positiva fosse stata diffusa cioè distribuita uniformemente su tutto il volume atomico, le particelle α sarebbero dovute passare tutte.
-### 10.1.2 Rutherford
+### 10.2.2 Rutherford
 La carica positiva dell’atomo è concentrata nel nucleo, mentre quella negativa è trasportata dagli elettroni che orbitano intorno al nucleo. Le dimensioni delle orbite elettroniche sono molto più grandi di quelle del nucleo.
 
 ![[Pasted image 20250208155014.png]]
@@ -1746,7 +1748,7 @@ Elettroni in orbita - radiazione elettromagnetica:
 Rutherford non spiega il perché delle righe discrete degli spettri di emissione e assorbimento, misurate negli esperimenti.
 ![[Pasted image 20250208155220.png]]
 
-### 10.1.3 Bohr
+### 10.2.3 Bohr
 I livelli energetici dell’elettrone sono quantizzati.
 Gli elettroni, anche se in orbita intorno al nucleo, possono solo cedere/assorbire quantità finite di energia: quanti.
 
@@ -1756,7 +1758,7 @@ Esiste uno stato con energia più bassa: stato fondamentale.
 >[!quote] Quindi, in questo modello l’atomo di idrogeno è stabile.
 
 ![[Pasted image 20250208155429.png]]
-#### 10.1.3.1 onda de broglie
+### 10.2.4 onda de broglie
 Ad ogni particella di massa $m$, che si muove con velocità $v$, è associata un’onda, la cui lunghezza d’onda, $\lambda$, è data da:
 $$
 \lambda=\frac{h}{mv}
@@ -1766,9 +1768,9 @@ Per i corpi macroscopici, $\lambda$ è molto più piccola delle dimensioni dei c
 Per l’elettrone, $\lambda$ è dell’ordine delle dimensioni dell’atomo, per cui non è trascurabile.
 
 Nell’ interpretazione moderna, l’onda di de Broglie è intesa come un’onda di probabilità.
-- Così come le onde sono soggette ai fenomeni di interferenza, anche le onde di de Broglie associate alle particelle possono sperimentare interferenza, così come altri feni omentipici della propagazione per onde.
+- Così come le onde sono soggette ai fenomeni di interferenza, anche le onde di de Broglie associate alle particelle possono sperimentare interferenza, così come altri fenomeni tipici della propagazione per onde.
 
-Abbandoniamo una descrizione particellare-deterministica delle particelle, sostituendola con una ondulatoria-probabilistica
+**Abbandoniamo una descrizione particellare-deterministica delle particelle, sostituendola con una ondulatoria-probabilistica**
 
 Invece della traiettoria di una particella, introduciamo una funzione $\psi$, che chiamiamo funzione d’onda.
 Rappresenta l’ampiezza di probabilità $P$, che la particella si trovi in $x$ al tempo $t$.
@@ -1784,7 +1786,7 @@ $$
 
 
 
-### 10.1.4 Esperimento due fenditure
+### 10.2.5 Esperimento due fenditure
 - Caso sorgente è una pistola che spara proiettili macroscopici
 ![[Pasted image 20250208161949.png]]
 
@@ -1811,7 +1813,7 @@ $$
 P(x,t)=|\psi(x,t)|^2
 $$
 
-## 10.2 Equazione di Schrodinger
+## 10.3 Equazione di Schrodinger
 Tutte le informazioni sullo stato del sistema sono contenute nella funzione d’onda, la cui dinamica è governata da un’equazione differenziale:
 ![[Pasted image 20250208164435.png]]
 
@@ -1820,7 +1822,7 @@ Con le opportune modifiche la si può paragonare all'equazione $F = m\cdot a$
 Esiste una variante che risolve i problemi time-independent:
 - risolvendo l'equazione di shrodinger stazionaria
 
-## 10.3 Principio di Heisenberg
+## 10.4 Principio di Heisenberg
 Un sistema quantistico non possiede posizione e impulso (${} =mv$) definiti con infinita precisione.
 
 le incertezze su posizione e impulso soddisfano la relazione:
@@ -1835,7 +1837,7 @@ $$
 |\psi(x)|^2 = |C|^2
 $$
 
-## 10.4 Sovrapposizione di stati
+## 10.5 Sovrapposizione di stati
 Così come le onde sono soggette a sovrapposizione e interferenza, anche gli stati quantistici possono sovrapporsi e interferire.
 
 ![[Pasted image 20250208170122.png]]
@@ -1844,11 +1846,11 @@ La stato-sovrapposizione non ha un valore definito della velocità, nonostante s
 
 ![[Pasted image 20250208170338.png]]
 
-## 10.5 Qubit
+## 10.6 Qubit
 Un qubit può essere descritto come una combinazione lineare degli stati ${} |0\rangle$ e $|1\rangle$.
 ![[Pasted image 20250208170524.png]]
 
-## 10.6 Effetto tunnel
+## 10.7 Effetto tunnel
 La possibilità di accedere a regioni classicamente proibite.
 
 In meccanica quantistica potrebbe capitare che l'energia potenziale superi quella totale.
