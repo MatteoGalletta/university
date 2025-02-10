@@ -1684,8 +1684,15 @@ Riproduzione sperimentale:
 - gli atomi all'interno emettono/assorbono radiazioni elettromagnetiche
 - ci sarà un foro dove le radiazioni potranno uscire
 
+> [!note] Meccanica Classica
+> I modi sono le diverse modalità con cui le onde elettromagnetiche possono vibrare in un cavità (a diverse frequenze).
+> I modi in una cavità sono distribuiti in frequenza secondo una legge che dipende dalla geometria del sistema. In generale, nei sistemi tridimensionali, il numero di modi cresce rapidamente con la frequenza (quadratico).
+> **Ci sono tanti modi ad alte frequenza, tanti modi a basse frequenze**.
+> Per il teorema di equipartizione dell'energia, ogni modo deve avere la stessa quantità di energia. Questo spiega la catastrofe ultravioletta.
+
 in questo modo possiamo studiare e capire la relazione tra frequenza e intensità elettromagnetica (potere emissivo)
 ![[Pasted image 20250207174033 1.png|700]]
+Occhio che nel grafico viene plottato $\lambda$, che è il periodo. A un valore alto di lambda corrisponde una bassa frequenza.
 
 Legge di Wien (sperimentale):
 ![[Pasted image 20250207174218 1.png]]
@@ -1703,10 +1710,12 @@ Applicando la fisica classica si ottenevano risultati che non avevano una confer
 - Viene descritto solo l'andamento per grandi lunghezze d'onda
 - Per basse lunghezze d'onda si ottiene intensità infinita (catastrofe ultravioletta)
 
-Plank ipotizza che l’energia di ogni modo dipende da $n$ ed è quantizzata: $h \nu,2h\nu, \dots ,Nh\nu, \dots$
+Plank ipotizza che l’energia di ogni modo dipende da $n$ ed è quantizzata: ${} h \nu,2h\nu, \dots ,nh\nu, \dots {}$
 Ottenendo:
 ![[Pasted image 20250207183510 1.png]]
 ![[Pasted image 20250207183647 1.png| 500]]
+
+Essenzialmente: a ogni modo è associato un numero di livelli di energia $n$. L'energia viene rilasciata (in maniera discreta) man mano che i livelli vengono eccitati (si riempiono). Quando i livelli finiscono, il fotone smette di assorbire energia.
 
 che è in disaccordo con la [[#^6a5f47|fisica classica]]
 
