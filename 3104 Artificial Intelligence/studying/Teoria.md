@@ -76,7 +76,7 @@ Task Environment = PEAS = descrizione problema che risolve un agente:
 ## Problem-solving
 ### 3. Solving Problems by Searching
 #### Problem components
-- Initial state
+	- Initial state
 - Actions: given a state, returns all the actions possibile
 - Transition Model: given a state and an action, returns the result state (a.k.a. successor)
 	- State Space: the set of all reachable states from the initial state
@@ -114,13 +114,13 @@ Expands the deepest node.
 - Complete in the graph-search version (no cycles)
 - Not Optimal
 - Linear Space Complexity $O(bm)$ (where $m$ is the deepest path)
-	- we can reduce this  to $O(m)$ by expanding only the successor
+	- we can reduce this to $O(m)$ by expanding only the successor
 ##### Depth-limited search
 Expands the deepest node up to $l$.
 - same as $DFS$, but stops when we reach depth $l$
 - Not Complete
 - Not Optimal
-- Lineare Space Complexity
+- Linear Space Complexity
 ##### Iterative deepening depth-first search
 Uses Depth-limited search with $l$ starting from 0. It increases the limit until a goal is found. It's useful when we have limited memory. We could use BFS until memory finishes. Then switch to iterative deepening depth-first search.
 - Complete
@@ -152,9 +152,11 @@ We have access to a heuristic function that estimates the path cost of a solutio
 	- $h$ must be admissible: $h$ must never overestimate the cost to reach the goal. $h$ must be *optimistic*.
 	- $h$ must be consistent: the triangle inequality $h(n) \leq cost(n, a, n') + h(n')$ must be respected.
 	- $h(n) \text{ is consistent} \implies h(n) \text{ is admissible}$
-	- A* Tree-Search is optimal if $h$ is admissible.
+	- A* Tree-Search is optimal if $h$ is admissible. Proof:
+		- be $G_{2}$ an expandable sub-optimal path, and $G_{1}$ an optimal path with the node $n$ in the frontier to reach it.
+		- $f(G_{2}) = g(G_{2}) > g(G_{1}) \geq f(n)$
+		- $G_{2}$ will not be chosen.
 	- A* Graph-Search is optimal if $h$ is consistent.
-	- #todo see proofs
 - Being a BFS, it uses a lot of space, making it unsuitable for large state space problems.
 ##### Iterative Deepening A\* Search:
 It's essentially iterative deepening depth-first search with the newly defined $f$ function as depth.
@@ -312,7 +314,7 @@ C&=\{ Q_{i} \neq Q_{k}, \quad|Q_{i} - Q_{k} | \neq  |i-k|\} \quad\small\text{sam
 $$
 
 #### Implementation with Search
-We can solve any CSP using the [[#3. Solving Problems by Searching|Search]]. The entities are defined as follows:
+We can solve any CSP using [[#3. Solving Problems by Searching|Search]]. The entities are defined as follows:
 - Initial state: all the variables are unassigned.
 - Actions: assign a value to a variable
 - Goal function: the variables assignment is **complete**.
@@ -382,7 +384,7 @@ We then need an heuristic to iterate the values in the domain of the selected va
 ##### Forwarding Checking
 **Inference**: imposing a level of consistency to a variable. 
 Whenever a variable is assigned, we can perform a simple form of *inference* called Forward Checking: applying arc-consistency for it. Only useful if we don't already do it in the [[#^a6a0fe|preprocessing]] step 
-#todo non lo faccio già? qual è il preprocessing?
+#todo non lo faccio già? qual è il preprocessing? forse qui possiamo applicare un livello di consistenza più alto e quindi più costoso
 
 #### Local Search
 Instead of iterating all the values in all the variables, we select a random variable that violates some constraint.
@@ -393,7 +395,7 @@ This works very well for big problems, because it doesn't depend by the problem 
 ### 7. Logical Agents
 Instead of working with states and having `code` to define the actions, now we use logic.
 We use a Knowledge Base (KB), which is a set of sentences.
-The knowledge base contains sentences that can either be axioms (that taken for granted) or derived (from other sentences).
+The knowledge base contains sentences that can either be axioms (taken for granted) or derived (from other sentences).
 It's possibile to interact with the knowledge base with two operations:
 - `TELL`: a way to add a sentence
 - `ASK`: a way to query what is known.
