@@ -76,7 +76,7 @@ Task Environment = PEAS = descrizione problema che risolve un agente:
 ## Problem-solving
 ### 3. Solving Problems by Searching
 #### Problem components
-	- Initial state
+- Initial state
 - Actions: given a state, returns all the actions possibile
 - Transition Model: given a state and an action, returns the result state (a.k.a. successor)
 	- State Space: the set of all reachable states from the initial state
@@ -457,7 +457,7 @@ Difference between predicate and function symbols:
 #### General Rules for Exercises
 - $\forall x \forall y = \forall y \forall x$
 - $\exists x \exists y = \exists y \exists x$
-- $\exists x \forall y \neq \exists y \forall x$
+- ${} \exists x \forall y \neq \forall y \exists x {}$
 - $(\forall x) f(x) = (\lnot \exists x)\lnot f(x)$
 - $(\exists x) f(x) = (\lnot \forall x)\lnot f(x)$
 #### Universal Elimination
@@ -472,6 +472,7 @@ We need a process that finds $\{x / Jane\}$.
 We call this process **unification** - it's a function that returns a unifier, if such exists:
 $$\text{UNIFY}(Knows(John, x), \,Knows(John, Jane)) = \{x/Jane\}$$
 #### Generalized Modus Ponens
+Basically it's modus ponens with the unification.
 #todo
 ### 9. Inference in First-Order Logic
 We have our KB. In practice, how do we *apply* inference?
