@@ -11,11 +11,11 @@ You will mainly find .pdf, .xopp (Xournal++) and .md files.
 The markdown files have been written using Obsidian; to properly render all the files I suggest you to [download it](https://obsidian.md/download).
 ### The material I recommend you to check out
 - [**Algebra Lineare e Geometria** Definitions](definizioni) and the **studying** folder.
-- [Guida su Teoria e Esercizi di Elementi di Analisi Matematica 1](Guida su Teoria ed Esercizi)
+- [Guida su Teoria e Esercizi di Elementi di Analisi Matematica 1](<Guida su Teoria ed Esercizi>)
 - The **studying** and **itinere** folders of **Fondamenti di Informatica**
 - [Algoritmi Holy Grail](Teoria_PDF)
 - The **studying** folder of **Basi di Dati**
-- [Guida su Teoria e Esercizi di Elementi di Analisi Matematica 2](0. Guida su Teoria ed Esercizi)
+- [Guida su Teoria e Esercizi di Elementi di Analisi Matematica 2](<0. Guida su Teoria ed Esercizi>)
 - [Fisica Holy Grail](Formulario)
 - Although incomplete, the [Artificial Intelligence Theory](Teoria)
 ### Why I'm sharing this material
