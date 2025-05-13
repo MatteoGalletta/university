@@ -16,7 +16,7 @@ The markdown files have been written using Obsidian; to properly render all the 
 - [Algoritmi Holy Grail](Teoria_PDF)
 - The **studying** folder of **Basi di Dati**
 - [Guida su Teoria e Esercizi di Elementi di Analisi Matematica 2](<0. Guida su Teoria ed Esercizi>)
-- [Fisica Holy Grail](Formulario)
+- [Fisica Holy Grail](Appunti) with [formulas](Formulario)
 - Although incomplete, the [Artificial Intelligence Theory](Teoria)
 ### Why I'm sharing this material
 
